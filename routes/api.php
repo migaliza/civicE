@@ -25,7 +25,7 @@ Route::get('/Projects/pDescription', 'projectRetriveController@projectNameDescri
 Route::get('projects/funding/{projectName}','projectRetriveController@projectFunding');
 
 //list all project data
-Route::get('Projects');
+Route::get('Projects','');
 
 //create a new project
 Route::Post('Projects/Create');
