@@ -25,15 +25,15 @@ Route::get('/Projects/pDescription', 'projectRetriveController@projectNameDescri
 Route::get('projects/funding/{projectName}','projectRetriveController@projectFunding');
 
 //list all project data
-Route::get('Projects','');
+//Route::get('Projects','');
 
 //create a new project
-Route::Post('Projects/Create');
+//Route::Post('Projects/Create');
 
 //create a new sentiment analysis
-Route::Post('Projects/Sentiment');
+//Route::Post('Projects/Sentiment');
 
 //retrieve project by name
-Route::get('Project/{ProjectName}');
+//Route::get('Project/{ProjectName}');
 
 
