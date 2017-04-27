@@ -40,7 +40,7 @@ return [
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
             'options'  => array(
-                'database' => 'cecapp', // sets the authentication database required by mongo 3
+                'database' => 'heroku_2gz3f54l', // sets the authentication database required by mongo 3
               
             )
         ],
