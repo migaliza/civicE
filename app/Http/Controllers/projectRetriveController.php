@@ -5,23 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //use EllipseSynergie\ApiResponse\Contracts\Response;
 //use app\projects;
+use EllipseSynergie\ApiResponse\Contracts\Response;
 use App\projects;
 
 
 class projectRetriveController extends Controller
 {
     //
-
-    //
     /**
      * constructor to create a response object
      * 
      * 
      */
-    /*public function _construct(Response $response)
-    {
+    public function __construct(Response $response){
         $this->response = $response;
-    }*/
+    }
 
 
 
@@ -34,7 +32,8 @@ class projectRetriveController extends Controller
     {
 
         $projects = projects::all('project_namee','project_description');
-        return response()->json([$projects]);
+        return $this->response->withCollection($projects);
+        //return response()->json([$projects]);
         //return response()->json_encode($projects);
         //return $this->response->withCollection($projects,new retrievProjectController);
     }
@@ -45,10 +44,10 @@ class projectRetriveController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectData()
+    public function projectData($projectName)
     {
-        //phpinfo();
-        $projectData = projects::all();
+        $urlEncode = urlencode($projectName);
+        $projectData = projects::where('project_namee', urldecode($urlEncode))->get();
         return response()->json([$projectData]);
         //return view('ProjectInput/newProject');
     }
@@ -64,7 +63,7 @@ class projectRetriveController extends Controller
     {
 
         //phpinfo();
-    	$funding = projects::all('Grand_info')->where('project_namee','=','$projectName');
+    	$funding = projects::where('project_namee','=',$projectName)->get(['Grand_info']);
 
         return response()->json([$funding]);
     }

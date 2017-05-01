@@ -162,7 +162,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-       Jenssegers\Mongodb\MongodbServiceProvider::class,
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
+        EllipseSynergie\ApiResponse\Laravel\ResponseServiceProvider::class,
+        Themsaid\Transformers\TransformersServiceProvider::class,
        //EllipseSynergie\ApiResponse\Laravel\ResponseServiceProvider::class,
         
        // Collective\Html\HtmlServiceProvider::class,

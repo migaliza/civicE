@@ -22,10 +22,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/Projects/pDescription', 'projectRetriveController@projectNameDescription');
 
 //list location funding data of the project
-Route::get('projects/funding/{projectName}','projectRetriveController@projectFunding');
+Route::get('Projects/funding/{projectName}','projectRetriveController@projectFunding');
 
 //list all project data
-//Route::get('Projects','');
+Route::get('Projects/{projectName}','projectRetriveController@projectData');
+
+//test response
+Route::get('Projects/all/test','testingResponse@books');
 
 //create a new project
 //Route::Post('Projects/Create');
