@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/Test/PHP','HomeController@test');
+Route::get('/Test/PHP','projectRetriveController@test');
 
 Route::get('/home', 'HomeController@index');

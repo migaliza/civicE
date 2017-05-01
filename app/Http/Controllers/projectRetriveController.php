@@ -21,6 +21,10 @@ class projectRetriveController extends Controller
         $this->response = $response;
     }
 
+    public function test(){
+        phpinfo();
+    }
+
 
 
     /**
