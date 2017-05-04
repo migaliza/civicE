@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/projects/project/description', 'projectRetriveController@projectNameDescription');
 
 //list location funding data of the project
-<<<<<<< HEAD
+
 Route::get('Projects/funding/{projectName}','projectRetriveController@projectFunding');
 
 //list all project data
@@ -33,7 +33,7 @@ Route::get('Projects/all/test','testingResponse@books');
 
 //create a new project
 //Route::Post('Projects/Create');
-=======
+
 Route::get('/projects/funding/{projectName}','projectRetriveController@projectFunding');
 
 //list all project data
@@ -68,7 +68,7 @@ Route::post('/project/volunteer/track/add','projectController@newVolTrack');
 
 /**add target population track*/
 Route::post('/project/target/population/add','projectController@addPopulationTrack');
->>>>>>> BMApiService
+
 
 //create a new sentiment analysis
 //Route::Post('Projects/Sentiment');
