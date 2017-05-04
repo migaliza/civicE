@@ -50,10 +50,15 @@ class projectRetriveController extends Controller
      */
     public function projectData($projectName)
     {
+<<<<<<< HEAD
         $urlEncode = urlencode($projectName);
         $projectData = projects::where('project_namee', urldecode($urlEncode))->get();
+=======
+        
+        $projectData = projects::all();
+>>>>>>> BMApiService
         return response()->json([$projectData]);
-        //return view('ProjectInput/newProject');
+       
     }
 
 
@@ -66,8 +71,13 @@ class projectRetriveController extends Controller
     public function projectFunding($projectName)
     {
 
+<<<<<<< HEAD
         //phpinfo();
     	$funding = projects::where('project_namee','=',$projectName)->get(['Grand_info']);
+=======
+  
+    	$funding = projects::all('Grand_info')->where('project_namee','=','$projectName');
+>>>>>>> BMApiService
 
         return response()->json([$funding]);
     }
