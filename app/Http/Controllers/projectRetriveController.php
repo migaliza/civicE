@@ -47,10 +47,10 @@ class projectRetriveController extends Controller
      */
     public function projectData()
     {
-        //phpinfo();
+        
         $projectData = projects::all();
         return response()->json([$projectData]);
-        //return view('ProjectInput/newProject');
+       
     }
 
 
@@ -63,7 +63,7 @@ class projectRetriveController extends Controller
     public function projectFunding($projectName)
     {
 
-        //phpinfo();
+  
     	$funding = projects::all('Grand_info')->where('project_namee','=','$projectName');
 
         return response()->json([$funding]);
