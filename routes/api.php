@@ -42,6 +42,9 @@ Route::get('/projects','projectRetriveController@projectData');
 //create a new project
 Route::Post('/projects/create/project','projectController@addNewProject');
 
+/** display project tier */
+Reoute::get('/projects/{tier}','projectRetriveController@tiers');
+
 /**add new milestone*/
 Route::post('/projects/milestone/addMilestone','projectController@addNewMilestone'); 
 

@@ -59,6 +59,16 @@ class projectRetriveController extends Controller
     }
 
 
+    /**
+    *function to display the tier 1 projects
+    *
+    */
+    public function tiers($tier){
+        $projectTier = projects::all()->where('tier','=','$tier');
+        return response()->json([$projectTier]);
+    }
+
+
 
     /**
      * Retrieve funding information
