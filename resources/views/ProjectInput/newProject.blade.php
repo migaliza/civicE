@@ -2,7 +2,7 @@
 @section('content')
 @section('title','New Project')
 
-<form method="POST"  action="/projects/create/project" class="form-horizontal">
+<form method="POST"  action="/civicdoc/projects/create/project" class="form-horizontal">
 
 <fieldset>
 {{ csrf_field() }}
