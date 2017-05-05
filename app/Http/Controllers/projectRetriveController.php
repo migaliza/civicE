@@ -48,7 +48,7 @@ class projectRetriveController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectData($projectName)
+    public function projectData()
     {
 
         
