@@ -64,7 +64,9 @@ class projectRetriveController extends Controller
     *
     */
     public function tiers($tier){
+        
         $projectTier = projects::all()->where('tier','=','$tier');
+        dd($projectTier);
         return response()->json([$projectTier]);
     }
 
