@@ -39,6 +39,17 @@ class projectRetriveController extends Controller
         //return $this->response->withCollection($projects,new retrievProjectController);
     }
 
+    /**
+    *function to display the tier 1 projects
+    *
+    */
+    public function tiers($tier){
+        //dd($tier);
+        $projectTier = projects::where('tier','=',$tier)->get();
+        //dd($projectTier);
+        return response()->json([$projectTier]);
+    }
+
 
     /**
      * retrieve all project data
@@ -62,9 +73,11 @@ class projectRetriveController extends Controller
      */
     public function projectFunding($projectName)
     {
-
+       /* $distinct = projects::distinct()->get(['Grand_info']);
+        dd($distinct);*/
   
-    	$funding = projects::all('Grand_info')->where('project_namee','=','$projectName');
+    	$funding = projects::where('project_namee','=','$projectName')->distinct()->get(['Grand_info']);
+        dd($funding);
 
         return response()->json([$funding]);
     }

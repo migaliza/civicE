@@ -24,6 +24,9 @@ Route::get('/projects/project/description', 'projectRetriveController@projectNam
 //list location funding data of the project
 Route::get('/projects/funding/{projectName}','projectRetriveController@projectFunding');
 
+/** display project tier */
+Route::get('/projects/{tier}','projectRetriveController@tiers');
+
 //list all project data
 Route::get('/projects','projectRetriveController@projectData');
 
