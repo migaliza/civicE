@@ -36,6 +36,9 @@ Route::get('Projects/all/test','testingResponse@books');
 
 Route::get('/projects/funding/{projectName}','projectRetriveController@projectFunding');
 
+/** display project tier */
+Route::get('/projects/{tier}','projectRetriveController@tiers');
+
 //list all project data
 Route::get('/projects','projectRetriveController@projectData');
 
