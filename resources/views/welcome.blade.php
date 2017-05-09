@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Civic engagement Canvas
+                    Civic engagement Canvas API
                 </div>
 
                 <div class="links">
