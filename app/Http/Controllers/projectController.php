@@ -415,12 +415,11 @@ class projectController extends Controller
 	*add a new funding rational to tier 2 projects
 	*/
 	public function addFundingRational(Request $fRational){
-		//dd('here to add milestone');
+		
 		$projectN = $fRational->input('project_name');
 		$fundingRational = $fRational->input('funding_rational');
-
-       //dd(rawurldecode($projectN));
-		if(!empty($milestoneInput)){
+		
+		if(!empty($fundingRational)){
 			$project = projects::where('project_namee','=',rawurldecode($projectN))->push('Funding_rational',array('funding_rational' => $fundingRational));
 		}
 
