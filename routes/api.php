@@ -60,6 +60,9 @@ Route::post('/project/volunteer/track/add','projectController@newVolTrack');
 /**add target population track*/
 Route::post('/project/target/population/add','projectController@addPopulationTrack');
 
+/**add a new funding rational for tier 2 projects */
+Route::post('/project/funding/rational/new','projectController@addFundingRational');
+
 //create a new sentiment analysis
 Route::Post('Projects/Sentiment');
 

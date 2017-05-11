@@ -402,5 +402,31 @@ class projectController extends Controller
         return Redirect::back()->withSuccess('Succesfully inserted impactsector in '.$projectN);
 	}
 
+
+	/**
+	*display the view for funding rational
+	*/
+	public function addNewFundingRational($projectName){
+		return view('ProjectInput/fundingRational')->with('projectName',rawurlencode($projectName));
+
+	}
+
+	/**
+	*add a new funding rational to tier 2 projects
+	*/
+	public function addFundingRational(Request $fRational){
+		//dd('here to add milestone');
+		$projectN = $fRational->input('project_name');
+		$fundingRational = $fRational->input('funding_rational');
+
+       //dd(rawurldecode($projectN));
+		if(!empty($milestoneInput)){
+			$project = projects::where('project_namee','=',rawurldecode($projectN))->push('Funding_rational',array('funding_rational' => $fundingRational));
+		}
+
+		return Redirect::back()->withSuccess('Succesfully inserted funding rational');
+
+	}
+
 	
 }

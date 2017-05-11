@@ -51,5 +51,7 @@ Route::get('/target/population/track/{projectName}','projectController@addPopTra
 /** new volunteer track */
 Route::get('/volunteer/population/track{projectName}','projectController@addVolTrack')->name('volTrack');
 
+Route::name('fRational')->get('/funding/rational/{projectName}','projectController@addNewFundingRational');
+
 
 
