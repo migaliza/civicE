@@ -137,7 +137,7 @@ class projectController extends Controller
 	*/
 	public function newEvent($projectName){  
 
-		return view('projectInput/event')->with('projectNamee', rawurlencode($projectName));
+		return view('ProjectInput/event')->with('projectNamee', rawurlencode($projectName));
 	}
 
 	/**
@@ -180,7 +180,7 @@ class projectController extends Controller
     *
     */
 	public function newGrant($projectName){
-		return view('/projectInput/grant')->with('projectNamee', rawurlencode($projectName));
+		return view('ProjectInput/grant')->with('projectNamee', rawurlencode($projectName));
 	}
 
 
@@ -219,7 +219,7 @@ class projectController extends Controller
     *
     */
     public function newUpcoming($projectName){
-        return view('/projectInput/upcoming')->with('projectNamee', rawurlencode($projectName));
+        return view('ProjectInput/upcoming')->with('projectNamee', rawurlencode($projectName));
     }
 
     /**
@@ -248,7 +248,7 @@ class projectController extends Controller
     */
 
     public function newTarget($projectName){
-        return view('/projectInput/target')->with('projectNamee', rawurlencode($projectName));
+        return view('ProjectInput/target')->with('projectNamee', rawurlencode($projectName));
     }
 
     /**
@@ -280,7 +280,7 @@ class projectController extends Controller
     *
     */
      public function newImpact($projectName){
-        return view('/projectInput/impact')->with('projectNamee', rawurlencode($projectName));
+        return view('ProjectInput/impact')->with('projectNamee', rawurlencode($projectName));
     }
 
 
@@ -305,7 +305,7 @@ class projectController extends Controller
     *
     */
     public function newLesson($projectName){
-        return view('projectInput/lesson')->with('projectNamee', rawurlencode($projectName));
+        return view('ProjectInput/lesson')->with('projectNamee', rawurlencode($projectName));
     }
 
 
