@@ -227,13 +227,14 @@ class projectController extends Controller
     *
     */
     public function addUpcoming(Request $upcoming){
+    	//dd("here done");
         $projectN = $upcoming->input('project_name');
 
         $newUpcoming = $upcoming->input('upcoming');
         
 
         if(!empty($newUpcoming)){
-            $project = Project::where('project_namee', '=', rawurldecode($projectN))->push('Upcoming',array('upcoming' => $newUpcoming));
+            $project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Upcoming',array('upcoming' => $newUpcoming));
         }
 
 
