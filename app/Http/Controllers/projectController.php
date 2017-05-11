@@ -407,7 +407,7 @@ class projectController extends Controller
 	*display the view for funding rational
 	*/
 	public function addNewFundingRational($projectName){
-		return view('ProjectInput/fundingRationale')->with('projectName',rawurlencode($projectName));
+		return view('ProjectInput/fundingRationale')->with('projectNamee',rawurlencode($projectName));
 
 	}
 
