@@ -375,7 +375,7 @@ class projectController extends Controller
     *function to display volunteer track
     */
     public function addVolTrack($projectName){
-    	return view('ProjectInput/volunteertrack')->with('projectNamee', rawurlencode($projectName));
+    	return view('projectInput/volunteertrack')->with('projectNamee', rawurlencode($projectName));
 
     }
 
