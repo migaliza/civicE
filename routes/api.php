@@ -31,7 +31,7 @@ Route::get('Projects/{projectName}','projectRetriveController@projectData');
 //test response
 Route::get('Projects/all/test','testingResponse@books');
 
-//create a new project
+
 //Route::Post('Projects/Create');
 
 Route::get('/projects/funding/{projectName}','projectRetriveController@projectFunding');
