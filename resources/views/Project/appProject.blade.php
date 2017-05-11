@@ -21,6 +21,8 @@
                         <li><a href="{{ route('popTrack', [$projectN]) }}"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Target Population Track</span></a></li>
 
                         <li><a href="{{ route('volTrack', [$projectN]) }}"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Volunteer track</span></a></li>
+
+                        <li><a href="{{ route('fRational', [$projectN]) }}"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Funding Rational</span></a></li>
                     </ul>
                 </div>
             </div>
