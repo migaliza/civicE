@@ -34,12 +34,30 @@ class projectRetriveController extends Controller
      */
     public function projectNameDescription()
     {
-
-        $projects = projects::all('project_namee','project_description');
-        //return $this->response->withCollection($projects);
-        return response()->json([$projects]);
-        //return response()->json_encode($projects);
-        //return $this->response->withCollection($projects,new retrievProjectController);
+        try{
+            $statusCode = 200;
+            $response =[
+                'projectDescriptions' =>[]
+            ];
+            
+            $projects = projects::all('project_namee','brief_description');
+            //dd($projects);
+            foreach($projects as $project){
+                $response['projectDescriptions'][] = [
+                'projectName' => $project->project_namee,
+                'description' => $project->brief_description,
+                ];
+                //echo $response;
+            }
+             //dd($projects);
+        }
+        catch(Exception $e){
+            $statusCode = 404;
+        }
+        finally{
+            return Response()->json($response,$statusCode);
+        }   
+     
     }
 
     /**
@@ -47,10 +65,66 @@ class projectRetriveController extends Controller
     *
     */
     public function tiers($tier){
-        //dd($tier);
-        $projectTier = projects::where('tier','=',$tier)->get();
-        //dd($projectTier);
-        return response()->json([$projectTier]);
+       
+        try{
+            $statusCode = 200;
+            if($tier == 1){
+            $response = [
+                'Tier1' => []
+            ];
+
+            
+
+            $projectTier = projects::where('tier','=',$tier)->get();
+            //dd($projectTier);
+            foreach($projectTier as $project){
+                $response['tier'][] = [
+                'projectName' => $project->project_namee,
+                'location' => $project->location_name,
+                'briefDescription' => $project->brief_description,
+                'commencementDate' => $project->commencement_date,
+                'completionDate' => $project->completion_date,
+                'primaryActivity' => $project->primary_activity,
+                'partnerships' => $project->partnerships,
+                'milestones' => $project->milestones,
+                'Upcoming' => $project->Upcoming,
+                'ImpactSectors' => $project->Impact_sectors,
+                'GrandInfo' => $project->Grand_info,
+                'TargetPopulation' => $project->Target_population,
+                'LessonsLearnt' => $project->Lessons_learnt,
+                'TargetPopulationTrack'=> $project->Population_Track,
+                'volunteer'=> $project->volunteer_track,
+
+                ];
+            }
+        }
+
+        elseif($tier == 2){
+            $response = [
+                'Tier2' => []
+            ];
+            $projectTier = projects::where('tier','=',$tier)->get();
+            foreach($projectTier as $project){
+                $response['tier'][] = [
+                'projectName' => $project->project_namee,
+                'location' => $project->location_name,
+                'briefDescription' => $project->brief_description,
+                'GrandInfo' => $project->Grand_info,
+                'GrandRational' => $project->funding_rational,
+
+                ];
+            }
+
+        }
+
+        }catch( Exception $e){
+             $statusCode = 404;
+        }
+        finally{
+            return response()->json($response, $statusCode);
+        }
+        
+
     }
 
 
@@ -79,14 +153,28 @@ class projectRetriveController extends Controller
      */
     public function projectFunding($projectName)
     {
-       /* $distinct = projects::distinct()->get(['Grand_info']);
-        dd($distinct);*/
+       try{
+        $response =[
+            'Funding' => []
+        ];
+        $statusCode = 200;
+        $funding = projects::where('project_namee','=',$projectName)->get(['Grand_info']);
+
+        foreach($funding as $projectFund){
+            $response['Funding'][]=[
+            'Name' => $projectFund->Grand_info,
+            
+            ];
+            
+        }
+       }
+       catch(Exception $e){
+         $statusCode = 404;
+       }
+       finally{
+        return response()->json($response,$statusCode);
+       }
   
-    	$funding = projects::where('project_namee','=','$projectName')->distinct()->get(['Grand_info']);
-        dd($funding);
-
-
-        return response()->json([$funding]);
     }
 
 
@@ -106,9 +194,64 @@ class projectRetriveController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectInformation(Request $request)
+    public function projectInformation($projectName)
     {
-        //phpinfo();
-        return view('ProjectInput/newProject');
+       
+        try{
+            $statusCode = 200;
+            
+            $response = [
+                $projectName => []
+            ];
+
+            $tier = projects::where('project_namee', '=', $projectName)->get(['tier'])->toArray();
+          $pTier = $tier[0]['tier'];
+            
+            if($pTier == "1"){
+                $iProject = projects::where('project_namee','=',$projectName)->get();
+                foreach($iProject as $individualProject){
+                $response[$projectName][] = [
+                'projectName' => $individualProject->project_namee,
+                'location' => $individualProject->location_name,
+                'briefDescription' => $individualProject->brief_description,
+                'commencementDate' => $individualProject->commencement_date,
+                'completionDate' => $individualProject->completion_date,
+                'primaryActivity' => $individualProject->primary_activity,
+                'partnerships' => $individualProject->partnerships,
+                'milestones' => $individualProject->milestones,
+                'Upcoming' => $individualProject->Upcoming,
+                'ImpactSectors' => $individualProject->Impact_sectors,
+                'GrandInfo' => $individualProject->Grand_info,
+                'TargetPopulation' => $individualProject->Target_population,
+                'LessonsLearnt' => $individualProject->Lessons_learnt,
+                'TargetPopulationTrack'=> $individualProject->Population_Track,
+                'volunteer'=> $individualProject->volunteer_track,
+                ];
+            }
+
+        }   
+        elseif($pTier == '2'){
+           $iProject = projects::where('project_namee','=',$projectName)->get();
+
+            foreach($iProject as $individualProject){
+                $response[$projectName][] = [
+                'projectName' => $individualProject->project_namee,
+                'location' => $individualProject->location_name,
+                'briefDescription' => $individualProject->brief_description,
+                'GrandInfo' => $individualProject->Grand_info,
+                'GrandRational' => $individualProject->funding_rational,
+                ];
+            }
+
+        }
+
+        }catch( Exception $e){
+             $statusCode = 404;
+        }
+        finally{
+            return response()->json($response, $statusCode);
+        }   
     }
+
+
 }
