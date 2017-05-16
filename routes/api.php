@@ -78,6 +78,9 @@ Route::post('/project/target/population/add','projectController@addPopulationTra
 /**add a new funding rational for tier 2 projects */
 Route::post('/project/funding/rational/new','projectController@addFundingRational');
 
+/**retrieve project information */
+Route::get('/{projectName}/information/','projectRetriveController@projectInformation');
+
 //create a new sentiment analysis
 //Route::Post('Projects/Sentiment');
 
