@@ -239,7 +239,7 @@ class projectRetriveController extends Controller
                 'location' => $individualProject->location_name,
                 'briefDescription' => $individualProject->brief_description,
                 'GrandInfo' => $individualProject->Grand_info,
-                'GrandRational' => $individualProject->funding_rational,
+                'GrandRational' => $individualProject->Funding_rational,
                 ];
             }
 
