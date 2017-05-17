@@ -110,7 +110,7 @@ class projectRetriveController extends Controller
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
                 'GrandInfo' => $project->Grand_info,
-                'GrandRational' => $project->funding_rational,
+                'GrandRational' => $project->Funding_rational,
 
                 ];
             }
