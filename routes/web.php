@@ -12,14 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('civic');
 });
 
 
 Auth::routes();
 Route::get('/Test/PHP','projectRetriveController@test');
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
 /**add new project view */
 Route::get('/project/new','projectController@newProject');
 
@@ -54,5 +54,6 @@ Route::get('/volunteer/population/track/{projectName}','projectController@addVol
 
 Route::name('fRational')->get('/funding/rational/{projectName}','projectController@addNewFundingRational');
 
-
+/** display the API view admin page */
+Route::get('/api', 'HomeController@index');
 
