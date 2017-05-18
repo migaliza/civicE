@@ -86,13 +86,31 @@
                         <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Project <span class="fa arrow"></span></a>
+                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project Tier</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Milestone</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Grand Info</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Target Population</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Volunteers </a>
+                    </li>
+                    <!--<li>
+                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">View Projects</a>
+                                <a href="">View Projects</a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">View all</a>
+                                        <a href="{{ route('apiProject') }}">View all</a>
                                     </li>
                                     <li>
                                         <a href="#">View By Tier</a>
@@ -141,7 +159,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
 
             </div>

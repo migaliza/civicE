@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('civic');
+    return view('/API/civic');
 });
 
 
@@ -56,4 +56,9 @@ Route::name('fRational')->get('/funding/rational/{projectName}','projectControll
 
 /** display the API view admin page */
 Route::get('/api', 'HomeController@index');
+
+
+/** display the API view project adpi docs */
+Route::name('apiProject')->get('/api/project', 'HomeController@project');
+
 

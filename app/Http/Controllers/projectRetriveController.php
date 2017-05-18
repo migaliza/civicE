@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //use EllipseSynergie\ApiResponse\Contracts\Response;
 //use app\projects;
-use EllipseSynergie\ApiResponse\Contracts\Response;
+//use EllipseSynergie\ApiResponse\Contracts\Response;
+use Response;
 use App\projects;
 
 
@@ -55,7 +56,8 @@ class projectRetriveController extends Controller
             $statusCode = 404;
         }
         finally{
-            return Response()->json($response,$statusCode);
+
+            return Response::json($response,$sta     tusCode);
         }   
      
     }
