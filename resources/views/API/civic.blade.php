@@ -11,6 +11,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/beta_css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/customize.min.css') }}">
   
 
     <!-- MetisMenu CSS -->
