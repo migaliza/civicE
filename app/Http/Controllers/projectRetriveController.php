@@ -35,6 +35,12 @@ class projectRetriveController extends Controller
      */
     public function projectNameDescription()
     {
+        $statusCode = 404;
+             $response = [
+                'error' => ['no response']
+
+             ];
+
         try{
             $statusCode = 200;
             $response =[
@@ -51,6 +57,7 @@ class projectRetriveController extends Controller
                 //echo $response;
             }
              //dd($projects);
+            return Response::json($response,$statusCode);
         }
         catch(Exception $e){
             $statusCode = 404;
@@ -123,12 +130,7 @@ class projectRetriveController extends Controller
         }
         return response()->json($response,$statusCode);
         }catch( Exception $e){
-             /*$statusCode = 404;
-             $response = [
-                'error' => ['no response']
-
-             ];*/
-             
+          //
         }
         finally{
             //dd($response);
@@ -164,6 +166,12 @@ class projectRetriveController extends Controller
      */
     public function projectFunding($projectName)
     {
+        $statusCode = 404;
+             $response = [
+                'error' => ['no response']
+
+             ];
+
        try{
         $response =[
             'Funding' => []
@@ -178,9 +186,10 @@ class projectRetriveController extends Controller
             ];
             
         }
+         return response()->json($response,$statusCode);
        }
        catch(Exception $e){
-         $statusCode = 404;
+         //$statusCode = 404;
        }
        finally{
         return response()->json($response,$statusCode);
@@ -207,7 +216,12 @@ class projectRetriveController extends Controller
      */
     public function projectInformation($projectName)
     {
-       
+        $statusCode = 404;
+             $response = [
+                'error' => ['no response']
+
+             ];
+
         try{
             $statusCode = 200;
             
@@ -255,9 +269,10 @@ class projectRetriveController extends Controller
             }
 
         }
+         return response()->json($response,$statusCode);
 
         }catch( Exception $e){
-             $statusCode = 404;
+             //$statusCode = 404;
         }
         finally{
             return response()->json($response, $statusCode);
