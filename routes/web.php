@@ -61,5 +61,7 @@ Route::name('admin')->get('/admin', 'Phase2Controller@index');
 /** display the API view project adpi docs */
 Route::name('apiProject')->get('/api/project', 'HomeController@project');
 
+/** display the API view tier api docs */
+Route::name('apiTier')->get('/api/project/tier', 'HomeController@tier');
 
 

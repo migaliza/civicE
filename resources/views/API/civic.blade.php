@@ -91,7 +91,7 @@
                         <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project</a>
                     </li>
                     <li>
-                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project Tier</a>
+                        <a href="{{ route('apiTier') }}"><i class="fa fa-sitemap fa-fw"></i> Project Tier</a>
                     </li>
                     <li>
                         <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Milestone</a>
