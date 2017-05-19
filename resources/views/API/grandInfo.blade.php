@@ -30,7 +30,7 @@
     <h6><b>Returns: </b> </h6>
 <code>
    {<br>
-    <{<br>
+    {<br>
     <samp style="margin-left:40px;color:#ff0000">"Funding": [</samp><br>
         <samp style="margin-left: 80px">{</samp><br>
             <samp style="margin-left: 120px;color:black">"FundingInfo": [</samp><br>
