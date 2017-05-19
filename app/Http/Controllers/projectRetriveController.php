@@ -75,8 +75,7 @@ class projectRetriveController extends Controller
                 'Tier1' => []
             ];
 
-            
-
+        
             $projectTier = projects::where('tier','=',$tier)->get();
             //dd($projectTier);
             foreach($projectTier as $project){
@@ -123,7 +122,7 @@ class projectRetriveController extends Controller
              $statusCode = 404;
         }
         finally{
-            return response()->json($response, $statusCode);
+            return response()->json($response,$statusCode);
         }
         
 
