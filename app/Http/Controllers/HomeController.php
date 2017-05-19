@@ -22,4 +22,8 @@ class HomeController extends Controller
     public function tier(){
         return view('API/tier');
     }
+
+    public function projectDescriptions(){
+        return view('API/projectDescriptions');
+    }
 }
