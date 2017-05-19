@@ -67,7 +67,11 @@ class projectRetriveController extends Controller
     *
     */
     public function tiers($tier){
-       
+       $statusCode = 404;
+             $response = [
+                'error' => ['no response']
+
+             ];
         try{
             $statusCode = 200;
             if($tier == 1){
@@ -117,16 +121,17 @@ class projectRetriveController extends Controller
             }
 
         }
-
+        return response()->json($response,$statusCode);
         }catch( Exception $e){
-             $statusCode = 404;
+             /*$statusCode = 404;
              $response = [
                 'error' => ['no response']
 
-             ];
+             ];*/
+             
         }
         finally{
-            dd($response);
+            //dd($response);
             return response()->json($response,$statusCode);
         }
         
