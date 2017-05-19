@@ -164,7 +164,7 @@ class projectRetriveController extends Controller
 
         foreach($funding as $projectFund){
             $response['Funding'][]=[
-            'Name' => $projectFund->Grand_info,
+            'FundingInfo' => $projectFund->Grand_info,
             
             ];
             
