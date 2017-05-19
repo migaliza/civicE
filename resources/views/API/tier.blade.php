@@ -11,8 +11,9 @@
 </div>
 <div>
     <p>Displays all the project by tier at Ashesi University College.</p>
-    <p>Tier 1 projects receive more than $500 in funding</p>
-    <p>Tier 2 projects receive $500 or less in funding </p>
+   
+
+    <div></div>
 
     <h4>Method:  <b>Get</b></h4>
     <div></div>
@@ -27,27 +28,27 @@
     <div></div>
     <h6><b>Returns: </b> </h6>
 <code>
-    <samp style="margin-left:30px">{</samp><br>
-    <samp style="margin-left:40px"><p style="color:#ff0000">"Tier2":</samp></p> [<br>
-        <p style="margin-left: 80px">{</p><br>
-            <p style="margin-left: 120px"><samp style="color:black">"projectName": </samp>"Berekuso Math Project",</p><br>
-            <p style="margin-left: 120px"><samp style="color:black">"location": "0.2167",</samp></p>
-            <p style="margin-left: 120px"><samp style="color:black">"briefDescription": "The Berekuso Math Project is one that sends Ashesi students to the Bereksuo Basic School to teach Mathematics and indirectly teach English. It supports the children in Berekuso by exposing them to new methods of teaching which enhances their learning and understanding of Mathematics.",</samp></p>
-            <p style="margin-left: 120px"><samp style="color:black">"GrandInfo": [</samp></p>
-                <p style="margin-left: 130px">{</p><br>
-                    <p style="margin-left: 160px"><samp style="color:black">"grant_name": "Ford Foundation",</samp></p><br>
-                    <p style="margin-left: 160px"><samp style="color:black">"grant_amount": "500",</samp></p><br>
-                    <p style="margin-left: 160px"><samp style="color:black">"funding_cycle": "Window 1"</samp></p><br>
-                <p style="margin-left: 130px">}</p><br>
-            <p style="margin-left: 120px">],</p><br>
-            <p style="margin-left: 120px"><samp style="color:black">"GrandRational": [</samp></p>
-                <p style="margin-left: 130px">{</p><br>
-                    <p style="margin-left: 160px"><samp style="color:black">"funding_rational": "We want to be able to ensure continuity of this project and also provide a more motivating and efficient structure for volunteers and students who are involved in this program. This will help us make a more substantial impact on the students we teach and interact with."</samp></p><br>
-                <p style="margin-left: 130px">}</p><br>
-            <p style="margin-left: 120px">]</p><br>
-        <p style="margin-left: 80px">}</p><br>
+   {<br>
+    <samp style="margin-left:40px;color:#ff0000">"Tier2":[</samp><br>
+        <samp style="margin-left: 80px">{</samp><br>
+            <samp style="margin-left: 120px;color:black">"projectName": </samp>"Berekuso Math Project",<br>
+            <samp style="margin-left: 120px;color:black">"location": "0.2167",</samp></p>
+            <samp style="margin-left: 120px;color:black">"briefDescription": </samp>"The Berekuso Math Project is one that sends Ashesi students to the Bereksuo Basic School to teach Mathematics and indirectly teach English. It supports the children in Berekuso by exposing them to new methods of teaching which enhances their learning and understanding of Mathematics.",</br>
+            <samp style="margin-left: 120px;color:black">"GrandInfo": [</samp>
+                <samp style="margin-left: 130px">{</samp><br>
+                    <samp style="margin-left: 160px;color:black">"grant_name":</samp> "Ford Foundation",<br>
+                    <samp style="margin-left: 160px;color:black">"grant_amount":</samp> "500",<br>
+                    <samp style="margin-left: 160px;color:black">"funding_cycle":</samp> "Window 1"<br>
+                <samp style="margin-left: 130px">}</samp><br>
+            <samp style="margin-left: 120px">],</samp><br>
+            <samp style="margin-left: 120px;color:black">"GrandRational":</samp> [<br>
+                <samp style="margin-left: 130px">{</samp><br>
+                    <samp style="margin-left: 160px;color:black">"funding_rational":</samp> "We want to be able to ensure continuity of this project and also provide a more motivating and efficient structure for volunteers and students who are involved in this program. This will help us make a more substantial impact on the students we teach and interact with." <br>
+                <samp style="margin-left: 130px">}</samp><br>
+            <samp style="margin-left: 120px">]</samp><br>
+        <samp style="margin-left: 80px">}</samp><br>
 
-    <p style="margin-left: 40px">]</p><br
+    <samp style="margin-left: 40px">]</samp><br
 <samp style="margin-left:30px">}</samp>
 </code>
 
