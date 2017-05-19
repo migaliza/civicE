@@ -120,6 +120,10 @@ class projectRetriveController extends Controller
 
         }catch( Exception $e){
              $statusCode = 404;
+             $response = [
+                'error' => ['no response']
+
+             ];
         }
         finally{
             return response()->json($response,$statusCode);
