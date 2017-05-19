@@ -80,7 +80,7 @@ class projectRetriveController extends Controller
             $projectTier = projects::where('tier','=',$tier)->get();
             //dd($projectTier);
             foreach($projectTier as $project){
-                $response['tier'][] = [
+                $response['Tier1'][] = [
                 'projectName' => $project->project_namee,
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
@@ -107,7 +107,7 @@ class projectRetriveController extends Controller
             ];
             $projectTier = projects::where('tier','=',$tier)->get();
             foreach($projectTier as $project){
-                $response['tier'][] = [
+                $response['Tier2'][] = [
                 'projectName' => $project->project_namee,
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
