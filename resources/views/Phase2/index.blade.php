@@ -1,6 +1,6 @@
-@extends('API.api_layout')
+@extends('Phase2.api_layout')
 
-@section('title', 'API')
+@section('title', 'ADMINISTRATOR')
 
 @section('content')
 
