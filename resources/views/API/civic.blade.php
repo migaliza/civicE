@@ -85,13 +85,16 @@
                 <ul class="nav" id="side-menu">
                     
                     <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="{{ route('dashboard')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project</a>
                     </li>
                     <li>
-                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project Tier</a>
+                        <a href="{{ route('apiDescription') }}"><i class="fa fa-sitemap fa-fw"></i> Project Descriptions</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('apiTier') }}"><i class="fa fa-sitemap fa-fw"></i> Project Tier</a>
                     </li>
                     <li>
                         <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Milestone</a>

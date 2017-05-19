@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('/API/civic');
+Route::name('dashboard')->get('/', function () {
+    return view('/API/dashboard');
 });
 
 
@@ -61,5 +61,9 @@ Route::name('admin')->get('/admin', 'Phase2Controller@index');
 /** display the API view project adpi docs */
 Route::name('apiProject')->get('/api/project', 'HomeController@project');
 
+/** display the API view tier api docs */
+Route::name('apiTier')->get('/api/project/tier', 'HomeController@tier');
 
 
+/** display the API view project descriptions api docs */
+Route::name('apiDescription')->get('/api/project/descriptions', 'HomeController@projectDescriptions');
