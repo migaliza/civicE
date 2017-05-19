@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('/API/civic');
+Route::name('dashboard')->get('/', function () {
+    return view('/API/dashboard');
 });
 
 
