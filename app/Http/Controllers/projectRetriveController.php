@@ -126,6 +126,7 @@ class projectRetriveController extends Controller
              ];
         }
         finally{
+            dd($response);
             return response()->json($response,$statusCode);
         }
         
