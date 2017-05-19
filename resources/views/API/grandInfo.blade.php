@@ -30,13 +30,19 @@
     <h6><b>Returns: </b> </h6>
 <code>
    {<br>
-    <samp style="margin-left:40px;color:#ff0000">"projectDescriptions":[</samp><br>
+    <{<br>
+    <samp style="margin-left:40px;color:#ff0000">"Funding": [</samp><br>
         <samp style="margin-left: 80px">{</samp><br>
-            <samp style="margin-left: 120px;color:black">"projectName": </samp>"Future of Africa - Midunu",<br>
-            <p><samp style="margin-left: 120px;color:black">"description":</samp>"Mi Dunu is a feeding program for street kids under Future of Africa initiative. It aims at creating a friendly environment where street children feel comfortable to share their experiences with trained volunteers.",</p>
+            <samp style="margin-left: 120px;color:black">"FundingInfo": [</samp><br>
+                <samp style="margin-left: 160px">{</samp><br>
+                    <samp style="margin-left: 200px;color:black">"grant_name":</samp> "Ford Foundation",<br>
+                    <samp style="margin-left: 200px;color:black">"grant_amount":</samp> "3800",<br>
+                    <samp style="margin-left: 200px;color:black">"funding_cycle":</samp> "Window 1"<br>
+                <samp style="margin-left: 160px">}</samp><br>
+            <samp style="margin-left: 120px;color:black">]</samp><br>
         <samp style="margin-left: 80px">}</samp><br>
-    <samp style="margin-left: 40px">]</samp><br
-<samp style="margin-left:30px">}</samp>
+    <samp style="margin-left:40px;color:#ff0000">]</samp><br>
+}<br>
 </code>
 
 </div>
