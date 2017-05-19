@@ -122,7 +122,7 @@ class projectRetriveController extends Controller
              $statusCode = 404;
         }
         finally{
-            dd($response)
+            dd($response);
             return response()->json($response,$statusCode);
         }
         
