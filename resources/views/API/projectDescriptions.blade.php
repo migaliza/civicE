@@ -20,9 +20,8 @@
     <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description </a> </h5>
 
     <div></div>
-    <h5>Parameters</h5>
+  
    
-
     <div></div>
     <h6><b>Returns: </b> </h6>
 <code>
