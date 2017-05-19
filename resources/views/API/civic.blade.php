@@ -59,7 +59,7 @@
     <div>
         @if (Auth::check())
             <ul class="nav navbar-nav navbar-left navbar-top-links">
-                <li><a href="{{ url('/api') }}"><i class="fa fa-home fa-fw"></i>Home</a></li>
+                <li><a href="{{ route('admin') }}"><i class="fa fa-home fa-fw"></i>Home</a></li>
             </ul>
         @else
         <ul class="nav navbar-right navbar-top-links">
