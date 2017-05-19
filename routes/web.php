@@ -55,10 +55,11 @@ Route::get('/volunteer/population/track/{projectName}','projectController@addVol
 Route::name('fRational')->get('/funding/rational/{projectName}','projectController@addNewFundingRational');
 
 /** display the API view admin page */
-Route::get('/api', 'HomeController@index');
+Route::name('admin')->get('/admin', 'Phase2Controller@index');
 
 
 /** display the API view project adpi docs */
 Route::name('apiProject')->get('/api/project', 'HomeController@project');
+
 
 
