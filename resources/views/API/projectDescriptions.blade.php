@@ -17,7 +17,7 @@
 
     <h4>Method:  <b>Get</b></h4>
     <div></div>
-    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description </a> </h5>
+    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description" target="_blank"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description </a> </h5>
 
     <div></div>
   

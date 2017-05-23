@@ -26,4 +26,8 @@ class HomeController extends Controller
     public function projectDescriptions(){
         return view('API/projectDescriptions');
     }
+
+    public function grand(){
+        return view('API/grandInfo');
+    }
 }

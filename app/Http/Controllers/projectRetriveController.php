@@ -35,6 +35,12 @@ class projectRetriveController extends Controller
      */
     public function projectNameDescription()
     {
+        $statusCode = 404;
+             $response = [
+                'error' => ['no response']
+
+             ];
+
         try{
             $statusCode = 200;
             $response =[
@@ -51,13 +57,14 @@ class projectRetriveController extends Controller
                 //echo $response;
             }
              //dd($projects);
+            return Response::json($response,$statusCode);
         }
         catch(Exception $e){
             $statusCode = 404;
         }
         finally{
 
-            return Response::json($response,$sta     tusCode);
+            return Response::json($response,$statusCode);
         }   
      
     }
@@ -67,7 +74,11 @@ class projectRetriveController extends Controller
     *
     */
     public function tiers($tier){
-       
+       $statusCode = 404;
+             $response = [
+                'error' => ['no response']
+
+             ];
         try{
             $statusCode = 200;
             if($tier == 1){
@@ -75,12 +86,11 @@ class projectRetriveController extends Controller
                 'Tier1' => []
             ];
 
-            
-
+        
             $projectTier = projects::where('tier','=',$tier)->get();
             //dd($projectTier);
             foreach($projectTier as $project){
-                $response['tier'][] = [
+                $response['Tier1'][] = [
                 'projectName' => $project->project_namee,
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
@@ -107,7 +117,7 @@ class projectRetriveController extends Controller
             ];
             $projectTier = projects::where('tier','=',$tier)->get();
             foreach($projectTier as $project){
-                $response['tier'][] = [
+                $response['Tier2'][] = [
                 'projectName' => $project->project_namee,
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
@@ -118,12 +128,13 @@ class projectRetriveController extends Controller
             }
 
         }
-
+        return response()->json($response,$statusCode);
         }catch( Exception $e){
-             $statusCode = 404;
+          //
         }
         finally{
-            return response()->json($response, $statusCode);
+            //dd($response);
+            return response()->json($response,$statusCode);
         }
         
 
@@ -155,6 +166,12 @@ class projectRetriveController extends Controller
      */
     public function projectFunding($projectName)
     {
+        $statusCode = 404;
+             $response = [
+                'error' => ['no response']
+
+             ];
+
        try{
         $response =[
             'Funding' => []
@@ -164,14 +181,15 @@ class projectRetriveController extends Controller
 
         foreach($funding as $projectFund){
             $response['Funding'][]=[
-            'Name' => $projectFund->Grand_info,
+            'FundingInfo' => $projectFund->Grand_info,
             
             ];
             
         }
+         return response()->json($response,$statusCode);
        }
        catch(Exception $e){
-         $statusCode = 404;
+         //$statusCode = 404;
        }
        finally{
         return response()->json($response,$statusCode);
@@ -198,7 +216,12 @@ class projectRetriveController extends Controller
      */
     public function projectInformation($projectName)
     {
-       
+        $statusCode = 404;
+             $response = [
+                'error' => ['no response']
+
+             ];
+
         try{
             $statusCode = 200;
             
@@ -246,9 +269,10 @@ class projectRetriveController extends Controller
             }
 
         }
+         return response()->json($response,$statusCode);
 
         }catch( Exception $e){
-             $statusCode = 404;
+             //$statusCode = 404;
         }
         finally{
             return response()->json($response, $statusCode);

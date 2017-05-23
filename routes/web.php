@@ -67,3 +67,6 @@ Route::name('apiTier')->get('/api/project/tier', 'HomeController@tier');
 
 /** display the API view project descriptions api docs */
 Route::name('apiDescription')->get('/api/project/descriptions', 'HomeController@projectDescriptions');
+
+/** display the API view project grand info api docs */
+Route::name('apiGrand')->get('/api/project/grand', 'HomeController@grand');
