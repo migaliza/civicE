@@ -31,14 +31,16 @@
   </div>
 </div>
 
+
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="location"></label>  
+  <label class="col-md-4 control-label" for="town"></label>  
   <div class="col-md-4">
-  <input id="location" name="location" type="text" placeholder="Location" class="form-control input-md">
+  <input id="town" name="town" type="text" placeholder="Town" class="form-control input-md">
     
   </div>
 </div>
+
 
 <!-- Text input-->
 <div class="form-group">
@@ -54,11 +56,28 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="longitude"></label>  
   <div class="col-md-4">
-  <input id="longitude" name="location" type="text" placeholder="Longitude" class="form-control input-md">
+  <input id="longitude" name="longitude" type="text" placeholder="Longitude" class="form-control input-md">
     
   </div>
 </div>
 
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="region"></label>  
+  <div class="col-md-4">
+  <input id="region" name="region" type="text" placeholder="Region" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="country"></label>  
+  <div class="col-md-4">
+  <input id="country" name="country" type="text" placeholder="Country" class="form-control input-md">
+    
+  </div>
+</div>
 
 
 <!-- Textarea -->
@@ -75,7 +94,6 @@
   <label class="col-md-4 control-label" for="Commencement_date"></label>  
   <div class="col-md-4">
   <input id="Commencement_date" name="Commencement_date" type="date" placeholder="Commencement Date" class="form-control input-md">
-    
   </div>
 </div>
 
@@ -97,7 +115,6 @@
   </div>
 </div>
 
-
 <!-- Textarea -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="primary_activity"></label>
@@ -105,8 +122,6 @@
     <textarea class="form-control" id="primary_activity" placeholder="Primary Activity" name="primary_activity"></textarea>
   </div>
 </div>
-
-
 
 <!-- Text input-->
 <div class="form-group">

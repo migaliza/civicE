@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Redirect;
 use EllipseSynergie\ApiResponse\Contracts\Response;
 use App\projects;
+use Carbon\Carbon;
 class projectController extends Controller
 {
 	
@@ -52,9 +53,11 @@ class projectController extends Controller
 
 		$projectName = $request->input('projectName');
 		$projectTier = $request->input('tier');
-		$projectLocation = $request->input('location');
+		$projectTown = $request->input('town');
 		$projectLatitude = $request->input('latitude');
 		$projectLongitude = $request->input('longitude');
+		$projectRegion = $request->input('region');
+		$projectCountry = $request->input('country');
 		$projectDescription = $request->input('description');
 		$projectCommencement = $request->input('Commencement_date');
 		$projectCompletion = $request->input('completion_date');
@@ -62,14 +65,20 @@ class projectController extends Controller
 		$projectPrimary = $request->input('primary_activity');
 		$projectPartnership = $request->input('partnerships');
 
+		if(!empty($projectRegion)){
+			$project->region = $projectRegion;
+		}
+		if(!empty($projectCountry)){
+			$project->country = $projectCountry;
+		}
 		if(!empty($projectName)){
 			$project->project_namee = $projectName; 
 		}
 		if(!empty($projectTier)){
 			$project->tier = $projectTier;
 		}
-		if(!empty($projectLocation)){
-			$project->location_name = $projectLocation;
+		if(!empty($projectTown)){
+			$project->location_name = $projectTown;
 		}
 		if(!empty($projectLatitude)){
 			$project->location_latitude= $projectLatitude;
@@ -121,12 +130,16 @@ class projectController extends Controller
 	public function addNewMilestone(Request $milestone){
 		//dd('here to add milestone');
 		$projectN = $milestone->input('project_name');
-		$milestoneInput = $milestone->input('milestone');
 
-       //dd(rawurldecode($projectN));
+		$milestoneInput = $milestone->input('milestone');
 		if(!empty($milestoneInput)){
-			$project = projects::where('project_namee','=',rawurldecode($projectN))->push('milestones',array('milestone_description' => $milestoneInput));
+			$timeEntered = Carbon::now()->toDateString();
+			//$timeEntered = date('y-m-d h:i:sa');
+			$tag = uniqid();
+			//dd($tag);
+			$project = projects::where('project_namee','=',rawurldecode($projectN))->push('milestones',array('tag' => $tag,'milestone_description' => $milestoneInput,'time' => $timeEntered));
 		}
+		
 
 		return Redirect::back()->withSuccess('Succesfully inserted a milestone');
 	}	
@@ -194,18 +207,22 @@ class projectController extends Controller
 		$grantName = $grant->input('grant_name');
 		$grantAmount = $grant->input('grant_amount');
 		$grantFundingCycle = $grant->input('funding_cycle');
+		$fundingSpan = $grant->input('funding_span');
+		$fundingDescription = $grant->input('funding_description');
 
-		if(!empty($grantName) && !empty($grantAmount) && !empty($grantFundingCycle)){
+		//$lifeTimeFunding = $grand->input('lifetime_funding'); /** calculate the lifetime funding of each project */
+
+		if(!empty($grantName) && !empty($grantAmount) && !empty($grantFundingCycle) && !empty($fundingSpan) && !empty($fundingDescription)){
+			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName, 'grant_amount' => $grantAmount, 'funding_cycle' => $grantFundingCycle, 'span' => $fundingSpan, 'fundingDescription' => $fundingDescription));
+		}
+		elseif(!empty($grantName) && !empty($grantAmount) && !empty($grantFundingCycle) && !empty($fundingSpan) && empty($fundingDescription)){
+			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName,'grant_amount' => $grantAmount,'funding_cycle' => $grantFundingCycle, 'span' => $fundingSpan));
+		}
+		elseif(!empty($grantName) && !empty($grantAmount) && !empty($grantFundingCycle) && empty($fundingSpan) && empty($fundingDescription)){
 			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName,'grant_amount' => $grantAmount,'funding_cycle' => $grantFundingCycle));
 		}
-		elseif(!empty($grantName) && !empty($grantAmount) && empty($grantFundingCycle)){
-			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName,'grant_amount' => $grantAmount));
-		}
-		elseif(!empty($grantName) && empty($grantAmount) && empty($grantFundingCycle)){
-			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName));
-		}
-		elseif(!empty($grantName) && empty($grantAmount) && !empty($grantFundingCycle)){
-			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName,'funding_cycle' => $grantFundingCycle));
+		elseif(!empty($grantName) && !empty($grantAmount) && empty($grantFundingCycle) && !empty($fundingSpan) && !empty($fundingDescription)){
+			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName, 'grant_amount' => $grantAmount, 'span' => $fundingSpan, 'fundingDescription' => $fundingDescription));
 		}
 
 

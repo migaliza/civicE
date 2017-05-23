@@ -5,6 +5,7 @@ namespace App;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 //use Illuminate\Database\Eloquent\Model;
 //use Milestone;
+//use SoftDelete;
 
 class projects extends Eloquent
 {
@@ -18,6 +19,8 @@ class projects extends Eloquent
     protected $project_name; 
     protected $tier;
     protected $location_name;// = ['name','longitude','latitude'];
+    protected $region;
+    protected $country;
     protected $location_latitude;
     protected $location_longitude;
     protected $brief_description;
