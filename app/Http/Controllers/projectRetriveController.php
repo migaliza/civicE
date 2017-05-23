@@ -48,15 +48,14 @@ class projectRetriveController extends Controller
             ];
             
             $projects = projects::all('project_namee','brief_description');
-            //dd($projects);
+         
             foreach($projects as $project){
                 $response['projectDescriptions'][] = [
                 'projectName' => $project->project_namee,
                 'description' => $project->brief_description,
                 ];
-                //echo $response;
             }
-             //dd($projects);
+             
             return Response::json($response,$statusCode);
         }
         catch(Exception $e){
@@ -86,9 +85,7 @@ class projectRetriveController extends Controller
                 'Tier1' => []
             ];
 
-        
             $projectTier = projects::where('tier','=',$tier)->get();
-            //dd($projectTier);
             foreach($projectTier as $project){
                 $response['Tier1'][] = [
                 'projectName' => $project->project_namee,
@@ -106,7 +103,6 @@ class projectRetriveController extends Controller
                 'LessonsLearnt' => $project->Lessons_learnt,
                 'TargetPopulationTrack'=> $project->Population_Track,
                 'volunteer'=> $project->volunteer_track,
-
                 ];
             }
         }
@@ -123,7 +119,6 @@ class projectRetriveController extends Controller
                 'briefDescription' => $project->brief_description,
                 'GrandInfo' => $project->Grand_info,
                 'GrandRational' => $project->Funding_rational,
-
                 ];
             }
 
@@ -148,16 +143,42 @@ class projectRetriveController extends Controller
      */
     public function projectData()
     {
+        $statusCode = 404;
+        $response = ['error' => ['no response']];
+        try{
+            $statusCode = 200;
+            $response = [
+              'Projects' => []
+            ];
 
-        
-        $projectData = projects::all();
+            $projectData = projects::all();
+            foreach($projectData as $project){
+                $response['Projects'][] = [
+                'projectName' => $individualProject->project_namee,
+                'location' => $individualProject->location_name,
+                'briefDescription' => $individualProject->brief_description,
+                'commencementDate' => $individualProject->commencement_date,
+                'completionDate' => $individualProject->completion_date,
+                'primaryActivity' => $individualProject->primary_activity,
+                'partnerships' => $individualProject->partnerships,
+                'milestones' => $individualProject->milestones,
+                'Upcoming' => $individualProject->Upcoming,
+                'ImpactSectors' => $individualProject->Impact_sectors,
+                'GrandInfo' => $individualProject->Grand_info,
+                'TargetPopulation' => $individualProject->Target_population,
+                'LessonsLearnt' => $individualProject->Lessons_learnt,
+                'TargetPopulationTrack' => $individualProject->Population_Track,
+                'volunteer' => $individualProject->volunteer_track,
+                ];
+            }
+        }
+        catch(Exception $e){
 
-        return response()->json([$projectData]);
-       
+        }finally{
+            return response()::json($response,$statusCode);
+        }
+               
     }
-
-
-
 
     /**
      * Retrieve funding information
@@ -182,17 +203,16 @@ class projectRetriveController extends Controller
         foreach($funding as $projectFund){
             $response['Funding'][]=[
             'FundingInfo' => $projectFund->Grand_info,
-            
             ];
             
         }
-         return response()->json($response,$statusCode);
+         return response()::json($response,$statusCode);
        }
        catch(Exception $e){
          //$statusCode = 404;
        }
        finally{
-        return response()->json($response,$statusCode);
+        return response()::json($response,$statusCode);
        }
   
     }
@@ -219,12 +239,10 @@ class projectRetriveController extends Controller
         $statusCode = 404;
              $response = [
                 'error' => ['no response']
-
              ];
 
         try{
             $statusCode = 200;
-            
             $response = [
                 $projectName => []
             ];
@@ -267,9 +285,8 @@ class projectRetriveController extends Controller
                 'GrandRational' => $individualProject->funding_rational,
                 ];
             }
-
         }
-         return response()->json($response,$statusCode);
+         return response()::json($response,$statusCode);
 
         }catch( Exception $e){
              //$statusCode = 404;
