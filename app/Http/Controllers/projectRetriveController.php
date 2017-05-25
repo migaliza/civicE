@@ -302,7 +302,7 @@ class projectRetriveController extends Controller
     *
     */
     public function trackPopulation($projectName){
-        $response = [
+       /* $response = [
             'error' => ['no response']
         ];
         $statusCode = 404;
@@ -314,19 +314,35 @@ class projectRetriveController extends Controller
             $statusCode = 200;
 
             $population = projects::where('project_namee', '=', $projectName)->get(['Population_Track'])->toArray();
-                $baselinePopulation = $population[0]['Population_Track']['target_baseline'];
-                dd($baselinePopulation);
-            foreach($population as $projectPop){
-                $recentPopulation = $projectPop[0]['recent'];
-                
+               // $baselinePopulation = $population[0]['Population_Track']['target_baseline'];
+               // dd($population);
+            foreach($population as $projectPop => $value){
+                if(is_array($value) || is_object($value)){
+
+                    foreach($value as $vtest => $data){
+                        //echo $vtest." ".$data;
+                        if(is_array($data) || is_object($data)){
+                            foreach($data as $vData => $innerData){
+                                echo $vData." "$innerData;
+                            }
+                            else{
+                                echo $vtest." ".$data;
+                            }
+                        }
+                    }
+                }
+                else{
+                    echo $projectPop." ".$value;
+                }
             }
-            dd($population);
+                
+          
         }
         catch(Exception $e){
-
+            echo $e;
         }finally{
             //
-        }
+        }*/
     }
 
     /**
