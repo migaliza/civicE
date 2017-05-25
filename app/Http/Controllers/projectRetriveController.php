@@ -151,7 +151,7 @@ class projectRetriveController extends Controller
             ];
 
             $projectData = projects::all();
-            dd($projectData);
+            //dd($projectData);
             foreach($projectData as $projectD){
                 $response['Projects'][] = [
                 'projectName' => $projectD->project_namee,
