@@ -30,4 +30,8 @@ class HomeController extends Controller
     public function grand(){
         return view('API/grandInfo');
     }
+
+    public function individual(){
+        return view('API/individualProject');
+    }
 }

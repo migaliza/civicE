@@ -43,20 +43,19 @@ class projectRetriveController extends Controller
 
         try{
             $statusCode = 200;
-            $response =[
+            $response = [
                 'projectDescriptions' =>[]
             ];
             
             $projects = projects::all('project_namee','brief_description');
-            //dd($projects);
+         
             foreach($projects as $project){
                 $response['projectDescriptions'][] = [
                 'projectName' => $project->project_namee,
                 'description' => $project->brief_description,
                 ];
-                //echo $response;
             }
-             //dd($projects);
+             
             return Response::json($response,$statusCode);
         }
         catch(Exception $e){
@@ -86,9 +85,7 @@ class projectRetriveController extends Controller
                 'Tier1' => []
             ];
 
-        
             $projectTier = projects::where('tier','=',$tier)->get();
-            //dd($projectTier);
             foreach($projectTier as $project){
                 $response['Tier1'][] = [
                 'projectName' => $project->project_namee,
@@ -106,7 +103,6 @@ class projectRetriveController extends Controller
                 'LessonsLearnt' => $project->Lessons_learnt,
                 'TargetPopulationTrack'=> $project->Population_Track,
                 'volunteer'=> $project->volunteer_track,
-
                 ];
             }
         }
@@ -123,20 +119,18 @@ class projectRetriveController extends Controller
                 'briefDescription' => $project->brief_description,
                 'GrandInfo' => $project->Grand_info,
                 'GrandRational' => $project->Funding_rational,
-
                 ];
             }
 
         }
-        return response()->json($response,$statusCode);
+        
         }catch( Exception $e){
           //
         }
         finally{
             //dd($response);
-            return response()->json($response,$statusCode);
+            return Response::json($response,$statusCode);
         }
-        
 
     }
 
@@ -148,16 +142,43 @@ class projectRetriveController extends Controller
      */
     public function projectData()
     {
+        $statusCode = 404;
+        $response = ['error' => ['no response']];
+        try{
+            $statusCode = 200;
+            $response = [
+              'Projects' => []
+            ];
 
-        
-        $projectData = projects::all();
+            $projectData = projects::all();
+            foreach($projectData as $projectD){
+                $response['Projects'][] = [
+                'projectName' => $projectD->project_namee,
+                'location' => $projectD->location_name,
+                'briefDescription' => $projectD->brief_description,
+                'commencementDate' => $projectD->commencement_date,
+                'completionDate' => $projectD->completion_date,
+                'primaryActivity' => $projectD->primary_activity,
+                'partnerships' => $projectD->partnerships,
+                'milestones' => $projectD->milestones,
+                'Upcoming' => $projectD->Upcoming,
+                'ImpactSectors' => $projectD->Impact_sectors,
+                'GrandInfo' => $projectD->Grand_info,
+                'TargetPopulation' => $projectD->Target_population,
+                'LessonsLearnt' => $projectD->Lessons_learnt,
+                'TargetPopulationTrack' => $projectD->Population_Track,
+                'volunteer' => $projectD->volunteer_track,
+                ];
+            }
+            //return Response::json($response,$statusCode);
+        }
+        catch(Exception $e){
 
-        return response()->json([$projectData]);
-       
+        }finally{
+            return Response::json($response,$statusCode);
+        }
+               
     }
-
-
-
 
     /**
      * Retrieve funding information
@@ -182,17 +203,16 @@ class projectRetriveController extends Controller
         foreach($funding as $projectFund){
             $response['Funding'][]=[
             'FundingInfo' => $projectFund->Grand_info,
-            
             ];
             
         }
-         return response()->json($response,$statusCode);
+         return response()::json($response,$statusCode);
        }
        catch(Exception $e){
-         //$statusCode = 404;
+         //
        }
        finally{
-        return response()->json($response,$statusCode);
+        return response()::json($response,$statusCode);
        }
   
     }
@@ -205,7 +225,7 @@ class projectRetriveController extends Controller
      */
     public function sentimentAnalysis(Request $request)
     {
-        //phpinfo();
+     
         return view('ProjectInput/newProject');
     }
 
@@ -217,14 +237,12 @@ class projectRetriveController extends Controller
     public function projectInformation($projectName)
     {
         $statusCode = 404;
-             $response = [
+        $response = [
                 'error' => ['no response']
-
              ];
 
         try{
             $statusCode = 200;
-            
             $response = [
                 $projectName => []
             ];
@@ -267,16 +285,72 @@ class projectRetriveController extends Controller
                 'GrandRational' => $individualProject->funding_rational,
                 ];
             }
-
         }
-         return response()->json($response,$statusCode);
+        // return response()::json($response,$statusCode);
 
         }catch( Exception $e){
              //$statusCode = 404;
         }
         finally{
-            return response()->json($response, $statusCode);
+            return Response::json($response, $statusCode);
         }   
+    }
+
+
+    /**
+    *function to fetch the target population track
+    *
+    */
+    public function trackPopulation($projectName){
+       /* $response = [
+            'error' => ['no response']
+        ];
+        $statusCode = 404;
+        try{
+            $response = [
+                'Population' => []
+            ];
+
+            $statusCode = 200;
+
+            $population = projects::where('project_namee', '=', $projectName)->get(['Population_Track'])->toArray();
+               // $baselinePopulation = $population[0]['Population_Track']['target_baseline'];
+               // dd($population);
+            foreach($population as $projectPop => $value){
+                if(is_array($value) || is_object($value)){
+
+                    foreach($value as $vtest => $data){
+                        //echo $vtest." ".$data;
+                        if(is_array($data) || is_object($data)){
+                            foreach($data as $vData => $innerData){
+                                echo $vData." "$innerData;
+                            }
+                            else{
+                                echo $vtest." ".$data;
+                            }
+                        }
+                    }
+                }
+                else{
+                    echo $projectPop." ".$value;
+                }
+            }
+                
+          
+        }
+        catch(Exception $e){
+            echo $e;
+        }finally{
+            //
+        }*/
+    }
+
+    /**
+    *function to fetch the volunteer track
+    *
+    */
+    public function trackVolunteer(){
+        
     }
 
 

@@ -81,6 +81,10 @@ Route::post('/project/funding/rational/new','projectController@addFundingRationa
 /**retrieve project information */
 Route::get('/{projectName}/information/','projectRetriveController@projectInformation');
 
+/**retrieve project information */
+Route::get('/project/population/{projectName}','projectRetriveController@trackPopulation');
+/*/**retrieve individual project information */
+//Route::get('/{projectName}/information/','projectRetriveController@projectInformation');*/
 //create a new sentiment analysis
 //Route::Post('Projects/Sentiment');
 
