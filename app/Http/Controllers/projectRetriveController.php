@@ -191,8 +191,8 @@ class projectRetriveController extends Controller
                 ];
 
                 }
-                
             }
+            dd($response);
             return Response::json($response,$statusCode);
         }
         catch(Exception $e){
