@@ -43,7 +43,7 @@ class projectRetriveController extends Controller
 
         try{
             $statusCode = 200;
-            $response =[
+            $response = [
                 'projectDescriptions' =>[]
             ];
             
@@ -123,15 +123,14 @@ class projectRetriveController extends Controller
             }
 
         }
-        return response()->json($response,$statusCode);
+        
         }catch( Exception $e){
           //
         }
         finally{
             //dd($response);
-            return response()->json($response,$statusCode);
+            return Response::json($response,$statusCode);
         }
-        
 
     }
 
@@ -152,30 +151,31 @@ class projectRetriveController extends Controller
             ];
 
             $projectData = projects::all();
-            foreach($projectData as $project){
+            foreach($projectData as $projectD){
                 $response['Projects'][] = [
-                'projectName' => $individualProject->project_namee,
-                'location' => $individualProject->location_name,
-                'briefDescription' => $individualProject->brief_description,
-                'commencementDate' => $individualProject->commencement_date,
-                'completionDate' => $individualProject->completion_date,
-                'primaryActivity' => $individualProject->primary_activity,
-                'partnerships' => $individualProject->partnerships,
-                'milestones' => $individualProject->milestones,
-                'Upcoming' => $individualProject->Upcoming,
-                'ImpactSectors' => $individualProject->Impact_sectors,
-                'GrandInfo' => $individualProject->Grand_info,
-                'TargetPopulation' => $individualProject->Target_population,
-                'LessonsLearnt' => $individualProject->Lessons_learnt,
-                'TargetPopulationTrack' => $individualProject->Population_Track,
-                'volunteer' => $individualProject->volunteer_track,
+                'projectName' => $projectD->project_namee,
+                'location' => $projectD->location_name,
+                'briefDescription' => $projectD->brief_description,
+                'commencementDate' => $projectD->commencement_date,
+                'completionDate' => $projectD->completion_date,
+                'primaryActivity' => $projectD->primary_activity,
+                'partnerships' => $projectD->partnerships,
+                'milestones' => $projectD->milestones,
+                'Upcoming' => $projectD->Upcoming,
+                'ImpactSectors' => $projectD->Impact_sectors,
+                'GrandInfo' => $projectD->Grand_info,
+                'TargetPopulation' => $projectD->Target_population,
+                'LessonsLearnt' => $projectD->Lessons_learnt,
+                'TargetPopulationTrack' => $projectD->Population_Track,
+                'volunteer' => $projectD->volunteer_track,
                 ];
             }
+            //return Response::json($response,$statusCode);
         }
         catch(Exception $e){
 
         }finally{
-            return response()::json($response,$statusCode);
+            return Response::json($response,$statusCode);
         }
                
     }
@@ -209,7 +209,7 @@ class projectRetriveController extends Controller
          return response()::json($response,$statusCode);
        }
        catch(Exception $e){
-         //$statusCode = 404;
+         //
        }
        finally{
         return response()::json($response,$statusCode);
@@ -225,7 +225,7 @@ class projectRetriveController extends Controller
      */
     public function sentimentAnalysis(Request $request)
     {
-        //phpinfo();
+     
         return view('ProjectInput/newProject');
     }
 
@@ -237,7 +237,7 @@ class projectRetriveController extends Controller
     public function projectInformation($projectName)
     {
         $statusCode = 404;
-             $response = [
+        $response = [
                 'error' => ['no response']
              ];
 
@@ -286,14 +286,55 @@ class projectRetriveController extends Controller
                 ];
             }
         }
-         return response()::json($response,$statusCode);
+        // return response()::json($response,$statusCode);
 
         }catch( Exception $e){
              //$statusCode = 404;
         }
         finally{
-            return response()->json($response, $statusCode);
+            return Response::json($response, $statusCode);
         }   
+    }
+
+
+    /**
+    *function to fetch the target population track
+    *
+    */
+    public function trackPopulation($projectName){
+        $response = [
+            'error' => ['no response']
+        ];
+        $statusCode = 404;
+        try{
+            $response = [
+                'Population' => []
+            ];
+
+            $statusCode = 200;
+
+            $population = projects::where('project_namee', '=', $projectName)->get(['Population_Track'])->toArray();
+                $baselinePopulation = $population[0]['Population_Track']['target_baseline'];
+                dd($baselinePopulation);
+            foreach($population as $projectPop){
+                $recentPopulation = $projectPop[0]['recent'];
+                
+            }
+            dd($population);
+        }
+        catch(Exception $e){
+
+        }finally{
+            //
+        }
+    }
+
+    /**
+    *function to fetch the volunteer track
+    *
+    */
+    public function trackVolunteer(){
+        
     }
 
 

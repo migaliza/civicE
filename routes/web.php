@@ -70,3 +70,7 @@ Route::name('apiDescription')->get('/api/project/descriptions', 'HomeController@
 
 /** display the API view project grand info api docs */
 Route::name('apiGrand')->get('/api/project/grand', 'HomeController@grand');
+
+
+/** display the API view individual project info api docs */
+Route::name('apiIndividual')->get('/api/project/individual', 'HomeController@individual');
