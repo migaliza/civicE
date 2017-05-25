@@ -154,7 +154,11 @@ class projectRetriveController extends Controller
             foreach($projectData as $projectD){
                 $response['Projects'][] = [
                 'projectName' => $projectD->project_namee,
-                'location' => $projectD->location_name,
+                'town' => $projectD->location_town,
+                'region' => $projectD->Region,
+                'country' => $projectD->Country,
+                'longitude' => $projectD->location_longitude,
+                'latitude' => $projectD->location_latitude,
                 'briefDescription' => $projectD->brief_description,
                 'commencementDate' => $projectD->commencement_date,
                 'completionDate' => $projectD->completion_date,
