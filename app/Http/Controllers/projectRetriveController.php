@@ -153,8 +153,8 @@ class projectRetriveController extends Controller
             $projectData = projects::all();
 
             foreach($projectData as $projectD){
-                if($projectD->primary_activity != null && $projectD->partnerships !=null && $projectD->milestones != null && $projectD->Impact_sectors != null && $projectD->Lessons_learnt != null && $projectD->Grand_info != null && $projectD->Target_population !=null && $projectD->Target_Track != null && $projectD->volunteer != null ){
-                    dd($projectData);
+                if(!is_null($projectD->primary_activity) && !is_null($projectD->partnerships) && !is_null($projectD->milestones) && !is_null($projectD->Impact_sectors) && !is_null($projectD->Lessons_learnt) && !is_null($projectD->Grand_info) && !is_null($projectD->Target_population) && !is_null($projectD->Target_Track) && !is_null($projectD->volunteer) ){
+                    //dd($projectData);
                     $response['Projects'][] = [
                     'projectName' => $projectD->project_namee,
                     'town' => $projectD->location_town,
