@@ -151,6 +151,7 @@ class projectRetriveController extends Controller
             ];
 
             $projectData = projects::all();
+            dd($projectData);
             foreach($projectData as $projectD){
                 $response['Projects'][] = [
                 'projectName' => $projectD->project_namee,
@@ -178,9 +179,9 @@ class projectRetriveController extends Controller
         }
         catch(Exception $e){
 
-        }finally{
-            return Response::json($response,$statusCode);
         }
+            return Response::json($response,$statusCode);
+        
                
     }
 
