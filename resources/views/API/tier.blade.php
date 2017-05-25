@@ -10,7 +10,7 @@
     </div>
 </div>
 <div>
-    <p>Displays all the project by tier at Ashesi University College.</p>
+    <p>Displays all the project by tier. The tier for now identifies the magnitude of a project. Tier 1</p>
    
 
     <div></div>

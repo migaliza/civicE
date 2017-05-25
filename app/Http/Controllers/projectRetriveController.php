@@ -151,29 +151,47 @@ class projectRetriveController extends Controller
             ];
 
             $projectData = projects::all();
-            //dd($projectData);
+
             foreach($projectData as $projectD){
-                $response['Projects'][] = [
-                'projectName' => $projectD->project_namee,
-                'town' => $projectD->location_town,
-                'region' => $projectD->Region,
-                'country' => $projectD->Country,
-                'longitude' => $projectD->location_longitude,
-                'latitude' => $projectD->location_latitude,
-                'briefDescription' => $projectD->brief_description,
-                'commencementDate' => $projectD->commencement_date,
-                'completionDate' => $projectD->completion_date,
-                'primaryActivity' => $projectD->primary_activity,
-                'partnerships' => $projectD->partnerships,
-                'milestones' => $projectD->milestones,
-                'Upcoming' => $projectD->Upcoming,
-                'ImpactSectors' => $projectD->Impact_sectors,
-                'GrandInfo' => $projectD->Grand_info,
-                'TargetPopulation' => $projectD->Target_population,
-                'LessonsLearnt' => $projectD->Lessons_learnt,
-                'TargetPopulationTrack' => $projectD->Population_Track,
-                'volunteer' => $projectD->volunteer_track,
+                if($projectD->primary_activity != null && $projectD->partnerships !=null && $projectD->milestones != null && $projectD->Impact_sectors != null && $projectD->Lessons_learnt != null && $projectD->Grand_info != null && $projectD->Target_population !=null && $projectD->Target_Track != null && $projectD->volunteer != null ){
+                    $response['Projects'][] = [
+                    'projectName' => $projectD->project_namee,
+                    'town' => $projectD->location_town,
+                    'region' => $projectD->Region,
+                    'country' => $projectD->Country,
+                    'longitude' => $projectD->location_longitude,
+                    'latitude' => $projectD->location_latitude,
+                    'briefDescription' => $projectD->brief_description,
+                    'commencementDate' => $projectD->commencement_date,
+                    'completionDate' => $projectD->completion_date,
+                    'primaryActivity' => $projectD->primary_activity,
+                    'partnerships' => $projectD->partnerships,
+                    'milestones' => $projectD->milestones,
+                    'Upcoming' => $projectD->Upcoming,
+                    'ImpactSectors' => $projectD->Impact_sectors,
+                    'GrandInfo' => $projectD->Grand_info,
+                    'TargetPopulation' => $projectD->Target_population,
+                    'LessonsLearnt' => $projectD->Lessons_learnt,
+                    'TargetPopulationTrack' => $projectD->Population_Track,
+                    'volunteer' => $projectD->volunteer_track,
                 ];
+                }
+                if($projectD->milestones ==null && $projectD->primary_activity == null && $projectD->partnerships == null && $projectD->Upcoming == null && $projectD->Population_Track == null && $projectD->volunteer_track == null && $projectD->completion_date == null && $projectD->commencement_date ==null && $projectD->Target_population){
+                    $response['Projects'][] = [
+                    'projectName' => $projectD->project_namee,
+                    'town' => $projectD->location_town,
+                    'region' => $projectD->Region,
+                    'country' => $projectD->Country,
+                    'longitude' => $projectD->location_longitude,
+                    'latitude' => $projectD->location_latitude,
+                    'briefDescription' => $projectD->brief_description,
+                    'ImpactSectors' => $projectD->Impact_sectors,
+                    'GrandInfo' => $projectD->Grand_info,
+                    'GrandRational' => $project->Funding_rational,
+                ];
+
+                }
+                
             }
             return Response::json($response,$statusCode);
         }
