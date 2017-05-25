@@ -17,12 +17,14 @@
 
     <h4>Method:  <b>Get</b></h4>
     <div></div>
-    <h5>Url: <a href="http://ashesicivicengagement-dev.herokuapp.com/civicdoc/Tontro/information" target="_blank">http://ashesicivicengagement-dev.herokuapp.com/civicdoc/Tontro/information </a> </h5>
+
+    <h5>Url: <a href="http://ashesicivicengagement-dev.herokuapp.com/civicdoc/Tontro/information" target="_blank">http://ashesicivicengagement-dev.herokuapp.com/civicdoc/{project_name}/information </a> </h5>
 
     <div></div>
     <h5>Parameters</h5>
     <ul>
-        <li>Tier number: enter <b><i> 1 </i></b> for tier 1 and <b><i>2 </i></b> for tier 2</li>
+        <li> <b><i> project name i.e Tontro </i></b>  </li>
+        <li>The word: <b><i>information</i></b></li>
     </ul>
 
     <div></div>
