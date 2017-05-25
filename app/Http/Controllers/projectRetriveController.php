@@ -154,6 +154,7 @@ class projectRetriveController extends Controller
 
             foreach($projectData as $projectD){
                 if($projectD->primary_activity != null && $projectD->partnerships !=null && $projectD->milestones != null && $projectD->Impact_sectors != null && $projectD->Lessons_learnt != null && $projectD->Grand_info != null && $projectD->Target_population !=null && $projectD->Target_Track != null && $projectD->volunteer != null ){
+                    dd($projectData);
                     $response['Projects'][] = [
                     'projectName' => $projectD->project_namee,
                     'town' => $projectD->location_town,
@@ -192,7 +193,7 @@ class projectRetriveController extends Controller
 
                 }
             }
-            dd($projectData);
+            //dd($projectData);
             return Response::json($response,$statusCode);
         }
         catch(Exception $e){
