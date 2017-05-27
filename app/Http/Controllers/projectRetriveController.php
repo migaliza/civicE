@@ -173,7 +173,7 @@ class projectRetriveController extends Controller
                     'TargetPopulation' => $projectD->Target_population,
                     'LessonsLearnt' => $projectD->Lessons_learnt,
                     'TargetPopulationTrack' => $projectD->Population_Track,
-                    'volunteer' => $projectD->volunteer_track,
+                    'volunteer' => $projectD->Volunteer_Track,
                 ];
             }
             //dd($projectData);
@@ -279,7 +279,7 @@ class projectRetriveController extends Controller
                 'TargetPopulation' => $individualProject->Target_population,
                 'LessonsLearnt' => $individualProject->Lessons_learnt,
                 'TargetPopulationTrack'=> $individualProject->Population_Track,
-                'volunteer'=> $individualProject->volunteer_track,
+                'volunteer'=> $individualProject->Volunteer_Track,
                 ];
             }
 
