@@ -267,7 +267,6 @@ class projectRetriveController extends Controller
                 'country' => $individualProject->Country,
                 'longitude' => $individualProject->location_longitude,
                 'latitude' => $individualProject->location_latitude,
-                'location' => $individualProject->location_name,
                 'briefDescription' => $individualProject->brief_description,
                 'commencementDate' => $individualProject->commencement_date,
                 'completionDate' => $individualProject->completion_date,
