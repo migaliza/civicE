@@ -153,8 +153,6 @@ class projectRetriveController extends Controller
             $projectData = projects::all();
 
             foreach($projectData as $projectD){
-                dd($projectD->primary_activity);
-                if(!is_null($projectD->primary_activity) && !is_null($projectD->partnerships) && !is_null($projectD->milestones) && !is_null($projectD->Impact_sectors) && !is_null($projectD->Lessons_learnt) && !is_null($projectD->Grand_info) && !is_null($projectD->Target_population) && !is_null($projectD->Target_Track) && !is_null($projectD->volunteer) ){
                     //dd($projectData);
                     $response['Projects'][] = [
                     'projectName' => $projectD->project_namee,
@@ -177,22 +175,6 @@ class projectRetriveController extends Controller
                     'TargetPopulationTrack' => $projectD->Population_Track,
                     'volunteer' => $projectD->volunteer_track,
                 ];
-                }
-                if($projectD->milestones ==null && $projectD->primary_activity == null && $projectD->partnerships == null && $projectD->Upcoming == null && $projectD->Population_Track == null && $projectD->volunteer_track == null && $projectD->completion_date == null && $projectD->commencement_date ==null && $projectD->Target_population){
-                    $response['Projects'][] = [
-                    'projectName' => $projectD->project_namee,
-                    'town' => $projectD->location_town,
-                    'region' => $projectD->Region,
-                    'country' => $projectD->Country,
-                    'longitude' => $projectD->location_longitude,
-                    'latitude' => $projectD->location_latitude,
-                    'briefDescription' => $projectD->brief_description,
-                    'ImpactSectors' => $projectD->Impact_sectors,
-                    'GrandInfo' => $projectD->Grand_info,
-                    'GrandRational' => $project->Funding_rational,
-                ];
-
-                }
             }
             //dd($projectData);
             return Response::json($response,$statusCode);
