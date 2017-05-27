@@ -254,14 +254,19 @@ class projectRetriveController extends Controller
                 $projectName => []
             ];
 
-            $tier = projects::where('project_namee', '=', $projectName)->get(['tier'])->toArray();
-          $pTier = $tier[0]['tier'];
+            //$tier = projects::where('project_namee', '=', $projectName)->get(['tier'])->toArray();
+          //$pTier = $tier[0]['tier'];
             
-            if($pTier == "1"){
+            //if($pTier == "1"){
                 $iProject = projects::where('project_namee','=',$projectName)->get();
                 foreach($iProject as $individualProject){
                 $response[$projectName][] = [
                 'projectName' => $individualProject->project_namee,
+                'town' => $individualProject->location_town,
+                'region' => $individualProject->Region,
+                'country' => $individualProject->Country,
+                'longitude' => $individualProject->location_longitude,
+                'latitude' => $individualProject->location_latitude,
                 'location' => $individualProject->location_name,
                 'briefDescription' => $individualProject->brief_description,
                 'commencementDate' => $individualProject->commencement_date,
@@ -279,8 +284,8 @@ class projectRetriveController extends Controller
                 ];
             }
 
-        }   
-        elseif($pTier == '2'){
+        //}   
+        /*elseif($pTier == '2'){
            $iProject = projects::where('project_namee','=',$projectName)->get();
 
             foreach($iProject as $individualProject){
@@ -292,8 +297,8 @@ class projectRetriveController extends Controller
                 'GrandRational' => $individualProject->funding_rational,
                 ];
             }
-        }
-        // return response()::json($response,$statusCode);
+        }*/
+         return response()::json($response,$statusCode);
 
         }catch( Exception $e){
              //$statusCode = 404;
