@@ -302,7 +302,7 @@ class projectRetriveController extends Controller
         $statusCode = 404;
         try{
             $response = [
-                'Population' => []
+                'population' => []
             ];
 
             $statusCode = 200;
@@ -310,7 +310,7 @@ class projectRetriveController extends Controller
             $population = projects::where('project_namee', '=', $projectName)->get(['Population_Track'])->toArray();
 
             foreach($population as $projectPop){
-                $response['track'][] = [
+                $response['population'][] = [
                 'population_Track' => $projectPop->Population_Track,
                 ];
             }
