@@ -314,7 +314,7 @@ class projectRetriveController extends Controller
                 'Population_Track' => $projectPop->Population_Track,
                 ];
             }
-            dd($population);
+            //dd($population);
 
             return Response::json($response,$statusCode);
         }
