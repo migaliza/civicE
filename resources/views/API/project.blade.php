@@ -18,14 +18,17 @@
 
     <div></div>
     <h6><b>Returns: </b> </h6>
-    <code>[<br> 
-    <samp style="color:#ff0000">projects: </samp><br>[
+    <code>
+    {<br> 
+    <samp style="color:#ff0000">Projects: </samp>[ <br>
 {<br>
 <p style="margin-left: 40px"><samp style="color:black">"_id":</samp> "590ccb97b4d8d200713be843",<br></p>
 <p style="margin-left: 40px"><samp style="color:black">"project_namee":</samp> "Future of Africa - Midunu",<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"tier":</samp> <i style="color:blue">"1" </i>,<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"location_name":</samp> <i style="color:blue">"0.0747"</i>,<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"location_latitude":</samp> <i style="color:blue">"5.8143"</i>,<br></p>
+<p style="margin-left: 40px"><samp style="color:black">"town":</samp> "Accra",<br></p>
+<p style="margin-left: 40px"><samp style="color:black">"region": </samp> "Greater Accra",<br></p>
+<p style="margin-left: 40px"><samp style="color:black">"country": </samp>"Ghana",<br></p>
+<p style="margin-left: 40px"><samp style="color:black">"longitude":</samp><i style="color:blue"> "0.0747",</i></p><br>
+<p style="margin-left: 40px"><samp style="color:black">"latitude":</samp> <i style="color:blue">"5.8143",</i></p><br>
 <p style="margin-left: 40px"><samp  style="color:black">"brief_description":</samp> "Mi Dunu is a feeding program for street kids under Future of Africa initiative. It aims at creating a friendly environment where street children feel comfortable to share their experiences with trained volunteers.",<br></p>
 <p style="margin-left: 40px"><samp style="color:black">"commencement_date":</samp> "2016-05-01",<br></p>
 <p style="margin-left: 40px"><samp style="color:black">"completion_date":</samp> "2017-09-30",<br></p>
