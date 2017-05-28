@@ -21,27 +21,27 @@
     <code>
     {<br> 
     <samp style="color:#ff0000">Projects: </samp>[ <br>
-{<br>
-<p style="margin-left: 40px"><samp style="color:black">"_id":</samp> "590ccb97b4d8d200713be843",<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"project_namee":</samp> "Future of Africa - Midunu",<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"town":</samp> "Accra",<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"region": </samp> "Greater Accra",<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"country": </samp>"Ghana",<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"longitude":</samp><i style="color:blue"> "0.0747",</i></p><br>
-<p style="margin-left: 40px"><samp style="color:black">"latitude":</samp> <i style="color:blue">"5.8143",</i></p><br>
-<p style="margin-left: 40px"><samp  style="color:black">"brief_description":</samp> "Mi Dunu is a feeding program for street kids under Future of Africa initiative. It aims at creating a friendly environment where street children feel comfortable to share their experiences with trained volunteers.",<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"commencement_date":</samp> "2016-05-01",<br></p>
-<p style="margin-left: 40px"><samp style="color:black">"completion_date":</samp> "2017-09-30",<br></p>
-<p style="margin-left: 40px"><samp  style="color:black">"primary_activity":</samp> "Weekly nourishment and game time where volunteers attempt to build relatioship with street children which they intend to harness to provide the children with skills, opportunity and resources",<br></p>
-<p style="margin-left: 40px"><samp  style="color:black">"partnerships":</samp> "Helen O'Grady Drama Academy",<br></p>
-<p style="margin-left: 40px"><samp  style="color:black">"updated_at":</samp> "2017-05-05 18:59:35",<br></p>
-<p style="margin-left: 40px"><samp  style="color:black">"created_at":</samp> "2017-05-05 18:59:35",<br></p>
-<p style="margin-left: 40px"><samp cstyle="color:black"><b>"Impact_sectors":</b></samp> [<br></p>
+<p style="margin-left: 30px">{</p>
+<p style="margin-left: 40px"><samp style="color:black">"_id":</samp> "590ccb97b4d8d200713be843",</p>
+<p style="margin-left: 40px"><samp style="color:black">"project_namee":</samp> "Future of Africa - Midunu",</p>
+<p style="margin-left: 40px"><samp style="color:black">"town":</samp> "Accra",</p>
+<p style="margin-left: 40px"><samp style="color:black">"region": </samp> "Greater Accra",</p>
+<p style="margin-left: 40px"><samp style="color:black">"country": </samp>"Ghana",</p>
+<p style="margin-left: 40px"><samp style="color:black">"longitude":</samp><i style="color:blue"> "0.0747",</i></p>
+<p style="margin-left: 40px"><samp style="color:black">"latitude":</samp> <i style="color:blue">"5.8143",</i></p>
+<p style="margin-left: 40px"><samp  style="color:black">"brief_description":</samp> "Mi Dunu is a feeding program for street kids under Future of Africa initiative. It aims at creating a friendly environment where street children feel comfortable to share their experiences with trained volunteers.",</p>
+<p style="margin-left: 40px"><samp style="color:black">"commencement_date":</samp> "2016-05-01",</p>
+<p style="margin-left: 40px"><samp style="color:black">"completion_date":</samp> "2017-09-30",</p>
+<p style="margin-left: 40px"><samp  style="color:black">"primary_activity":</samp> "Weekly nourishment and game time where volunteers attempt to build relatioship with street children which they intend to harness to provide the children with skills, opportunity and resources",</p>
+<p style="margin-left: 40px"><samp  style="color:black">"partnerships":</samp> "Helen O'Grady Drama Academy",</p>
+<p style="margin-left: 40px"><samp  style="color:black">"updated_at":</samp> "2017-05-05 18:59:35",</p>
+<p style="margin-left: 40px"><samp  style="color:black">"created_at":</samp> "2017-05-05 18:59:35",</p>
+<p style="margin-left: 40px"><samp cstyle="color:black"><b>"Impact_sectors":</b></samp> [</p>
 <p style="margin-left: 40px">{<br></p>
-<p style="margin-left: 80px"><samp style="color:black">"sector_name":</samp> "Welfare"<br></p>
+<p style="margin-left: 80px"><samp style="color:black">"sector_name":</samp> "Welfare"</p>
 <p style="margin-left: 40px">},<br></p>
 <p style="margin-left: 40px">{<br></p>
-<p style="margin-left: 80px"><samp style="color:black">"sector_name":</samp> "Mentorship"<br></p>
+<p style="margin-left: 80px"><samp style="color:black">"sector_name":</samp> "Mentorship"</p>
 <p style="margin-left: 40px">}<br></p>
 ],<br>
 <p style="margin-left: 40px"><samp  style="color:black"><b>"Grand_info":</b></samp> [<br></p>
