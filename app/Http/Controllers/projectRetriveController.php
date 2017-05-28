@@ -320,10 +320,10 @@ class projectRetriveController extends Controller
         }
         catch(Exception $e){
             echo $e;
-        }finally{
+        }/*finally{
             //
             return Response::json($response,$statusCode);
-        }
+        }*/
     }
 
     /**
