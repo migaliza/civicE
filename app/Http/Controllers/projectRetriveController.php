@@ -254,10 +254,6 @@ class projectRetriveController extends Controller
                 $projectName => []
             ];
 
-            //$tier = projects::where('project_namee', '=', $projectName)->get(['tier'])->toArray();
-          //$pTier = $tier[0]['tier'];
-            
-            //if($pTier == "1"){
                 $iProject = projects::where('project_namee','=',$projectName)->get();
                 foreach($iProject as $individualProject){
                 $response[$projectName][] = [
@@ -283,20 +279,7 @@ class projectRetriveController extends Controller
                 ];
             }
 
-        //}   
-        /*elseif($pTier == '2'){
-           $iProject = projects::where('project_namee','=',$projectName)->get();
-
-            foreach($iProject as $individualProject){
-                $response[$projectName][] = [
-                'projectName' => $individualProject->project_namee,
-                'location' => $individualProject->location_name,
-                'briefDescription' => $individualProject->brief_description,
-                'GrandInfo' => $individualProject->Grand_info,
-                'GrandRational' => $individualProject->funding_rational,
-                ];
-            }
-        }*/
+      
          return response()::json($response,$statusCode);
 
         }catch( Exception $e){
@@ -313,7 +296,7 @@ class projectRetriveController extends Controller
     *
     */
     public function trackPopulation($projectName){
-       /* $response = [
+        $response = [
             'error' => ['no response']
         ];
         $statusCode = 404;
@@ -326,34 +309,20 @@ class projectRetriveController extends Controller
 
             $population = projects::where('project_namee', '=', $projectName)->get(['Population_Track'])->toArray();
                // $baselinePopulation = $population[0]['Population_Track']['target_baseline'];
-               // dd($population);
-            foreach($population as $projectPop => $value){
-                if(is_array($value) || is_object($value)){
-
-                    foreach($value as $vtest => $data){
-                        //echo $vtest." ".$data;
-                        if(is_array($data) || is_object($data)){
-                            foreach($data as $vData => $innerData){
-                                echo $vData." "$innerData;
-                            }
-                            else{
-                                echo $vtest." ".$data;
-                            }
-                        }
-                    }
-                }
-                else{
-                    echo $projectPop." ".$value;
-                }
+                dd($population);
+            foreach($population as $projectPop){
+                $response['track'][] = [
+                'population_Track' => $projectPop->Population_Track;
+                ]
             }
-                
-          
+            return Response::json($response,$statusCode);
         }
         catch(Exception $e){
             echo $e;
         }finally{
             //
-        }*/
+            return Response::json($response,$statusCode);
+        }
     }
 
     /**
