@@ -206,7 +206,7 @@ class projectRetriveController extends Controller
         ];
         $statusCode = 200;
         $funding = projects::where('project_namee','=',$projectName)->get(['Grand_info']);
-
+        dd($funding);
         foreach($funding as $projectFund){
             $response['Funding'][]=[
             'FundingInfo' => $projectFund->Grand_info,
