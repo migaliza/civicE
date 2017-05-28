@@ -312,8 +312,8 @@ class projectRetriveController extends Controller
                 dd($population);
             foreach($population as $projectPop){
                 $response['track'][] = [
-                'population_Track' => $projectPop->Population_Track;
-                ]
+                'population_Track' => $projectPop->Population_Track,
+                ];
             }
             return Response::json($response,$statusCode);
         }
