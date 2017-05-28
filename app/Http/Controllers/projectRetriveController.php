@@ -307,7 +307,7 @@ class projectRetriveController extends Controller
 
             $statusCode = 200;
 
-            $population = projects::where('project_namee', '=', $projectName)->get(['Population_Track'])->toArray();
+            $population = projects::where('project_namee', '=', $projectName)->get(['Population_Track']);
 
             foreach($population as $projectPop){
                 $response['population'][] = [
