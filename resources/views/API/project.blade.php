@@ -37,52 +37,52 @@
 <p style="margin-left: 40px"><samp  style="color:black">"updated_at":</samp> "2017-05-05 18:59:35",</p>
 <p style="margin-left: 40px"><samp  style="color:black">"created_at":</samp> "2017-05-05 18:59:35",</p>
 <p style="margin-left: 40px"><samp cstyle="color:black"><b>"Impact_sectors":</b></samp> [</p>
-<p style="margin-left: 40px">{<br></p>
+<p style="margin-left: 40px">{</p>
 <p style="margin-left: 80px"><samp style="color:black">"sector_name":</samp> "Welfare"</p>
-<p style="margin-left: 40px">},<br></p>
-<p style="margin-left: 40px">{<br></p>
+<p style="margin-left: 40px">},</p>
+<p style="margin-left: 40px">{</p>
 <p style="margin-left: 80px"><samp style="color:black">"sector_name":</samp> "Mentorship"</p>
-<p style="margin-left: 40px">}<br></p>
-],<br>
+<p style="margin-left: 40px">}</p>
+<p>],</p>
 <p style="margin-left: 40px"><samp  style="color:black"><b>"Grand_info":</b></samp> [<br></p>
-<p style="margin-left: 40px">{<br></p>
-<p style="margin-left: 80px"><samp  style="color:black">"grant_name":</samp> "Ford Foundation",<br></p>
-<p style="margin-left: 80px"><samp style="color:black">"grant_amount":</samp> <i style="color:blue">"4800"</i>,<br></p>
+<p style="margin-left: 40px">{</p>
+<p style="margin-left: 80px"><samp  style="color:black">"grant_name":</samp> "Ford Foundation",</p>
+<p style="margin-left: 80px"><samp style="color:black">"grant_amount":</samp> <i style="color:blue">"4800"</i>,</p>
 <p style="margin-left: 80px"><samp  style="color:black">"funding_cycle":</samp> "Window 2"<br></p>
-<p style="margin-left: 40px">}<br></p>
+<p style="margin-left: 40px">}</p>
 ],<br>
 <p style="margin-left: 40px"><samp  style="color:black"><b>"Population_Track":</b></samp> [<br></p>
-<p style="margin-left: 40px">{<br></p>
-<p style="margin-left: 80px"><samp  style="color:black">"target_baseline": </samp> <i style="color:blue">"1"</i>,<br></p>
-<p style="margin-left: 80px"><samp  style="color:black">"recent":</samp> <i style="color:blue"> "51"</i><br></p>
-<p style="margin-left: 40px">}<br></p>
+<p style="margin-left: 40px">{</p>
+<p style="margin-left: 80px"><samp  style="color:black">"target_baseline": </samp> <i style="color:blue">"1"</i>,</p>
+<p style="margin-left: 80px"><samp  style="color:black">"recent":</samp> <i style="color:blue"> "51"</i></p>
+<p style="margin-left: 40px">}</p>
 ],<br>
-<p style="margin-left: 40px"><samp  style="color:black"><b>"Volunteer_Track":</b></samp> [<br></p>
-<p style="margin-left: 40px">{<br></p>
+<p style="margin-left: 40px"><samp  style="color:black"><b>"Volunteer_Track":</b></samp> [</p>
+<p style="margin-left: 40px">{</p>
 <p style="margin-left: 80px"><samp  style="color:black">"target_baseline":</samp> <i style="color:blue"> "45"</i>,<br></p>
-<p style="margin-left: 80px"><samp style="color:black">"recent":</samp> <i style="color:blue">"52"</i><br></p>
-<p style="margin-left: 40px">}<br></p>
+<p style="margin-left: 80px"><samp style="color:black">"recent":</samp> <i style="color:blue">"52"</i></p>
+<p style="margin-left: 40px">}</p>
 ],<br>
-<p style="margin-left: 40px"><samp  style="color:black"><b>"milestones":</b></samp> [<br></p>
-<p style="margin-left: 40px">{<br></p>
-<p style="margin-left: 80px"><samp style="color:black">"milestone_description":</samp> "Midunu has succesfully launched the Relationship building phase of its 4-step approach to allievating the conditions of street children"<br></p>
-<p style="margin-left: 40px">},<br></p>
-<p style="margin-left: 40px">{<br></p>
-<p style="margin-left: 80px"><samp  style="color:black">"milestone_description":</samp> "Midunu has established a partnership with Helen O'Grady Drama Academy in a bid to kick-off the skills building and opportunity creation phase of its 4-step approach. This will culminate in a drama production that will cast children under the Initiative."<br></p>
-<p style="margin-left: 40px">}<br></p>
-],<br>
-<p style="margin-left: 40px"><samp  style="color:black"><b>"Upcoming":</b></samp> [<br></p>
-{<br>
-<p style="margin-left: 80px"><samp style="color:black">"upcoming":</samp> "Drama Production in partnership with Helen O'Grady Drama Academy"<br></p>
-<p style="margin-left: 40px">},<br></p>
-{<br>
-<p style="margin-left: 40px"><samp style="color:black">"upcoming":</samp> "Explore options for eanrollment or re-enrollment of street children"<br></p>
-<p style="margin-left: 40px">},<br></p>
-<p style="margin-left: 40px">{<br></p>
-<p style="margin-left: 80px"><samp style="color:black">"upcoming":</samp> "Resolve issues relating to biographical data of street children"<br></p>
-<p style="margin-left: 40px">}<br></p>
-]<br>
-},<br>
+<p style="margin-left: 40px"><samp  style="color:black"><b>"milestones":</b></samp> [</p>
+<p style="margin-left: 40px">{</p>
+<p style="margin-left: 80px"><samp style="color:black">"milestone_description":</samp> "Midunu has succesfully launched the Relationship building phase of its 4-step approach to allievating the conditions of street children"</p>
+<p style="margin-left: 40px">},</p>
+<p style="margin-left: 40px">{</p>
+<p style="margin-left: 80px"><samp  style="color:black">"milestone_description":</samp> "Midunu has established a partnership with Helen O'Grady Drama Academy in a bid to kick-off the skills building and opportunity creation phase of its 4-step approach. This will culminate in a drama production that will cast children under the Initiative."</p>
+<p style="margin-left: 40px">}</p>
+<p>],</p>
+<p style="margin-left: 40px"><samp  style="color:black"><b>"Upcoming":</b></samp> [</p>
+<p>{</p>
+<p style="margin-left: 80px"><samp style="color:black">"upcoming":</samp> "Drama Production in partnership with Helen O'Grady Drama Academy"</p>
+<p style="margin-left: 40px">},</p>
+<p>{</p>
+<p style="margin-left: 40px"><samp style="color:black">"upcoming":</samp> "Explore options for eanrollment or re-enrollment of street children"</p>
+<p style="margin-left: 40px">},</p>
+<p style="margin-left: 40px">{</p>
+<p style="margin-left: 80px"><samp style="color:black">"upcoming":</samp> "Resolve issues relating to biographical data of street children"</p>
+<p style="margin-left: 40px">}</p>
+<p>]</p>
+<p>},</p>
 </code>
 
 
