@@ -50,7 +50,7 @@ class projectRetriveController extends Controller
             $projects = projects::all('_id','project_namee','brief_description');
          
             foreach($projects as $project){
-                $response['projectDescriptions'][] = [
+                $response = [
                 'id' => $project->_id,
                 'projectName' => $project->project_namee,
                 'description' => $project->brief_description,
@@ -332,9 +332,9 @@ class projectRetriveController extends Controller
         ];
         $statusCode = 404;
         try{
-            /*$response = [
+            $response = [
                 'volunteer_track' => []
-            ];*/
+            ];
 
             $statusCode = 200;
 
