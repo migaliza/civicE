@@ -351,12 +351,12 @@ class projectRetriveController extends Controller
      */
     public function projectById($projectId)
     {
-    dd('here');
+   // dd('here');
         try{
 
                
                 $response = projects::where('_id','=',$projectId)->get();
-                 dd($repsonse);
+                // dd($repsonse);
                 /*foreach($iProject as $individualProject){
                 $response[] = [
                 'projectName' => $individualProject->project_namee,
