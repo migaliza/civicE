@@ -347,9 +347,9 @@ class projectRetriveController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectById( Request $request)
+    public function projectById(Request $request)
     {
-        $projectId = $request->get('id');
+        $projectId = $request->id;
         dd($projectId);
 
         try{

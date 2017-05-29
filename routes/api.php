@@ -85,12 +85,6 @@ Route::get('/project/track/volunteers/{projectId}','projectRetriveController@tra
 
 /**retrieve project information */
 Route::get('/projects/project/{id}','projectRetriveController@projectById');
-/*/**retrieve individual project information */
-//Route::get('/{projectName}/information/','projectRetriveController@projectInformation');*/
-//create a new sentiment analysis
-//Route::Post('Projects/Sentiment');
 
-//retrieve project by name
-//Route::get('Project/{ProjectName}');
 
 
