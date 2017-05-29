@@ -1,4 +1,5 @@
 <?php
+use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 
 /**
  * Laravel API Response Builder - config file
