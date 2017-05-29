@@ -354,7 +354,7 @@ class projectRetriveController extends Controller
  
         try{
 
-               
+               dd('here');
                 $response = projects::where('_id','=',$projectId)->get();
                  dd($repsonse);
                 /*foreach($iProject as $individualProject){
