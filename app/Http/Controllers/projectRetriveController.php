@@ -336,4 +336,59 @@ class projectRetriveController extends Controller
     }
 
 
+    /**
+     * Retrieve project information by project name
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function projectById($projectId)
+    {
+        $statusCode = 404;
+        $response = [
+                'error' => ['no response']
+             ];
+
+        try{
+            $statusCode = 200;
+            $response = [
+                $projectName => []
+            ];
+
+                $iProject = projects::where('_id','=',$projectId)->get();
+                foreach($iProject as $individualProject){
+                $response[$projectName][] = [
+                'projectName' => $individualProject->project_namee,
+                'town' => $individualProject->location_town,
+                'region' => $individualProject->Region,
+                'country' => $individualProject->Country,
+                'longitude' => $individualProject->location_longitude,
+                'latitude' => $individualProject->location_latitude,
+                'briefDescription' => $individualProject->brief_description,
+                'commencementDate' => $individualProject->commencement_date,
+                'completionDate' => $individualProject->completion_date,
+                'primaryActivity' => $individualProject->primary_activity,
+                'partnerships' => $individualProject->partnerships,
+                'milestones' => $individualProject->milestones,
+                'Upcoming' => $individualProject->Upcoming,
+                'ImpactSectors' => $individualProject->Impact_sectors,
+                'GrandInfo' => $individualProject->Grand_info,
+                'TargetPopulation' => $individualProject->Target_population,
+                'LessonsLearnt' => $individualProject->Lessons_learnt,
+                'TargetPopulationTrack'=> $individualProject->Population_Track,
+                'volunteer'=> $individualProject->Volunteer_Track,
+                ];
+            }
+
+      
+         return response()::json($response,$statusCode);
+
+        }catch( Exception $e){
+             //$statusCode = 404;
+        }
+        finally{
+            return Response::json($response, $statusCode);
+        }   
+    }
+
+
 }
