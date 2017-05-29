@@ -50,13 +50,13 @@ class projectRetriveController extends Controller
             $projects = projects::all('_id','project_namee','brief_description');
          
             foreach($projects as $project){
-                $response['projectDescriptions'][] = [
+                $resp['projectDescriptions'][] = [
                 'id' => $project->_id,
                 'projectName' => $project->project_namee,
                 'description' => $project->brief_description,
                 ];
             }
-             
+            $response = $resp;
             return Response::json($response,$statusCode);
         }
         catch(Exception $e){
