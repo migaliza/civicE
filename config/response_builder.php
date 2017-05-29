@@ -1,5 +1,6 @@
 <?php
 use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
+use App\ApiCode;
 
 /**
  * Laravel API Response Builder - config file
@@ -48,7 +49,7 @@ return [
 	|
 	*/
 	'map' => [
-		//ApiCode::SOMETHING_WENT_WRONG =>'api.something_went_wrong',
+		ApiCode::SOMETHING_WENT_WRONG =>'api.something_went_wrong',
 	],
 
 
