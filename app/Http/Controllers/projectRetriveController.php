@@ -193,7 +193,7 @@ class projectRetriveController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectFunding($projectName)
+    public function projectFunding($projectId)
     {
         $statusCode = 404;
              $response = [
@@ -206,7 +206,7 @@ class projectRetriveController extends Controller
             'Funding' => []
         ];
         $statusCode = 200;
-        $funding = projects::where('project_namee','=',$projectName)->get(['Grand_info']);
+        $funding = projects::where('_id','=',$projectId)->get(['Grand_info']);
        // dd($funding);
         foreach($funding as $projectFund){
             $response['Funding'][]=[
@@ -296,7 +296,7 @@ class projectRetriveController extends Controller
     *function to fetch the target population track
     *
     */
-    public function trackPopulation($projectName){
+    public function trackPopulation($projectId){
         $response = [
             'error' => ['no response']
         ];
@@ -308,7 +308,7 @@ class projectRetriveController extends Controller
 
             $statusCode = 200;
 
-            $population = projects::where('project_namee', '=', $projectName)->get(['Population_Track']);
+            $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
 
             foreach($population as $projectPop){
                 $response['population'][] = [

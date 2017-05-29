@@ -30,7 +30,7 @@ Route::get('Projects/all/test','testingResponse@books');
 
 //Route::Post('Projects/Create');
 
-Route::get('/projects/funding/{projectName}','projectRetriveController@projectFunding');
+Route::get('/projects/funding/{projectId}','projectRetriveController@projectFunding');
 
 /** display project tier */
 Route::get('/projects/{tier}','projectRetriveController@tiers');
@@ -78,7 +78,7 @@ Route::post('/project/funding/rational/new','projectController@addFundingRationa
 Route::get('/{projectName}/information/','projectRetriveController@projectInformation');
 
 /**retrieve project information */
-Route::get('/project/population/{projectName}','projectRetriveController@trackPopulation');
+Route::get('/project/population/{projectId}','projectRetriveController@trackPopulation');
 
 
 /**retrieve project information */
