@@ -35,11 +35,6 @@ class projectRetriveController extends Controller
      */
     public function projectNameDescription()
     {
-        $statusCode = 404;
-             $response = [
-                'error' => ['no response']
-
-             ];
 
         try{
             $statusCode = 200;
@@ -84,7 +79,7 @@ class projectRetriveController extends Controller
 
             $projectTier = projects::where('tier','=',$tier)->get();
             foreach($projectTier as $project){
-                $response['Tier1'][] = [
+                $response[] = [
                 'projectName' => $project->project_namee,
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
@@ -110,7 +105,7 @@ class projectRetriveController extends Controller
             ];
             $projectTier = projects::where('tier','=',$tier)->get();
             foreach($projectTier as $project){
-                $response = [
+                $response[] = [
                 'projectName' => $project->project_namee,
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
