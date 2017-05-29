@@ -21,10 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //list project name and description
 Route::get('/projects/project/description', 'projectRetriveController@projectNameDescription');
 
-//list location funding data of the project
-
-Route::get('Projects/funding/{projectName}','projectRetriveController@projectFunding');
-
 //list all project data
 Route::get('Projects/{projectName}','projectRetriveController@projectData');
 
