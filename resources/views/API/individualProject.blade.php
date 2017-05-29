@@ -18,13 +18,13 @@
     <h4>Method:  <b>Get</b></h4>
     <div></div>
 
-    <h5>Url: <a href="http://ashesicivicengagement-dev.herokuapp.com/civicdoc/Tontro/information" target="_blank">http://ashesicivicengagement-dev.herokuapp.com/civicdoc/{project_name}/information </a> </h5>
+    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/id/590ccb97b4d8d200713be843" target="_blank">https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/id/{projectid} </a> </h5>
 
     <div></div>
     <h5>Parameters</h5>
     <ul>
-        <li> <b><i> project name i.e Tontro </i></b>  </li>
-        <li>The word: <b><i>information</i></b></li>
+        <li> <b><i> project id i.e 93294hkj87kj </i></b>  </li>
+      
     </ul>
 
     <div></div>
