@@ -383,9 +383,9 @@ class projectRetriveController extends Controller
         }catch( Exception $e){
              //$statusCode = 404;
         }
-        finally{
+        /*finally{
             return Response::json($response, $statusCode);
-        }   
+        }*/   
     }
 
 
