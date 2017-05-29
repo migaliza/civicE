@@ -383,7 +383,7 @@ class projectRetriveController extends Controller
          return ResponseBuilder::success($response);
         }catch( Exception $e){
              //$statusCode = 404;
-            return ResponseBuilder::errorWithDataAndHttpCode($response);
+            //return ResponseBuilder::errorWithDataAndHttpCode($response);
         }
   
     }
