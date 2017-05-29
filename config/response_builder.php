@@ -48,7 +48,7 @@ return [
 	*/
 	'map' => [
 		ApiCode::SOMETHING_WENT_WRONG =>'api.something_went_wrong',
-		
+
 
 	],
 
