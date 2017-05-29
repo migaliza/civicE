@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 //use EllipseSynergie\ApiResponse\Contracts\Response;
 use Response;
 use App\projects;
-
+use ResponseBuilder;
 
 class projectRetriveController extends Controller
 {
@@ -74,11 +74,7 @@ class projectRetriveController extends Controller
     *
     */
     public function tiers($tier){
-       $statusCode = 404;
-             $response = [
-                'error' => ['no response']
-
-             ];
+     
         try{
             $statusCode = 200;
             if($tier == 1){
@@ -114,7 +110,7 @@ class projectRetriveController extends Controller
             ];
             $projectTier = projects::where('tier','=',$tier)->get();
             foreach($projectTier as $project){
-                $response['Tier2'][] = [
+                $response = [
                 'projectName' => $project->project_namee,
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
@@ -130,7 +126,8 @@ class projectRetriveController extends Controller
         }
         finally{
             //dd($response);
-            return Response::json($response,$statusCode);
+            //return Response::json($response,$statusCode);
+            return ResponseBuilder::success($response);
         }
 
     }

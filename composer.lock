@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "54656cef75738556e1f3aa4d0b1ba7d0",
+    "content-hash": "cc299cbc58c0b1a9736c5a35732378e4",
     "packages": [
         {
             "name": "barryvdh/laravel-cors",
@@ -936,6 +936,62 @@
                 "rest"
             ],
             "time": "2015-10-07T14:48:58+00:00"
+        },
+        {
+            "name": "marcin-orlowski/laravel-api-response-builder",
+            "version": "4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MarcinOrlowski/laravel-api-response-builder.git",
+                "reference": "c2ec3be230f2dba607963855d41dec5346ec3409"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarcinOrlowski/laravel-api-response-builder/zipball/c2ec3be230f2dba607963855d41dec5346ec3409",
+                "reference": "c2ec3be230f2dba607963855d41dec5346ec3409",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.1",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "codacy/coverage": "^1.0",
+                "marcin-orlowski/coding-standard": "^1.1",
+                "mockery/mockery": "^0.9.8",
+                "orchestra/testbench": "^3.1",
+                "phpunit/php-code-coverage": "^2.2.4",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/",
+                    "tests/",
+                    "tests/Traits/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcin Orlowski",
+                    "homepage": "http://MarcinOrlowski.com/"
+                }
+            ],
+            "description": "Helps building nice, normalized and easy to consume REST API responses.",
+            "homepage": "https://github.com/MarcinOrlowski/laravel-api-response-builder",
+            "keywords": [
+                "api",
+                "builder",
+                "helper",
+                "json",
+                "laravel",
+                "rest"
+            ],
+            "time": "2017-04-13T14:02:17+00:00"
         },
         {
             "name": "mongodb/mongodb",
