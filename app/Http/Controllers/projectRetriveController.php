@@ -308,8 +308,7 @@ class projectRetriveController extends Controller
             $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
 
             foreach($population as $projectPop){
-                $response = $projectPop->Population_Track,
-                ;
+                $response = $projectPop->Population_Track;
             }
             //dd($population);
 
