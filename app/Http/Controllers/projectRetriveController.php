@@ -47,10 +47,11 @@ class projectRetriveController extends Controller
                 'projectDescriptions' =>[]
             ];
             
-            $projects = projects::all('project_namee','brief_description');
+            $projects = projects::all('_id','project_namee','brief_description');
          
             foreach($projects as $project){
                 $response['projectDescriptions'][] = [
+                'id' => $project->_id,
                 'projectName' => $project->project_namee,
                 'description' => $project->brief_description,
                 ];
