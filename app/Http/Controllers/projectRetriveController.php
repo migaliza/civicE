@@ -351,10 +351,10 @@ class projectRetriveController extends Controller
      */
     public function projectById($projectId)
     {
- 
+    dd('here');
         try{
 
-               dd('here');
+               
                 $response = projects::where('_id','=',$projectId)->get();
                  dd($repsonse);
                 /*foreach($iProject as $individualProject){
