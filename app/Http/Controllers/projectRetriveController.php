@@ -332,9 +332,9 @@ class projectRetriveController extends Controller
         ];
         $statusCode = 404;
         try{
-            $response = [
+            /*$response = [
                 'volunteer_track' => []
-            ];
+            ];*/
 
             $statusCode = 200;
 
@@ -343,8 +343,6 @@ class projectRetriveController extends Controller
             foreach($population as $projectPop){
                 $response['volunteer_track'] = $projectPop->Volunteer_Track;
             }
-            //dd($population);
-
             return Response::json($response,$statusCode);
         }
         catch(Exception $e){
