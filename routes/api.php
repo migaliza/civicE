@@ -86,7 +86,7 @@ Route::get('/project/population/{projectName}','projectRetriveController@trackPo
 
 
 /**retrieve project information */
-Route::get('/project/{projectId}/','projectRetriveController@projectById');
+Route::get('/projects/project/id/{projectId}/','projectRetriveController@projectById');
 /*/**retrieve individual project information */
 //Route::get('/{projectName}/information/','projectRetriveController@projectInformation');*/
 //create a new sentiment analysis
