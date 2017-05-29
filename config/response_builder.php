@@ -132,7 +132,6 @@ return [
 	'response_key_map' => [
 		ResponseBuilder::KEY_SUCCESS => 'success',
 		ResponseBuilder::KEY_CODE    => 'code',
-		ResponseBuilder::KEY_LOCALE  => 'locale',
 		ResponseBuilder::KEY_MESSAGE => 'message',
 		ResponseBuilder::KEY_DATA    => 'data',
 	],

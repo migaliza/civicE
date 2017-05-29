@@ -355,21 +355,13 @@ class projectRetriveController extends Controller
      */
     public function projectById($projectId)
     {
-        $statusCode = 404;
-        $response = [
-                'error' => ['no response']
-             ];
-
+ 
         try{
-            $statusCode = 200;
-            $response = [
-                'data' => []
-            ];
 
                 $iProject = projects::where('_id','=',$projectId)->get();
-                //dd($iProject);
+
                 foreach($iProject as $individualProject){
-                $response['data'][] = [
+                $response[] = [
                 'projectName' => $individualProject->project_namee,
                 'town' => $individualProject->location_town,
                 'region' => $individualProject->Region,
@@ -391,12 +383,13 @@ class projectRetriveController extends Controller
                 'volunteer'=> $individualProject->Volunteer_Track,
                 ];
             }
-         return response()::json($response,$statusCode);
+        
         }catch( Exception $e){
              //$statusCode = 404;
+            return ResponseBuilder::errorWithDataAndHttpCode($response);
         }
         finally{
-            return Response::json($response, $statusCode);
+            return ResponseBuilder::success($response);
         }   
     }
 
