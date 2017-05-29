@@ -349,9 +349,8 @@ class projectRetriveController extends Controller
      */
     public function projectById( Request $request)
     {
-        $projectId = $Request->get('id');
+        $projectId = $request->get('id');
 
-   // dd('here');
         try{
                
                 $response = projects::where('_id','=',$projectId)->get();
