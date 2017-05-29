@@ -98,6 +98,7 @@ class projectRetriveController extends Controller
                 'volunteer'=> $project->volunteer_track,
                 ];
             }
+            return ResponseBuilder::success($response);
         }
 
         elseif($tier == 2){
@@ -114,9 +115,9 @@ class projectRetriveController extends Controller
                 'GrandRational' => $project->Funding_rational,
                 ];
             }
-
+            return ResponseBuilder::success($response);
         }
-        return ResponseBuilder::success($response);
+        //return ResponseBuilder::success($response);
         }catch( Exception $e){
           //
         }
