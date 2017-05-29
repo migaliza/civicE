@@ -209,7 +209,7 @@ class projectRetriveController extends Controller
         $funding = projects::where('_id','=',$projectId)->get(['Grand_info']);
        // dd($funding);
         foreach($funding as $projectFund){
-            $response['Funding'][]=[
+            $response['Funding']=[
             'FundingInfo' => $projectFund->Grand_info,
             ];
             
@@ -311,7 +311,7 @@ class projectRetriveController extends Controller
             $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
 
             foreach($population as $projectPop){
-                $response['population'][] = [
+                $response['population'] = [
                 'Population_Track' => $projectPop->Population_Track,
                 ];
             }
