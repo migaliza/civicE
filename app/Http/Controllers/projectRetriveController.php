@@ -356,7 +356,7 @@ class projectRetriveController extends Controller
 
                
                 $response = projects::where('_id','=',$projectId)->get();
-                
+                 dd($repsonse);
                 /*foreach($iProject as $individualProject){
                 $response[] = [
                 'projectName' => $individualProject->project_namee,
