@@ -354,9 +354,11 @@ class projectRetriveController extends Controller
  
         try{
 
-                $iProject = projects::where('_id','=',$projectId)->get();
-
-                foreach($iProject as $individualProject){
+               // $iProject = projects::where('_id','=',$projectId)->get();
+                $response =[
+                    'project' = projects::where('_id','=',$projectId)->get(),
+                ];
+                /*foreach($iProject as $individualProject){
                 $response[] = [
                 'projectName' => $individualProject->project_namee,
                 'town' => $individualProject->location_town,
@@ -378,15 +380,13 @@ class projectRetriveController extends Controller
                 'TargetPopulationTrack'=> $individualProject->Population_Track,
                 'volunteer'=> $individualProject->Volunteer_Track,
                 ];
-            }
-        
+            }*/
+         return ResponseBuilder::success($response);
         }catch( Exception $e){
              //$statusCode = 404;
             return ResponseBuilder::errorWithDataAndHttpCode($response);
         }
-        finally{
-            return ResponseBuilder::success($response);
-        }   
+  
     }
 
 
