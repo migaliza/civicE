@@ -349,41 +349,19 @@ class projectRetriveController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectById($projectId)
+    public function projectById( Request $request)
     {
+        $projectId = $Request->get('projectId');
+
    // dd('here');
         try{
-
                
                 $response = projects::where('_id','=',$projectId)->get();
-                // dd($repsonse);
-                /*foreach($iProject as $individualProject){
-                $response[] = [
-                'projectName' => $individualProject->project_namee,
-                'town' => $individualProject->location_town,
-                'region' => $individualProject->Region,
-                'country' => $individualProject->Country,
-                'longitude' => $individualProject->location_longitude,
-                'latitude' => $individualProject->location_latitude,
-                'briefDescription' => $individualProject->brief_description,
-                'commencementDate' => $individualProject->commencement_date,
-                'completionDate' => $individualProject->completion_date,
-                'primaryActivity' => $individualProject->primary_activity,
-                'partnerships' => $individualProject->partnerships,
-                'milestones' => $individualProject->milestones,
-                'Upcoming' => $individualProject->Upcoming,
-                'ImpactSectors' => $individualProject->Impact_sectors,
-                'GrandInfo' => $individualProject->Grand_info,
-                'TargetPopulation' => $individualProject->Target_population,
-                'LessonsLearnt' => $individualProject->Lessons_learnt,
-                'TargetPopulationTrack'=> $individualProject->Population_Track,
-                'volunteer'=> $individualProject->Volunteer_Track,
-                ];
-            }*/
+                
          return ResponseBuilder::success($response);
         }catch( Exception $e){
              //$statusCode = 404;
-            //return ResponseBuilder::errorWithDataAndHttpCode($response);
+            return ResponseBuilder::errorWithDataAndHttpCode($response);
         }
   
     }
