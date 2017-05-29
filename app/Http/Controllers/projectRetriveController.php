@@ -308,7 +308,7 @@ class projectRetriveController extends Controller
             $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
 
             foreach($population as $projectPop){
-                $response['population'] =>[ $projectPop->Population_Track ];
+                $response['population'] =[ $projectPop->Population_Track ];
             }
             //dd($population);
 
@@ -326,7 +326,30 @@ class projectRetriveController extends Controller
     *function to fetch the volunteer track
     *
     */
-    public function trackVolunteer(){
+    public function trackVolunteer($projectId){
+        $response = [
+            'error' => ['no response']
+        ];
+        $statusCode = 404;
+        try{
+            $response = [
+                'volunteer_track' => []
+            ];
+
+            $statusCode = 200;
+
+            $population = projects::where('_id','=',$projectId)->get(['Volunteer_Track']);
+
+            foreach($population as $projectPop){
+                $response['volunteer_track'] =[ $projectPop->Volunteer_Track,];
+            }
+            //dd($population);
+
+            return Response::json($response,$statusCode);
+        }
+        catch(Exception $e){
+            echo $e;
+        }/*finally{
         
     }
 
