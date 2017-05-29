@@ -209,10 +209,9 @@ class projectRetriveController extends Controller
         $funding = projects::where('_id','=',$projectId)->get(['Grand_info']);
        // dd($funding);
         foreach($funding as $projectFund){
-            $response['Funding']=
+            $response['Funding']=[]
             'FundingInfo' => $projectFund->Grand_info,
-            ;
-            
+            ];
         }
          return Response::json($response,$statusCode);
        }
