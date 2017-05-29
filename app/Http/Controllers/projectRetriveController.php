@@ -116,14 +116,9 @@ class projectRetriveController extends Controller
             }
 
         }
-        
+        return ResponseBuilder::success($response);
         }catch( Exception $e){
           //
-        }
-        finally{
-            //dd($response);
-            //return Response::json($response,$statusCode);
-            return ResponseBuilder::success($response);
         }
 
     }
