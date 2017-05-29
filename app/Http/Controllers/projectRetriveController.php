@@ -351,13 +351,13 @@ class projectRetriveController extends Controller
         try{
             $statusCode = 200;
             $response = [
-                $projectName => []
+                'data' => []
             ];
 
                 $iProject = projects::where('_id','=',$projectId)->get();
-                dd($iProject);
+                //dd($iProject);
                 foreach($iProject as $individualProject){
-                $response[$projectName][] = [
+                $response['data'][] = [
                 'projectName' => $individualProject->project_namee,
                 'town' => $individualProject->location_town,
                 'region' => $individualProject->Region,
@@ -383,9 +383,9 @@ class projectRetriveController extends Controller
         }catch( Exception $e){
              //$statusCode = 404;
         }
-        /*finally{
+        finally{
             return Response::json($response, $statusCode);
-        }*/   
+        }   
     }
 
 
