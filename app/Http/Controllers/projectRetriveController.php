@@ -355,6 +355,7 @@ class projectRetriveController extends Controller
             ];
 
                 $iProject = projects::where('_id','=',$projectId)->get();
+                dd($iProject);
                 foreach($iProject as $individualProject){
                 $response[$projectName][] = [
                 'projectName' => $individualProject->project_namee,
@@ -378,10 +379,7 @@ class projectRetriveController extends Controller
                 'volunteer'=> $individualProject->Volunteer_Track,
                 ];
             }
-
-      
          return response()::json($response,$statusCode);
-
         }catch( Exception $e){
              //$statusCode = 404;
         }
