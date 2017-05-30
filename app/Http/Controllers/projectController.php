@@ -31,23 +31,7 @@ class projectController extends Controller
 	*
 	*/
 	public function addNewProject(Request $request){
-		//$newProject = Input::json();
-
-		/*$project = new projects;
-
-		$project->project_name = $newProject->project_name;
-		$project->tier = $newProject->tier;
-		$project->location_name = $newProject->location_name;
-		$project->location_latitude = $newProject->location_latitude;
-		$project->location_longitude = $newProject->location_longitude;
-		$project->brief_description = $newProject->brief_description;
-		$project->commencement_date = $newProject->commencement_date;
-		$project->completion_date = $newProject->completion_date;
-		$project->status = $newProject->status;
-		$project->primary_activity = $newProject->primary_activity;
-		$project->partnerships = $newProject->partnerships;
-		$project->save();*/
-
+		
 		$project = new projects;
 
 		$projectName = $request->input('projectName');
@@ -137,7 +121,7 @@ class projectController extends Controller
 	*/
 	public function newEvent($projectName){  
 
-		return view('projectInput/event')->with('projectNamee', rawurlencode($projectName));
+		return view('ProjectInput/event')->with('projectNamee', rawurlencode($projectName));
 	}
 
 	/**
@@ -180,7 +164,7 @@ class projectController extends Controller
     *
     */
 	public function newGrant($projectName){
-		return view('/projectInput/grant')->with('projectNamee', rawurlencode($projectName));
+		return view('ProjectInput/grant')->with('projectNamee', rawurlencode($projectName));
 	}
 
 
@@ -219,7 +203,7 @@ class projectController extends Controller
     *
     */
     public function newUpcoming($projectName){
-        return view('/projectInput/upcoming')->with('projectNamee', rawurlencode($projectName));
+        return view('ProjectInput/upcoming')->with('projectNamee', rawurlencode($projectName));
     }
 
     /**
@@ -249,7 +233,7 @@ class projectController extends Controller
     */
 
     public function newTarget($projectName){
-        return view('/projectInput/target')->with('projectNamee', rawurlencode($projectName));
+        return view('ProjectInput/target')->with('projectNamee', rawurlencode($projectName));
     }
 
     /**
@@ -281,7 +265,7 @@ class projectController extends Controller
     *
     */
      public function newImpact($projectName){
-        return view('/projectInput/impact')->with('projectNamee', rawurlencode($projectName));
+        return view('ProjectInput/impact')->with('projectNamee', rawurlencode($projectName));
     }
 
 
@@ -306,7 +290,7 @@ class projectController extends Controller
     *
     */
     public function newLesson($projectName){
-        return view('projectInput/lesson')->with('projectNamee', rawurlencode($projectName));
+        return view('ProjectInput/lesson')->with('projectNamee', rawurlencode($projectName));
     }
 
 
@@ -375,7 +359,7 @@ class projectController extends Controller
     *function to display volunteer track
     */
     public function addVolTrack($projectName){
-    	return view('ProjectInput/volunteertrack')->with('projectNamee', rawurlencode($projectName));
+    	return view('ProjectInput/volunteerTrack')->with('projectNamee', rawurlencode($projectName));
 
     }
 

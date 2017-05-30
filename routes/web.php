@@ -11,14 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::name('dashboard')->get('/', function () {
+    return view('/API/dashboard');
 });
 
 
 Auth::routes();
+Route::get('/Test/PHP','projectRetriveController@test');
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
 /**add new project view */
 Route::get('/project/new','projectController@newProject');
 
@@ -49,9 +50,35 @@ Route::get('/lesson/newLesson/{projectName}','projectController@newLesson')->nam
 Route::get('/target/population/track/{projectName}','projectController@addPopTrack')->name('popTrack');
 
 /** new volunteer track */
-Route::get('/volunteer/population/track{projectName}','projectController@addVolTrack')->name('volTrack');
+Route::get('/volunteer/population/track/{projectName}','projectController@addVolTrack')->name('volTrack');
 
 Route::name('fRational')->get('/funding/rational/{projectName}','projectController@addNewFundingRational');
 
+/** display the API view admin page */
+Route::name('admin')->get('/admin', 'Phase2Controller@index');
 
 
+/** display the API view project adpi docs */
+Route::name('apiProject')->get('/api/project', 'HomeController@project');
+
+/** display the API view tier api docs */
+Route::name('apiTier')->get('/api/project/tier', 'HomeController@tier');
+
+
+/** display the API view project descriptions api docs */
+Route::name('apiDescription')->get('/api/project/descriptions', 'HomeController@projectDescriptions');
+
+/** display the API view project grand info api docs */
+Route::name('apiGrand')->get('/api/project/grand', 'HomeController@grand');
+
+
+/** display the API view individual project  api docs */
+Route::name('apiIndividual')->get('/api/project/individual', 'HomeController@individual');
+
+
+/** display the API view project population info api docs */
+Route::name('populationTrack')->get('/api/project/track/population', 'HomeController@population');
+
+
+/** display the API view project volunteers  api docs */
+Route::name('volunteersTrack')->get('/api/project/track/volunteers', 'HomeController@volunteer');

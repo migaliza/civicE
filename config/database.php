@@ -34,15 +34,14 @@ return [
     'connections' => [
         'mongodb' => [
             'driver'   => 'mongodb',
-            'host'     => env('DB_HOST'),
-            'port'     => env('DB_PORT'),
+            'host'     => env('DB_HOST','ds123351.mlab.com'),
+            'port'     => env('DB_PORT','23351'),
             'database' => env('DB_DATABASE'),
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
             'options'  => array(
-                //'database' => 'cecapp', // sets the authentication database required by mongo 3
-                'database' => 'heroku_2gz3f54l',
-
+              'database' => 'heroku_2gz3f54l', // sets the authentication database required by mongo 3
+                //'database' => 'cecapp'
               
             )
         ],

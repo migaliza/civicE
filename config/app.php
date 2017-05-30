@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => "errorlog",
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -162,7 +162,11 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-       Jenssegers\Mongodb\MongodbServiceProvider::class,
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
+        EllipseSynergie\ApiResponse\Laravel\ResponseServiceProvider::class,
+        Themsaid\Transformers\TransformersServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
+        MarcinOrlowski\ResponseBuilder\ResponseBuilderServiceProvider::class,
        //EllipseSynergie\ApiResponse\Laravel\ResponseServiceProvider::class,
         
        // Collective\Html\HtmlServiceProvider::class,

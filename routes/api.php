@@ -21,8 +21,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //list project name and description
 Route::get('/projects/project/description', 'projectRetriveController@projectNameDescription');
 
-//list location funding data of the project
-Route::get('/projects/funding/{projectName}','projectRetriveController@projectFunding');
+//list all project data
+Route::get('Projects/{projectName}','projectRetriveController@projectData');
+
+//test response
+Route::get('Projects/all/test','testingResponse@books');
+
+
+//Route::Post('Projects/Create');
+
+Route::get('/projects/funding','projectRetriveController@projectFunding');
 
 /** display project tier */
 Route::get('/projects/{tier}','projectRetriveController@tiers');
@@ -32,6 +40,9 @@ Route::get('/projects','projectRetriveController@projectData');
 
 //create a new project
 Route::Post('/projects/create/project','projectController@addNewProject');
+
+/** display project tier */
+Route::get('/projects/{tier}','projectRetriveController@tiers');
 
 /**add new milestone*/
 Route::post('/projects/milestone/addMilestone','projectController@addNewMilestone'); 
@@ -63,10 +74,17 @@ Route::post('/project/target/population/add','projectController@addPopulationTra
 /**add a new funding rational for tier 2 projects */
 Route::post('/project/funding/rational/new','projectController@addFundingRational');
 
-//create a new sentiment analysis
-Route::Post('Projects/Sentiment');
+/**retrieve project information */
+Route::get('/{projectName}/information/','projectRetriveController@projectInformation');
 
-//retrieve project by name
-Route::get('Project/{ProjectName}');
+/**retrieve project information */
+Route::get('/project/track/population','projectRetriveController@trackPopulation');
+
+/**retrieve project information */
+Route::get('/project/track/volunteers','projectRetriveController@trackVolunteer');
+
+/**retrieve project information */
+Route::get('/projects/project/id','projectRetriveController@projectById');
+
 
 

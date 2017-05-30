@@ -1,21 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
+   
     /**
      * Show the application dashboard.
      *
@@ -23,6 +12,41 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('Phase2/index');
+    }
+
+    public function project(){
+    	return view('API/project');
+    }
+
+    public function tier(){
+        return view('API/tier');
+    }
+
+    public function projectDescriptions(){
+        return view('API/projectDescriptions');
+    }
+
+    public function grand(){
+        return view('API/grandInfo');
+    }
+
+    public function individual(){
+        return view('API/individualProject');
+    }
+
+    /**
+    *population track
+    *
+    */
+    public function population(){
+        return view('API/trackPopulation');
+    }
+
+    /**
+    *volunteer view 
+    */
+    public function volunteer(){
+        return view('API/trackVolunteers');
     }
 }
