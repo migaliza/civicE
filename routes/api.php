@@ -78,10 +78,10 @@ Route::post('/project/funding/rational/new','projectController@addFundingRationa
 Route::get('/{projectName}/information/','projectRetriveController@projectInformation');
 
 /**retrieve project information */
-Route::get('/project/track/population/{projectId}','projectRetriveController@trackPopulation');
+Route::get('/project/track/population','projectRetriveController@trackPopulation');
 
 /**retrieve project information */
-Route::get('/project/track/volunteers/{projectId}','projectRetriveController@trackVolunteer');
+Route::get('/project/track/volunteers','projectRetriveController@trackVolunteer');
 
 /**retrieve project information */
 Route::get('/projects/project/id','projectRetriveController@projectById');

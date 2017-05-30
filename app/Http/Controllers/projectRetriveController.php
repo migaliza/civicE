@@ -181,33 +181,19 @@ class projectRetriveController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectFunding($projectId)
+    public function projectFunding(Request $request)
     {
-        $statusCode = 404;
-             $response = [
-                'error' => ['no response']
-
-             ];
-
-       try{
-        $response =[
-            'Funding' => []
-        ];
-        $statusCode = 200;
-        $funding = projects::where('_id','=',$projectId)->get(['Grand_info']);
-       // dd($funding);
-        foreach($funding as $projectFund){
-            $response['Funding']=['FundingInfo' => $projectFund->Grand_info];
+        $projectId = $request->get('id');
+        if(!is_null($projectId)){
+            $funding = projects::where('_id','=',$projectId)->get(['Grand_info']);
+            if(!is_null($funding)){
+                return ResponseBuilder::success($funding);
+            }
         }
-         return Response::json($response,$statusCode);
-       }
-       catch(Exception $e){
-         //
-       }
-       finally{
-        return Response::json($response,$statusCode);
-       }
-  
+        else{
+            $data =["error" => "ensure you input id correctly"];
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
+        }
     }
 
 
@@ -281,65 +267,39 @@ class projectRetriveController extends Controller
     *function to fetch the target population track
     *
     */
-    public function trackPopulation($projectId){
-        $response = [
-            'error' => ['no response']
-        ];
-        $statusCode = 404;
-        try{
-            $response = [
-                'population' => []
-            ];
-
-            $statusCode = 200;
-
-            $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
-
-            foreach($population as $projectPop){
-                $response['population'] = $projectPop->Population_Track;
-            }
-            //dd($population);
-
-            return Response::json($response,$statusCode);
+    public function trackPopulation(Request $request){
+        $projectId = $request->get('id');
+        if(!is_null($projectId)){
+             $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
+             if(!is_null($population)){
+                return ResponseBuilder::success($population);
+             }
         }
-        catch(Exception $e){
-            echo $e;
-        }/*finally{
-            //
-            return Response::json($response,$statusCode);
-        }*/
+        else{
+            $data = ["error" => "ensure you input id correctly"];
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
+        }
+
     }
 
     /**
     *function to fetch the volunteer track
     *
     */
-    public function trackVolunteer($projectId){
-        $response = [
-            'error' => ['no response']
-        ];
-        $statusCode = 404;
-        try{
-            $response = [
-                'volunteer_track' => []
-            ];
-
-            $statusCode = 200;
-
-            $population = projects::where('_id','=',$projectId)->get(['Volunteer_Track']);
-
-            foreach($population as $projectPop){
-                $response['volunteer_track'] = $projectPop->Volunteer_Track;
+    public function trackVolunteer(Request $request){
+        //response
+        $projectId =$request->get('id');
+        if(!is_null($projectId)){
+            $volunteers = projects::where('_id','=',$projectId)->get(['Volunteer_Track']);
+            if(!is_null($volunteers)){
+                return ResponseBuilder::success($volunteers);
             }
-            return Response::json($response,$statusCode);
         }
-        catch(Exception $e){
-            echo $e;
+        else{
+            $data = ["error" => "ensure you input id correctly" ];
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
         }
-        finally{
-            return Response::json($response,$statusCode);
-        }
-
+  
     }
 
 
@@ -362,8 +322,6 @@ class projectRetriveController extends Controller
         $data = ["error" => "pass a valid id"];
             return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
        }
-       
-  
     }
 
 

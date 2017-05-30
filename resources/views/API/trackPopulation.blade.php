@@ -6,11 +6,11 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Grand Info</h1>
+        <h1 class="page-header">Tracking Target Population</h1>
     </div>
 </div>
 <div>
-    <p>Displays grand info for the project.</p>
+    <p>Displays the number of impacted by the project over time.</p>
    
 
     <div></div>
