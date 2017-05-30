@@ -131,49 +131,13 @@ class projectRetriveController extends Controller
      */
     public function projectData()
     {
-        $statusCode = 404;
-        $response = ['error' => ['no response']];
-        try{
-            $statusCode = 200;
-            $response = [
-              'Projects' => []
-            ];
-
-            $projectData = projects::all();
-
-            foreach($projectData as $projectD){
-                    //dd($projectData);
-                    $response['Projects'][] = [
-                    'projectName' => $projectD->project_namee,
-                    'town' => $projectD->location_town,
-                    'region' => $projectD->Region,
-                    'country' => $projectD->Country,
-                    'longitude' => $projectD->location_longitude,
-                    'latitude' => $projectD->location_latitude,
-                    'briefDescription' => $projectD->brief_description,
-                    'commencementDate' => $projectD->commencement_date,
-                    'completionDate' => $projectD->completion_date,
-                    'primaryActivity' => $projectD->primary_activity,
-                    'partnerships' => $projectD->partnerships,
-                    'milestones' => $projectD->milestones,
-                    'Upcoming' => $projectD->Upcoming,
-                    'ImpactSectors' => $projectD->Impact_sectors,
-                    'GrandInfo' => $projectD->Grand_info,
-                    'TargetPopulation' => $projectD->Target_population,
-                    'LessonsLearnt' => $projectD->Lessons_learnt,
-                    'TargetPopulationTrack' => $projectD->Population_Track,
-                    'volunteer' => $projectD->Volunteer_Track,
-                ];
-            }
-            //dd($projectData);
-            return Response::json($response,$statusCode);
+        $projectData = projects::all();
+        if(!is_null($projectData)){
+            return ResponseBuilder::success($projectData);
         }
-        catch(Exception $e){
-
+        else{
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
         }
-            return Response::json($response,$statusCode);
-        
-               
     }
 
     /**
