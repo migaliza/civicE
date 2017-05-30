@@ -347,15 +347,14 @@ class projectRetriveController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectById(Request $request)
+    public function projectById(Request $request, $id)
     {
-        $projectId = $request->get('id');
+        $projectId = $id;
         dd($projectId);
 
         try{
                
-                $response = projects::where('_id','=',$projectId)->get();
-                
+         $response = projects::where('_id','=',$projectId)->get();
          return ResponseBuilder::success($response);
         }catch( Exception $e){
              //$statusCode = 404;
