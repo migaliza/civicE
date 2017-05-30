@@ -277,15 +277,15 @@ class projectRetriveController extends Controller
         $projectId = $request->get('id');
        //dd($projectId);
        if(!is_null($projectId)){
-        $projectTier = projects::where('tier','=', 1)->get()->toArray();
+        /*$projectTier = projects::where('tier','=', 1)->get()->toArray();
         $tier = $projectTier[0]['tier'];
         dd($tier);
-        if($tier == 1){
-            $response = projects::where('_id','=',$projectId)->get();
+        if($tier == 1){*/
+            $response = projects::where('_id','=',$projectId, 'tier','=',1)->get();
             if(!is_null($response)){
                 return ResponseBuilder::success($response);
             }
-        }
+       // }
        }
        else{
         $data = ["error" => "pass a valid id"];
