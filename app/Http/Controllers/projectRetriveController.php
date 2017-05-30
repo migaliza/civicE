@@ -187,7 +187,10 @@ class projectRetriveController extends Controller
         if(!is_null($projectId)){
             $funding = projects::where('_id','=',$projectId)->get(['Grand_info']);
             if(!is_null($funding)){
-                return ResponseBuilder::success($funding);
+                foreach($funding as $fund){
+                    $response[] = $fund->Grand_info;
+                }
+                return ResponseBuilder::success($response);
             }
         }
         else{
