@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 use Response;
 use App\projects;
+use App\ApiCode;
 //use Request;
 
 
@@ -352,14 +353,13 @@ class projectRetriveController extends Controller
         $projectId = $request->get('id');
        //dd($projectId);
        if(!is_null($projectId)){
-
             $response = projects::where('_id','=',$projectId)->get();
             if(!is_null($reponse)){
                 return ResponseBuilder::success($response);
             }
        }
        else{
-        $data = ["error" => "pass a valid id"]
+        $data = ["error" => "pass a valid id"];
             return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
        }
        
