@@ -356,7 +356,6 @@ class projectRetriveController extends Controller
          return ResponseBuilder::success($response);
        }
        else{
-        $api_code, array $lang_args = null, $data = null, $http_code = null, $encoding_options = null
             return ResponseBuilder::error(404);
        }
        
