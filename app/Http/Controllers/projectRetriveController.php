@@ -352,11 +352,15 @@ class projectRetriveController extends Controller
         $projectId = $request->get('id');
        //dd($projectId);
        if(!is_null($projectId)){
+
             $response = projects::where('_id','=',$projectId)->get();
-         return ResponseBuilder::success($response);
+            if(!is_null($reponse)){
+                return ResponseBuilder::success($response);
+            }
        }
        else{
-            return ResponseBuilder::error(404);
+        $data = ["error" => "pass a valid id"]
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
        }
        
   
