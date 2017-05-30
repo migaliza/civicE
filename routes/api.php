@@ -30,7 +30,7 @@ Route::get('Projects/all/test','testingResponse@books');
 
 //Route::Post('Projects/Create');
 
-Route::get('/projects/funding/{projectId}','projectRetriveController@projectFunding');
+Route::get('/projects/funding','projectRetriveController@projectFunding');
 
 /** display project tier */
 Route::get('/projects/{tier}','projectRetriveController@tiers');
