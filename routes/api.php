@@ -21,10 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //list project name and description
 Route::get('/projects/project/description', 'projectRetriveController@projectNameDescription');
 
-//list location funding data of the project
-
-Route::get('Projects/funding/{projectName}','projectRetriveController@projectFunding');
-
 //list all project data
 Route::get('Projects/{projectName}','projectRetriveController@projectData');
 
@@ -34,7 +30,7 @@ Route::get('Projects/all/test','testingResponse@books');
 
 //Route::Post('Projects/Create');
 
-Route::get('/projects/funding/{projectName}','projectRetriveController@projectFunding');
+Route::get('/projects/funding','projectRetriveController@projectFunding');
 
 /** display project tier */
 Route::get('/projects/{tier}','projectRetriveController@tiers');
@@ -81,10 +77,14 @@ Route::post('/project/funding/rational/new','projectController@addFundingRationa
 /**retrieve project information */
 Route::get('/{projectName}/information/','projectRetriveController@projectInformation');
 
-//create a new sentiment analysis
-//Route::Post('Projects/Sentiment');
+/**retrieve project information */
+Route::get('/project/track/population','projectRetriveController@trackPopulation');
 
-//retrieve project by name
-//Route::get('Project/{ProjectName}');
+/**retrieve project information */
+Route::get('/project/track/volunteers','projectRetriveController@trackVolunteer');
+
+/**retrieve project information */
+Route::get('/projects/project/id','projectRetriveController@projectById');
+
 
 

@@ -70,3 +70,15 @@ Route::name('apiDescription')->get('/api/project/descriptions', 'HomeController@
 
 /** display the API view project grand info api docs */
 Route::name('apiGrand')->get('/api/project/grand', 'HomeController@grand');
+
+
+/** display the API view individual project  api docs */
+Route::name('apiIndividual')->get('/api/project/individual', 'HomeController@individual');
+
+
+/** display the API view project population info api docs */
+Route::name('populationTrack')->get('/api/project/track/population', 'HomeController@population');
+
+
+/** display the API view project volunteers  api docs */
+Route::name('volunteersTrack')->get('/api/project/track/volunteers', 'HomeController@volunteer');

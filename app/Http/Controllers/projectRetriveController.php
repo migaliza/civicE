@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use EllipseSynergie\ApiResponse\Contracts\Response;
-//use app\projects;
-//use EllipseSynergie\ApiResponse\Contracts\Response;
+use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 use Response;
 use App\projects;
+use App\ApiCode;
+//use Request;
 
 
 class projectRetriveController extends Controller
@@ -35,28 +35,23 @@ class projectRetriveController extends Controller
      */
     public function projectNameDescription()
     {
-        $statusCode = 404;
-             $response = [
-                'error' => ['no response']
-
-             ];
 
         try{
             $statusCode = 200;
-            $response =[
+            $response = [
                 'projectDescriptions' =>[]
             ];
             
-            $projects = projects::all('project_namee','brief_description');
-            //dd($projects);
+            $projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
+         
             foreach($projects as $project){
-                $response['projectDescriptions'][] = [
+                $resp[] = [
+                'id' => $project->_id,
                 'projectName' => $project->project_namee,
                 'description' => $project->brief_description,
                 ];
-                //echo $response;
             }
-             //dd($projects);
+            $response = $resp;
             return Response::json($response,$statusCode);
         }
         catch(Exception $e){
@@ -74,11 +69,7 @@ class projectRetriveController extends Controller
     *
     */
     public function tiers($tier){
-       $statusCode = 404;
-             $response = [
-                'error' => ['no response']
-
-             ];
+     
         try{
             $statusCode = 200;
             if($tier == 1){
@@ -86,11 +77,9 @@ class projectRetriveController extends Controller
                 'Tier1' => []
             ];
 
-        
             $projectTier = projects::where('tier','=',$tier)->get();
-            //dd($projectTier);
             foreach($projectTier as $project){
-                $response['Tier1'][] = [
+                $response[] = [
                 'projectName' => $project->project_namee,
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
@@ -106,9 +95,9 @@ class projectRetriveController extends Controller
                 'LessonsLearnt' => $project->Lessons_learnt,
                 'TargetPopulationTrack'=> $project->Population_Track,
                 'volunteer'=> $project->volunteer_track,
-
                 ];
             }
+            return ResponseBuilder::success($response);
         }
 
         elseif($tier == 2){
@@ -117,26 +106,20 @@ class projectRetriveController extends Controller
             ];
             $projectTier = projects::where('tier','=',$tier)->get();
             foreach($projectTier as $project){
-                $response['Tier2'][] = [
+                $response[] = [
                 'projectName' => $project->project_namee,
                 'location' => $project->location_name,
                 'briefDescription' => $project->brief_description,
                 'GrandInfo' => $project->Grand_info,
                 'GrandRational' => $project->Funding_rational,
-
                 ];
             }
-
+            return ResponseBuilder::success($response);
         }
-        return response()->json($response,$statusCode);
+        //return ResponseBuilder::success($response);
         }catch( Exception $e){
           //
         }
-        finally{
-            //dd($response);
-            return response()->json($response,$statusCode);
-        }
-        
 
     }
 
@@ -148,53 +131,33 @@ class projectRetriveController extends Controller
      */
     public function projectData()
     {
-
-        
         $projectData = projects::all();
-
-        return response()->json([$projectData]);
-       
+        if(!is_null($projectData)){
+            return ResponseBuilder::success($projectData);
+        }
+        else{
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
+        }
     }
-
-
-
 
     /**
      * Retrieve funding information
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectFunding($projectName)
+    public function projectFunding(Request $request)
     {
-        $statusCode = 404;
-             $response = [
-                'error' => ['no response']
-
-             ];
-
-       try{
-        $response =[
-            'Funding' => []
-        ];
-        $statusCode = 200;
-        $funding = projects::where('project_namee','=',$projectName)->get(['Grand_info']);
-
-        foreach($funding as $projectFund){
-            $response['Funding'][]=[
-            'FundingInfo' => $projectFund->Grand_info,
-            
-            ];
-            
+        $projectId = $request->get('id');
+        if(!is_null($projectId)){
+            $funding = projects::where('_id','=',$projectId)->get(['Grand_info']);
+            if(!is_null($funding)){
+                return ResponseBuilder::success($response);
+            }
         }
-         return response()->json($response,$statusCode);
-       }
-       catch(Exception $e){
-         //$statusCode = 404;
-       }
-       finally{
-        return response()->json($response,$statusCode);
-       }
-  
+        else{
+            $data =["error" => "ensure you input id correctly"];
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
+        }
     }
 
 
@@ -205,7 +168,7 @@ class projectRetriveController extends Controller
      */
     public function sentimentAnalysis(Request $request)
     {
-        //phpinfo();
+     
         return view('ProjectInput/newProject');
     }
 
@@ -217,27 +180,25 @@ class projectRetriveController extends Controller
     public function projectInformation($projectName)
     {
         $statusCode = 404;
-             $response = [
+        $response = [
                 'error' => ['no response']
-
              ];
 
         try{
             $statusCode = 200;
-            
             $response = [
                 $projectName => []
             ];
 
-            $tier = projects::where('project_namee', '=', $projectName)->get(['tier'])->toArray();
-          $pTier = $tier[0]['tier'];
-            
-            if($pTier == "1"){
                 $iProject = projects::where('project_namee','=',$projectName)->get();
                 foreach($iProject as $individualProject){
                 $response[$projectName][] = [
                 'projectName' => $individualProject->project_namee,
-                'location' => $individualProject->location_name,
+                'town' => $individualProject->location_town,
+                'region' => $individualProject->Region,
+                'country' => $individualProject->Country,
+                'longitude' => $individualProject->location_longitude,
+                'latitude' => $individualProject->location_latitude,
                 'briefDescription' => $individualProject->brief_description,
                 'commencementDate' => $individualProject->commencement_date,
                 'completionDate' => $individualProject->completion_date,
@@ -250,33 +211,89 @@ class projectRetriveController extends Controller
                 'TargetPopulation' => $individualProject->Target_population,
                 'LessonsLearnt' => $individualProject->Lessons_learnt,
                 'TargetPopulationTrack'=> $individualProject->Population_Track,
-                'volunteer'=> $individualProject->volunteer_track,
+                'volunteer'=> $individualProject->Volunteer_Track,
                 ];
             }
 
-        }   
-        elseif($pTier == '2'){
-           $iProject = projects::where('project_namee','=',$projectName)->get();
-
-            foreach($iProject as $individualProject){
-                $response[$projectName][] = [
-                'projectName' => $individualProject->project_namee,
-                'location' => $individualProject->location_name,
-                'briefDescription' => $individualProject->brief_description,
-                'GrandInfo' => $individualProject->Grand_info,
-                'GrandRational' => $individualProject->funding_rational,
-                ];
-            }
-
-        }
-         return response()->json($response,$statusCode);
+      
+         return response()::json($response,$statusCode);
 
         }catch( Exception $e){
              //$statusCode = 404;
         }
         finally{
-            return response()->json($response, $statusCode);
+            return Response::json($response, $statusCode);
         }   
+    }
+
+
+    /**
+    *function to fetch the target population track
+    *
+    */
+    public function trackPopulation(Request $request){
+        $projectId = $request->get('id');
+        if(!is_null($projectId)){
+             $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
+             if(!is_null($population)){
+                return ResponseBuilder::success($population);
+             }
+        }
+        else{
+            $data = ["error" => "ensure you input id correctly"];
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
+        }
+
+    }
+
+    /**
+    *function to fetch the volunteer track
+    *
+    */
+    public function trackVolunteer(Request $request){
+        //response
+        $projectId =$request->get('id');
+        if(!is_null($projectId)){
+            $volunteers = projects::where('_id','=',$projectId)->get(['Volunteer_Track']);
+            if(!is_null($volunteers)){
+                return ResponseBuilder::success($volunteers);
+            }
+        }
+        else{
+            $data = ["error" => "ensure you input id correctly" ];
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
+        }
+  
+    }
+
+
+    /**
+     * Retrieve project information by project name
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function projectById(Request $request)
+    {
+        $projectId = $request->get('id');
+       //dd($projectId);
+       if(!is_null($projectId)){
+ 
+            $response = projects::where('_id','=',$projectId)->where('tier','=',"1")->get();
+            $count = count($response);
+            if($count>0){
+               // dd('true');
+                return ResponseBuilder::success($response);
+            }
+            else{
+                $data = ["error" => "pass a valid id"];
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
+            }
+       
+       }
+       else{
+        $data = ["error" => "pass a valid id"];
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
+       }
     }
 
 

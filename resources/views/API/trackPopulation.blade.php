@@ -6,23 +6,23 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Grand Info</h1>
+        <h1 class="page-header">Tracking Target Population</h1>
     </div>
 </div>
 <div>
-    <p>Displays grand info for the project.</p>
+    <p>Displays the number of impacted by the project over time.</p>
    
 
     <div></div>
 
     <h4>Method:  <b>Get</b></h4>
     <div></div>
-    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding" target="_blank"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding?<b>id=kjsfjks</b></a> </h5>
+    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/track/population" target="_blank"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding?<b>id=874932hj</b></a> </h5>
 
     <div></div>
     <h5>Parameters: </h5>
     <ul>
-        <li>project id i.e <i>79827kjdhj</i></li>
+        <li>project id i.e <b>id=<i>79827kjdhj</i></b></li>
     </ul>
   
    
