@@ -282,7 +282,8 @@ class projectRetriveController extends Controller
         dd($tier);
         if($tier == 1){*/
             $response = projects::where('_id','=',$projectId)->where('tier','=',"1")->get();
-            dd($response);
+            $count = count($response);
+            dd($count);
             if(!is_null($response)){
                 return ResponseBuilder::success($response);
             }
