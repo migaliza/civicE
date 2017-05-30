@@ -34,4 +34,19 @@ class HomeController extends Controller
     public function individual(){
         return view('API/individualProject');
     }
+
+    /**
+    *population track
+    *
+    */
+    public function population(){
+        return view('API/trackPopulation');
+    }
+
+    /**
+    *volunteer view 
+    */
+    public function volunteers(){
+        return view('API/trackVolunteers');
+    }
 }
