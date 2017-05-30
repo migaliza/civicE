@@ -350,15 +350,15 @@ class projectRetriveController extends Controller
     public function projectById(Request $request)
     {
         $projectId = $request->get('id');
-       dd($projectId);
-        try{
-               
-         $response = projects::where('_id','=',$projectId)->get();
+       //dd($projectId);
+       if(!is_null($projectId)){
+            $response = projects::where('_id','=',$projectId)->get();
          return ResponseBuilder::success($response);
-        }catch( Exception $e){
-             //$statusCode = 404;
-            return ResponseBuilder::errorWithDataAndHttpCode($response);
-        }
+       }
+       else{
+            return ResponseBuilder::error();
+       }
+       
   
     }
 
