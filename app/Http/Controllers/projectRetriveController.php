@@ -350,7 +350,7 @@ class projectRetriveController extends Controller
     public function projectById(Request $request)
     {
         $projectId = $request->get('id');
-        dd($projectId);
+        //dd($projectId);
 
         try{
                
