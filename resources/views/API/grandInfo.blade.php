@@ -17,12 +17,12 @@
 
     <h4>Method:  <b>Get</b></h4>
     <div></div>
-    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding/" target="_blank"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding/ </a> </h5>
+    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding" target="_blank"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding?<b>id=kjsfjks</b></a> </h5>
 
     <div></div>
     <h5>Parameters: </h5>
     <ul>
-        <li>project name i.e <i>Tontro</i></li>
+        <li>project id i.e <i>79827kjdhj</i></li>
     </ul>
   
    

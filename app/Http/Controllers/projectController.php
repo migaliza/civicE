@@ -31,23 +31,7 @@ class projectController extends Controller
 	*
 	*/
 	public function addNewProject(Request $request){
-		//$newProject = Input::json();
-
-		/*$project = new projects;
-
-		$project->project_name = $newProject->project_name;
-		$project->tier = $newProject->tier;
-		$project->location_name = $newProject->location_name;
-		$project->location_latitude = $newProject->location_latitude;
-		$project->location_longitude = $newProject->location_longitude;
-		$project->brief_description = $newProject->brief_description;
-		$project->commencement_date = $newProject->commencement_date;
-		$project->completion_date = $newProject->completion_date;
-		$project->status = $newProject->status;
-		$project->primary_activity = $newProject->primary_activity;
-		$project->partnerships = $newProject->partnerships;
-		$project->save();*/
-
+		
 		$project = new projects;
 
 		$projectName = $request->input('projectName');
