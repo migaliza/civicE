@@ -84,7 +84,7 @@ Route::get('/project/track/population/{projectId}','projectRetriveController@tra
 Route::get('/project/track/volunteers/{projectId}','projectRetriveController@trackVolunteer');
 
 /**retrieve project information */
-Route::get('/projects/project/{id}','projectRetriveController@projectById');
+Route::get('/projects/project/id','projectRetriveController@projectById');
 
 
 
