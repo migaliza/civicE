@@ -354,7 +354,7 @@ class projectRetriveController extends Controller
        //dd($projectId);
        if(!is_null($projectId)){
             $response = projects::where('_id','=',$projectId)->get();
-            if(!is_null($reponse)){
+            if(!is_null($response)){
                 return ResponseBuilder::success($response);
             }
        }
