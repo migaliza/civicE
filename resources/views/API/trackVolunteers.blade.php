@@ -17,12 +17,12 @@
 
     <h4>Method:  <b>Get</b></h4>
     <div></div>
-    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding/" target="_blank"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding/{projectId} </a> </h5>
+    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/track/volunteers" target="_blank"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/funding?<b>id=982uoi</b> </a> </h5>
 
     <div></div>
     <h5>Parameters: </h5>
     <ul>
-        <li>project id i.e <i>79827kjdhj</i></li>
+        <li>project id i.e <b>id=<i>79827kjdhj</i></i></li>
     </ul>
   
    
