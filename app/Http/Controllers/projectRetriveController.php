@@ -279,14 +279,16 @@ class projectRetriveController extends Controller
        if(!is_null($projectId)){
  
             $response = projects::where('_id','=',$projectId)->where('tier','=',"1")->get();
-
             $count = count($response);
-            //dd($count>0);
             if($count>0){
-                dd('true');
+               // dd('true');
                 return ResponseBuilder::success($response);
             }
-       // }
+            else{
+                $data = ["error" => "pass a valid id"];
+            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
+            }
+       
        }
        else{
         $data = ["error" => "pass a valid id"];
