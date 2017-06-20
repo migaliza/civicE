@@ -86,8 +86,6 @@ class projectController extends Controller
 		$project->save();
 		return Redirect::back()->withSuccess('Project has been successfully created');
 
-		//return Redirect::route('/Project/New')->withSuccess('Project has successfully been created.');
-
 	}
 
 	/**
@@ -103,11 +101,10 @@ class projectController extends Controller
 	*function to add a milestone
 	*/
 	public function addNewMilestone(Request $milestone){
-		//dd('here to add milestone');
+
 		$projectN = $milestone->input('project_name');
 		$milestoneInput = $milestone->input('milestone');
 
-       //dd(rawurldecode($projectN));
 		if(!empty($milestoneInput)){
 			$project = projects::where('project_namee','=',rawurldecode($projectN))->push('milestones',array('milestone_description' => $milestoneInput));
 		}

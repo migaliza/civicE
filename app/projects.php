@@ -3,8 +3,7 @@ namespace App;
 
 
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
-//use Illuminate\Database\Eloquent\Model;
-//use Milestone;
+
 
 class projects extends Eloquent
 {
@@ -26,7 +25,23 @@ class projects extends Eloquent
     protected $status;
     protected $primary_activity;
     protected $partnerships;
-   
+
+    /*
+    *embed statistics collection to project
+    */
+    public function pStatistics(){
+        return $this->embedsOne('App\statistics');
+    }
+
+    /*
+    *embed funding info collection to project
+    */
+
+    public function fundingInfo(){
+        return $this->embedsMany('App\fundingInfo');
+    }
+
+
 
  
 }
