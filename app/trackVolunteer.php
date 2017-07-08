@@ -9,5 +9,5 @@ class trackVolunteer extends Eloquent
     //
     protected $baseline;
     protected $current;
-    protected $cumulative;
+    protected $difference;
 }

@@ -49,7 +49,18 @@ return [
 	|
 	*/
 	'map' => [
-		ApiCode::SOMETHING_WENT_WRONG =>'api.something_went_wrong',
+		//ApiCode::SOMETHING_WENT_WRONG =>'api.something_went_wrong',
+		ApiCode::WRONG_PROJECT_ID =>'Project ID not provided',
+		ApiCode::FIELDS_NOT_ENTERED_STATISTICS=> 'Check that you entered a valid number',
+		ApiCode::OBJECT_NOT_CREATED => 'Object does not exist. Check that you provided the right ID!!',
+		ApiCode::All_FIELDS_NOT_ENTERED => 'Enter all the required fields',
+		APICode::NO_FUNDING_id => 'Funding ID not provided',
+		ApiCode::NO_EXPENDITURE_ID => 'Expenditure ID not provided',
+		ApiCode::WRONG_PROJECT_LEAD_ID => 'Project Lead not entered',
+		ApiCode::WRONG_GRAND_ID_USED => 'Id does not exist. Ensure that you entered correctly',
+		ApiCode::GRAND_ID_NOT_ENTERED => 'Grand Id not entered',
+		
+
 	],
 
 

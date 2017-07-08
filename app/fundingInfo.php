@@ -11,4 +11,8 @@ class fundingInfo extends Eloquent
     protected $fAmount;
     protected $fObjective;
     protected $fDescription;
+
+    public function expenditure(){
+    	return $this->embedsMany('App\Expenditure');
+    }
 }

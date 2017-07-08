@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Input;
 use Redirect;
 use EllipseSynergie\ApiResponse\Contracts\Response;
 use App\projects;
+use App\ProjectLead;
+
 class projectController extends Controller
 {
 	
@@ -34,127 +36,82 @@ class projectController extends Controller
 		
 		$project = new projects;
 
-		$projectName = $request->input('projectName');
-		$projectTier = $request->input('tier');
-		$projectLocation = $request->input('location');
-		$projectLatitude = $request->input('latitude');
-		$projectLongitude = $request->input('longitude');
-		$projectDescription = $request->input('description');
-		$projectCommencement = $request->input('Commencement_date');
-		$projectCompletion = $request->input('completion_date');
-		$projectStatus = $request->input('status');
-		$projectPrimary = $request->input('primary_activity');
-		$projectPartnership = $request->input('partnerships');
+		if(!empty($request->input('projectName'))){
+			$project->projectName = $request->input('projectName');
+		}
 
-		if(!empty($projectName)){
-			$project->project_namee = $projectName; 
+		if(!empty($request->input('facultyId'))){
+			$project->facultyId = $request->input('facultyId');
 		}
-		if(!empty($projectTier)){
-			$project->tier = $projectTier;
+		if(!empty($request->input('town'))){
+			$project->town = $request->input('town');
 		}
-		if(!empty($projectLocation)){
-			$project->location_name = $projectLocation;
+		if(!empty($request->input('region'))){
+			$project->region = $request->input('region');
 		}
-		if(!empty($projectLatitude)){
-			$project->location_latitude= $projectLatitude;
+		if(!empty($request->input('latitude'))){
+			$project->latitude = $request->input('latitude');
 		}
-		if(!empty($projectLongitude)){
-			$project->location_longitude = $projectLongitude;
+		if(!empty($request->input('longitude'))){
+			$project->longitude = $request->input('longitude');
 		}
-		if(!empty($projectDescription)){
-			$project->brief_description = $projectDescription;
+		if(!empty($request->input('description'))){
+			$project->description = $request->input('description');
 		}
-		if(!empty($projectCommencement)){
-			$project->commencement_date = $projectCommencement;
+		if(!empty($request->input('Commencement_date'))){
+			$dateCommence = strtotime($request->input('Commencement_date'));
+			//$commencementDate = date('Y-M-d',$dateCommence);
+			$project->commencementDate = date('Y-M-d',$dateCommence);
 		}
-		if(!empty($projectCompletion)){
-			$project->completion_date = $projectCompletion;
+		if(!empty($request->input('completion_date'))){ 
+			$dateComplete = strtotime($request->input('completion_date'));
+			//$completionDate = date('y-m-d', $dateComplete);
+			$project->completionDate = date('Y-M-d', $dateComplete);
 		}
-		if(!empty($projectStatus)){
-			$project->status = $projectStatus;
-		}
-		if(!empty($projectPrimary)){
-			$project->primary_activity = $projectPrimary;
-		}
-		if(!empty($projectPartnership)){
-			$project->partnerships = $projectPartnership;
+		if(!empty($request->input('project.*.primary'))){
+			$project->primaryActivity = $request->input('project.primary');
+			//dd($project->primaryActivity);
+		}//array input
+		if(!empty($request->input('project.*.impactPopulation'))){
+			$project->impactPopulation = $request->input('project.impactPopulation');
 		} 
 
-		echo $projectCompletion;
-
-
 		$project->save();
-		return Redirect::back()->withSuccess('Project has been successfully created');
+		$response[] = ['message' => 'Succesfully added a new project'];
+        return ResponseBuilder::success($response);
 
 	}
 
-	/**
-	*function to display the milestone view page
-	*/
+	public function addProjectLead(Request $projectLead){
+		$pId = $projectLead->input('pId');
+		$pLeadId = $projectLead->input('projectLeadId');
+		if(!empty($pId)){
+			$project = projects::where('_id','=',$pId)->first();
+			if(!is_null($project)){
+				if(!empty($pLeadId)){
+					$pLead = new ProjectLead;
+					$pLead->projectLeadId = $pLeadId;
+					$project->projectLead()->save($pLead);
+					$response[] = ['message' => 'Succesfully added project Lead to project'];
+        			return ResponseBuilder::success($response);
+				}
+				else{
+ 					return ResponseBuilder::error(ApiCode::WRONG_PROJECT_LEAD_ID);
+				}
+				
+			}
+			else{
 
-	public function newMilestone($projectName){
-
-		return view('ProjectInput/milestone')->with('projectNamee', rawurlencode($projectName));
+			}
+		}
+		else{
+			return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+		}
+	
+		
 	}
 
-	/**
-	*function to add a milestone
-	*/
-	public function addNewMilestone(Request $milestone){
 
-		$projectN = $milestone->input('project_name');
-		$milestoneInput = $milestone->input('milestone');
-
-		if(!empty($milestoneInput)){
-			$project = projects::where('project_namee','=',rawurldecode($projectN))->push('milestones',array('milestone_description' => $milestoneInput));
-		}
-
-		return Redirect::back()->withSuccess('Succesfully inserted a milestone');
-	}	
-
-
-	/**
-	*function to display the event view page
-	*/
-	public function newEvent($projectName){  
-
-		return view('ProjectInput/event')->with('projectNamee', rawurlencode($projectName));
-	}
-
-	/**
-	*function to add a new event
-	*/
-
-	public function addEvent(Request $event){
-		$projectN = $event->input('project_name');
-
-		$newEvent = $event->input('List_of_event');
-		$eventDate = $event->input('date');
-		$eventLocation = $event->input('eventLocation');
-		$eventBrief = $event->input('eventBrief');
-		$eventAttendance = $event->input('attendance');
-		$eventOutcome = $event->input('eventOutcome');
-		if(!empty($newEvent) && !empty($eventDate) && !empty($eventLocation) && !empty($eventBrief) && !empty($eventAttendance) && !empty($eventOutcome) ){
-
-			$project = Project::where('project_namee', '=', rawurldecode($projectN))->push('Events',array('list_of_event' => $newEvent,'event_Date' => $eventDate,'event_location' => $eventLocation,'event_brief' => $eventBrief,'attendance' => $eventAttendance, 'event_Outcome' => $eventOutcome));
-		}
-		elseif(!empty($newEvent) && empty($eventDate) && !empty($eventLocation) && !empty($eventBrief) && !empty($eventAttendance) && !empty($eventOutcome) ){
-			$project = Project::where('project_namee', '=', rawurldecode($projectN))->push('Events',array('list_of_event' => $newEvent,'event_location' => $eventLocation,'event_brief' => $eventBrief,'attendance' => $eventAttendance, 'event_Outcome' => $eventOutcome));
-		}
-		elseif(!empty($newEvent) && !empty($eventDate) && !empty($eventLocation) && !empty($eventBrief) && empty($eventAttendance) && !empty($eventOutcome) ){
-			$project = Project::where('project_namee', '=', rawurldecode($projectN))->push('Events',array('list_of_event' => $newEvent,'event_Date' => $eventDate,'event_location' => $eventLocation,'event_brief' => $eventBrief, 'event_Outcome' => $eventOutcome));
-
-		}
-		elseif(!empty($newEvent) && !empty($eventDate) && !empty($eventLocation) && !empty($eventBrief) && !empty($eventAttendance) && empty($eventOutcome) ){
-			$project = Project::where('project_namee', '=', rawurldecode($projectN))->push('Events',array('list_of_event' => $newEvent,'event_Date' => $eventDate,'event_location' => $eventLocation,'event_brief' => $eventBrief,'attendance' => $eventAttendance));
-		}
-		elseif(empty($newEvent) && empty($eventDate) && empty($eventLocation) && !empty($eventBrief) && empty($eventAttendance) && empty($eventOutcome) ){
-			$project = Project::where('project_namee', '=', rawurldecode($projectN))->push('Events',array('event_brief' => $eventBrief));
-		}
-
-		return Redirect::back()->withSuccess('successfully added an event');
-
-	}
 
 	/**
     *display the grant view
@@ -165,34 +122,6 @@ class projectController extends Controller
 	}
 
 
-	/**
-	*function to add new funding information
-	*
-	*/
-	public function addNewFunding(Request $grant){
-		$projectN = $grant->input('project_name');
-
-		$grantName = $grant->input('grant_name');
-		$grantAmount = $grant->input('grant_amount');
-		$grantFundingCycle = $grant->input('funding_cycle');
-
-		if(!empty($grantName) && !empty($grantAmount) && !empty($grantFundingCycle)){
-			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName,'grant_amount' => $grantAmount,'funding_cycle' => $grantFundingCycle));
-		}
-		elseif(!empty($grantName) && !empty($grantAmount) && empty($grantFundingCycle)){
-			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName,'grant_amount' => $grantAmount));
-		}
-		elseif(!empty($grantName) && empty($grantAmount) && empty($grantFundingCycle)){
-			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName));
-		}
-		elseif(!empty($grantName) && empty($grantAmount) && !empty($grantFundingCycle)){
-			$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Grand_info',array('grant_name' => $grantName,'funding_cycle' => $grantFundingCycle));
-		}
-
-
-		return Redirect::back()->withSuccess('Succesfully inserted new funding info in '. $projectN);
-
-	}
 
 
 	/**

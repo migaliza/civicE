@@ -7,33 +7,72 @@ use App\Milestones;
 use App\milestones_comments;
 use App\projects;
 use Carbon\Carbon;
+use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
+use App\ApiCode;
 
 class MilestonesController extends Controller
 {
     //
-    public function insertMilestone(Request $milestone){
-    	$newMilestone = new Milestones;
-    	//$timePosted = Carbon::now()->format('y-m-d h:i:s');
+    public function insertMilestone(Request $request){
+        $pId = $request->input('pId');
 
-    	//retrieve a project id by name use value to retrive one value
-    	$projectId = projects::where('pName','=','Tontro')->value('_id');
-    	$newMilestone->pId = $projectId;
-    	$newMilestone->mDescription ="This is to test if I can post a milestone";
-    	$newMilestone->save();
-    	return redirect()->route('dashboard')->withSuccess('Successfully added a milestone');
+        if(!empty($pId)){
+            $projectId = projects::where('_id','=',$pId)->value('_id');
+            if(!is_null($projectId)){
+                $newMilestone = new Milestones;
+                $newMilestone->pId = $projectId;
+
+                if(!empty($request->input('description'))){
+                    $newMilestone->mDescription = $request->input('description');
+                    $newMilestone->save();
+                    $response[] = ['message' => 'Succesfully added a new milestone'];
+                    return ResponseBuilder::success($response);
+                }
+                else{
+                    return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
+                }
+            }
+            else{
+                return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+            }
+            
+        }
+        else{
+            return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+        }
+
     }
 
     /**
     *method to push a comments to a milestone
     **/
-    public function insertComment(Request $mComment){
-    	$comment = new milestones_comments;
-    	$comment->uId = "skjfdhsj9827982139";
-    	$comment->mComment = "very fascinating, she said, no one expected it to be such a success!!!";
- 
-    	$milestone = Milestones::where('_id','=','5946c2a79a8920078c1602e2')->first();
+    public function insertComment(Request $request){
+        $mId = $request->input('mId');
 
-    	$milestone->mComments()->save($comment);
-    	return redirect()->route('dashboard')->withSuccess('saved comment');
+        if(!empty($mId)){
+            $milestone = Milestones::where('_id','=',$mId)->first();
+            if(!is_null($milestone)){
+                $comment = new milestones_comments;
+
+                if(!empty($request->input('uId')) && !empty($request->input('comment'))){
+                    $comment->userId = $request->input('uId');
+                    $comment->mComment = $request->input('comment');
+                    $milestone->mComments()->save($comment);
+
+                    $response[] = ['message' => 'Succesfully added a comment to milestone'];
+                    return ResponseBuilder::success($response);
+                }
+                else{
+                    return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
+                }
+            }
+            else{
+                return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+            }
+        }
+        else{
+            return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+        }
+
     }
 }

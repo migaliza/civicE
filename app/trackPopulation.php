@@ -9,7 +9,7 @@ class trackPopulation extends Eloquent
 {
     //
     protected $baseline;
+    protected $difference;
     protected $current;
-    protected $cumulative;
 
 }

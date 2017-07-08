@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-@section('title','New Project')
+@section('title','Grand Proposal')
 
 <form method="POST"  action="/civicdoc/projects/create/project/new" class="form-horizontal">
 
@@ -8,14 +8,14 @@
 {{ csrf_field() }}
 
 <!-- Form Name -->
-<legend>NEW PROJECT</legend>
+<legend>new proposal</legend>
 
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="projectName"></label>  
+  <label class="col-md-4 control-label" for="population"></label>  
   <div class="col-md-4">
-  <input id="projectName" name="projectName" type="text" placeholder="Project Name" class="form-control input-md"> 
+  <input id="population" name="population" type="text" placeholder="Population" class="form-control input-md"> 
     
   </div>
 </div>
@@ -24,24 +24,24 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="facultyId"></label>  
+  <label class="col-md-4 control-label" for="community"></label>  
   <div class="col-md-4">
-  <input id="facultyId" name="facultyId" type="text" placeholder="Faculty Id" class="form-control input-md">
+  <input id="community" name="community" type="text" placeholder="Community" class="form-control input-md">
     
   </div>
 </div>
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="town"></label>  
+  <label class="col-md-4 control-label" for="YC"></label>  
   <div class="col-md-4">
-  <input id="town" name="town" type="text" placeholder="Town" class="form-control input-md">
+  <input id="YC" name="YC" type="text" placeholder="Youth and Children" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="region"></label>  
+  <label class="col-md-4 control-label" for="assets"></label>  
   <div class="col-md-4">
   <input id="region" name="region" type="text" placeholder="Region" class="form-control input-md">
     

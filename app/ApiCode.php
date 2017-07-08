@@ -2,6 +2,14 @@
 namespace App;
 
 class ApiCode {
-	const SOMETHING_WENT_WRONG =250;
+	const WRONG_PROJECT_ID = 250;
+	const NO_FUNDING_id = 233;
+	const NO_EXPENDITURE_ID = 234;
+	const FIELDS_NOT_ENTERED_STATISTICS = 230;
+	const OBJECT_NOT_CREATED = 231;
+	const All_FIELDS_NOT_ENTERED = 232;
+	const WRONG_PROJECT_LEAD_ID = 235;
+	const WRONG_GRAND_ID_USED = 236;
+	const GRAND_ID_NOT_ENTERED = 237;
 	
 }
