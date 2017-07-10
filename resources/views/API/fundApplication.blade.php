@@ -19,7 +19,7 @@
 			<h3>Create a new Fund</h3>
 			<p>Allows you to create a funding application which you can add the other components of the application</p>
 			<h6>Method:<b>Get</b></h6>
-			<h6> Url: <a href="#" target='_blank'></a></h6>
+			<h6> Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/grand/application/new" target='_blank'>https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/grand/application/new</a></h6>
 			<h6>Parameters: </h6>
 			<ul>
 				<li>pTitle <b>project title</b></li>
