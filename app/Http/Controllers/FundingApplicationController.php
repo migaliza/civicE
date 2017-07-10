@@ -37,12 +37,13 @@ class FundingApplicationController extends Controller
     *add primary project lead information
     *@parameter: funding Id
     */
-    public function primaryProjectLead(Request $request){
+    public function projectLead(Request $request){
         $grantId = $request->input('grantId');
         if(!empty($grantId)){
             $fundingAp = Funding_Application::where('_id','=',$grantId)->first();
             if(!is_null($fundingAp)){
                 $primaryLead = new PrimaryProjectLead;
+                $primaryLead->role = $request->input('role');
                 $primaryLead->status = $request->input('status');
                 $primaryLead->fName = $request->input('fName');
                 $primaryLead->lName = $request->input('lName');
@@ -82,7 +83,7 @@ class FundingApplicationController extends Controller
     *add project leaders o funding applications
     *parameter: fundidng application id, project lead Id, role
     */
-    public function projectLeads(Request $request){
+    /*public function projectLeads(Request $request){
         $grantId = $request->input('grantId');
         if(!empty($grantId)){
             $fundingAp = Funding_Application::where('_id','=',$grantId)->first();
@@ -108,7 +109,7 @@ class FundingApplicationController extends Controller
         else{
             return ResponseBuilder::error(ApiCode::GRAND_ID_NOT_ENTERED);
         }
-    }
+    }*/
 
     /**
     *add funding proposal to a funding application

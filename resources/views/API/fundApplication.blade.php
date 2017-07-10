@@ -10,7 +10,6 @@
 	<div class ="row">
 		<h2>Fund application components</h2>
 		<ul>
-			<li>primary project lead info</li>
 			<li>Project Leaders </li>
 			<li>Project Proposal</li>
 			<li>project Lead motivations</li>
@@ -27,13 +26,14 @@
 			</ul>
 		</div>
 		<div class="row">
-			<h3>Primary Project Lead</h3>
-			<p>Allows you to add a primary project lead to the fund application</p>
+			<h3>Project Leads</h3>
+			<p>Allows you to add project leads to the fund application</p>
 			<h6>Method:<b>Get</b></h6>
 			<h6> Url: <a href="#" target='_blank'></a></h6>
 			<h6>Parameters: </h6>
 			<ul>
 				<li>grantId <b><i>very important as it identifies an application uniquely</i></b></li>
+				<li>role <b>should a select categories are <i>primary lead, project lead</i></b></li>
 				<li>status is <b><i>student</i></b> or <b><i>faculty</i></b> it should be a select to restrict the input</li>
 				<li>fName </li>
 				<li>lName</li>
@@ -52,19 +52,6 @@
 				<li>department</li>
 				<li>jobTitle</li>
 			</ul>
-		</ul>
-	</div>
-
-	<div class="row">
-		<h3>Add Project Leaders</h3>
-		<p>Allows you to add up to 3 project leaders to a funding application</p>
-		<h6>Method:<b>Get</b></h6>
-		<h6> Url: <a href="#" target='_blank'></a></h6>
-		<h6>Parameters: </h6>
-		<ul>
-			<li>grantId </li>
-			<li>name <b>project lead full names</b></li>
-			<li>role</li>
 		</ul>
 	</div>
 
