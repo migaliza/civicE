@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PrimaryProjectLead extends Model
 {
     //
+    protected $role;
 	protected $status;
 	protected $fName;
 	protected $lName;

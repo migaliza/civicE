@@ -79,38 +79,7 @@ class FundingApplicationController extends Controller
         }
     }
 
-    /**
-    *add project leaders o funding applications
-    *parameter: fundidng application id, project lead Id, role
-    */
-    /*public function projectLeads(Request $request){
-        $grantId = $request->input('grantId');
-        if(!empty($grantId)){
-            $fundingAp = Funding_Application::where('_id','=',$grantId)->first();
-            if(!is_null($fundingAp)){
-                $projectLead = new FAProjectLeaders;
-
-                if(!empty($request->input('name')) && !empty($request->input('role'))){
-                    $projectLead->leadId = $request->input('name');
-                    $projectLead->role = $request->input('role');
-
-                    $fundingAp->projectLeaders()->save($projectLead);
-                    $response[] = ['message' => 'Succesfully added project lead to grand application'];
-                    return ResponseBuilder::success($response);
-                }
-                else{
-                    return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
-                }
-            }
-            else{
-                return ResponseBuilder::error(ApiCode::WRONG_GRAND_ID_USED);
-            }
-        }
-        else{
-            return ResponseBuilder::error(ApiCode::GRAND_ID_NOT_ENTERED);
-        }
-    }*/
-
+    
     /**
     *add funding proposal to a funding application
     *parameters: funding application Id, $population; $community; $youthChildren;  //yes or no,  $assets; $approach; $measureSuccess;$impediments; $continue; //yes or no answer; $volunteers; $shareSuccess;

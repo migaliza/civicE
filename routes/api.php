@@ -150,11 +150,8 @@ funding application
 /*add a new grand application*/
 Route::get('/project/grand/application/new','FundingApplicationController@newFundingApplication');
 
-/*add a new project lead*/
-Route::get('/project/grand/application/projectLead','FundingApplicationController@projectLeads');
-
-
+//add project proposal
 Route::get('/project/grand/application/proposal','FundingApplicationController@fundingProposal');
 
-
-Route::get('/project/grand/application/primaryLead','FundingApplicationController@primaryProjectLead');
+//add project leaders
+Route::get('/project/grand/application/projectleads','FundingApplicationController@primaryProjectLead');
