@@ -43,7 +43,7 @@ class Funding_Application extends Eloquent
     /**
     *embeds many project lead motivation
     */
-    public function  (){
+    public function  motivation(){
         return $this->embedsMany('App\PMProjectLead
             ')
     }  
