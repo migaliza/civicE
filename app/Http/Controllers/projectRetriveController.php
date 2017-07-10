@@ -33,34 +33,26 @@ class projectRetriveController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function projectNameDescription()
+    public function projectNameDescription(Request $request)
     {
 
-        try{
-            $statusCode = 200;
-            $response = [
-                'projectDescriptions' =>[]
-            ];
-            
-            $projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
-         
-            foreach($projects as $project){
-                $resp[] = [
-                'id' => $project->_id,
-                'projectName' => $project->project_namee,
-                'description' => $project->brief_description,
-                ];
-            }
-            $response = $resp;
-            return Response::json($response,$statusCode);
-        }
-        catch(Exception $e){
-            $statusCode = 404;
-        }
-        finally{
 
-            return Response::json($response,$statusCode);
-        }   
+            $limit = (int)$request->input('limit');
+            $projections = ['pName','description'];
+            $projects =  projects::paginate($limit,$projections);
+            if(!is_null($projects)){
+                //$projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
+         
+                foreach($projects as $project){
+                    $resp[] = [
+                        'id' => $project->_id,
+                        'projectName' => $project->pName,
+                        'description' => $project->description,
+                    ];
+                }
+                $response = $resp;
+                return ResponseBuilder::success($response);
+            }
      
     }
 

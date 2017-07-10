@@ -11,7 +11,7 @@
 </div>
 <div>
     <p>Displays all the project name and description.</p>
-   
+    
 
     <div></div>
 
@@ -20,20 +20,20 @@
     <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description" target="_blank"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description </a> </h5>
 
     <div></div>
-  
-   
+    
+    
     <div></div>
     <h6><b>Returns: </b> </h6>
-<code>
-   {<br>
-    <samp style="margin-left:40px;color:#ff0000">"projectDescriptions":[</samp><br>
-        <samp style="margin-left: 80px">{</samp><br>
-            <samp style="margin-left: 120px;color:black">"projectName": </samp>"Future of Africa - Midunu",<br>
-            <p><samp style="margin-left: 120px;color:black">"description":</samp>"Mi Dunu is a feeding program for street kids under Future of Africa initiative. It aims at creating a friendly environment where street children feel comfortable to share their experiences with trained volunteers.",</p>
-        <samp style="margin-left: 80px">}</samp><br>
-    <samp style="margin-left: 40px">]</samp><br
-<samp style="margin-left:30px">}</samp>
-</code>
+    <code>
+     {<br>
+     <samp style="margin-left:40px;color:#ff0000">"projectDescriptions":[</samp><br>
+     <samp style="margin-left: 80px">{</samp><br>
+     <samp style="margin-left: 120px;color:black">"projectName": </samp>"Future of Africa - Midunu",<br>
+     <p><samp style="margin-left: 120px;color:black">"description":</samp>"Mi Dunu is a feeding program for street kids under Future of Africa initiative. It aims at creating a friendly environment where street children feel comfortable to share their experiences with trained volunteers.",</p>
+     <samp style="margin-left: 80px">}</samp><br>
+     <samp style="margin-left: 40px">]</samp><br
+     <samp style="margin-left:30px">}</samp>
+ </code>
 
 </div>
 

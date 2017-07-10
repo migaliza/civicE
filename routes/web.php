@@ -82,3 +82,6 @@ Route::name('populationTrack')->get('/api/project/track/population', 'HomeContro
 
 /** display the API view project volunteers  api docs */
 Route::name('volunteersTrack')->get('/api/project/track/volunteers', 'HomeController@volunteer');
+
+/** display the API view project fund application api doc */
+Route::name('fundApplication')->get('/api/fund/application/new', 'HomeController@fundApplication');

@@ -49,4 +49,11 @@ class HomeController extends Controller
     public function volunteer(){
         return view('API/trackVolunteers');
     }
+
+    /**
+    *fund application
+    */
+    public function fundApplication(){
+        return view('API/fundApplication');
+    }
 }

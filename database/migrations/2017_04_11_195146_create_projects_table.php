@@ -2,7 +2,6 @@
 
 
 use Illuminate\Support\Facades\Schema;
-//use Illuminate\Database\Schema\Blueprint;
 use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -41,8 +40,7 @@ class CreateProjectsTable extends Migration
             $collection->string('events');
             $collection->string('partnerships');
             $collection->string('outlook');
-            //$collection->unique('')
-            //$collection->timestamps();
+            
         });
     }
 

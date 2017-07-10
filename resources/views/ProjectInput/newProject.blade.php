@@ -2,7 +2,7 @@
 @section('content')
 @section('title','New Project')
 
-<form method="POST"  action="/civicdoc/projects/create/project" class="form-horizontal">
+<form method="POST"  action="/civicdoc/projects/create/project/new" class="form-horizontal">
 
 <fieldset>
 {{ csrf_field() }}
@@ -15,7 +15,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="projectName"></label>  
   <div class="col-md-4">
-  <input id="projectName" name="projectName" type="text" placeholder="Project Name" class="form-control input-md">
+  <input id="projectName" name="projectName" type="text" placeholder="Project Name" class="form-control input-md"> 
     
   </div>
 </div>
@@ -24,18 +24,26 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="tier"></label>  
+  <label class="col-md-4 control-label" for="facultyId"></label>  
   <div class="col-md-4">
-  <input id="tier" name="tier" type="text" placeholder="Tier" class="form-control input-md">
+  <input id="facultyId" name="facultyId" type="text" placeholder="Faculty Id" class="form-control input-md">
+    
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="town"></label>  
+  <div class="col-md-4">
+  <input id="town" name="town" type="text" placeholder="Town" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="location"></label>  
+  <label class="col-md-4 control-label" for="region"></label>  
   <div class="col-md-4">
-  <input id="location" name="location" type="text" placeholder="Location" class="form-control input-md">
+  <input id="region" name="region" type="text" placeholder="Region" class="form-control input-md">
     
   </div>
 </div>
@@ -49,16 +57,14 @@
   </div>
 </div>
 
-
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="longitude"></label>  
   <div class="col-md-4">
-  <input id="longitude" name="location" type="text" placeholder="Longitude" class="form-control input-md">
+  <input id="longitude" name="longitude" type="text" placeholder="Longitude" class="form-control input-md">
     
   </div>
 </div>
-
 
 
 <!-- Textarea -->
@@ -90,32 +96,22 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="status"></label>  
+  <label class="col-md-4 control-label" for="primary_activity"></label>  
   <div class="col-md-4">
-  <input id="status" name="status" type="text" placeholder="SPtatus" class="form-control input-md">
+  <input id="primary_activity" name="project[primary]" type="text" placeholder="Primary Activity" class="form-control input-md">
     
   </div>
 </div>
 
 
-<!-- Textarea -->
+<!-- input -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="primary_activity"></label>
+  <label class="col-md-4 control-label" for="impactPopulation"></label>
   <div class="col-md-4">                     
-    <textarea class="form-control" id="primary_activity" placeholder="Primary Activity" name="primary_activity"></textarea>
+    <input class="form-control" id="impactPopulation" placeholder="Impact Population" name="project[impactPopulation]"></input>
   </div>
 </div>
 
-
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="partnerships"></label>  
-  <div class="col-md-4">
-  <input id="status" name="partnerships" type="text" placeholder="Partnerships" class="form-control input-md">
-    
-  </div>
-</div>
 
 
 <!-- Button -->

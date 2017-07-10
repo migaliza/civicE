@@ -39,19 +39,18 @@ Route::get('/projects/{tier}','projectRetriveController@tiers');
 Route::get('/projects','projectRetriveController@projectData');
 
 //create a new project
-Route::Post('/projects/create/project','projectController@addNewProject');
+Route::post('/projects/create/project/new','projectController@addNewProject');
 
 /** display project tier */
 Route::get('/projects/{tier}','projectRetriveController@tiers');
 
 /**add new milestone*/
-Route::post('/projects/milestone/addMilestone','projectController@addNewMilestone'); 
+//Route::get('/projects/milestone/new','projectController@addNewMilestone'); 
 
 /** add new event */
 Route::post('/project/event/new','projectController@addEvent');
 
-/** add new upcoming */
-Route::post('/project/upcoming/new','projectController@addUpcoming');
+
 
 /** add new impact */
 Route::post('/project/impact/new','projectController@addNewImpactSector');
@@ -86,5 +85,73 @@ Route::get('/project/track/volunteers','projectRetriveController@trackVolunteer'
 /**retrieve project information */
 Route::get('/projects/project/id','projectRetriveController@projectById');
 
+/**add a milestone to a project **/
+Route::get('/project/milestone/new','MilestonesController@insertMilestone');
+
+/**route to add a comment on a milestone */
+Route::get('/project/milestone/comment/new','MilestonesController@insertComment');
+
+/*
+*Statistics
+*/
+
+/**route to add new statistics to a project to a project*/
+Route::get('/project/statistics/new','statisticsController@statistcsCollection');
+
+/**route to add new volunteer track to a project to a project*/
+Route::get('/project/statistics/volunteer/track/new','statisticsController@insertVolunteer');
+
+/**route to add new population track to a project to a project*/
+Route::get('/project/statistics/population/track/new','statisticsController@insertPopulation');
+
+/**route to edit a volunteer track to a project to a project*/
+Route::get('/project/statistics/volunteer/track/edit','statisticsController@editVolunteerTrack');
 
 
+/**route to edit population track to a project to a project*/
+Route::get('/project/statistics/population/track/edit','statisticsController@editPopulation');
+
+/**
+*funding info
+*/
+Route::get('/project/fundinginfo/new','fundingInfoController@insertFundingInfo');
+//retrieve values to edit on funding info
+Route::get('/project/fundinginfo/edit/retrieve','fundingInfoController@retrieveValuesToEdit');
+//edit the values on click button save
+Route::get('/project/fundinginfo/edit','fundingInfoController@editFundingInfo');
+
+//add funding expenditure for a project
+Route::get('/project/fundinginfo/expenditure/new','fundingInfoController@insertFundingExpenditure');
+
+
+//retrieve funding expenditure for a project
+Route::get('/project/fundinginfo/expenditure/values','fundingInfoController@expenditureValues');
+//edit funding expenditure for a project
+Route::get('/project/fundinginfo/expenditure/edit','fundingInfoController@editFundingExpenditure');
+
+
+//add project lead the value added should exist in the project lead id numbers
+Route::get('/project/lead/new','projectController@addProjectLead');
+
+
+//add partnerships to a paroject is it exists
+Route::get('/project/partnership/new','PartnershipsController@addNewPartnership');
+
+/** add new upcoming */
+Route::get('/project/upcoming/new','UpcomingController@addNewUpcoming');
+
+
+/** add new upcoming comment */
+Route::get('/project/upcoming/comment/new','UpcomingController@addCommentUpcoming');
+
+/**
+funding application
+*/
+/*add a new grand application*/
+Route::get('/project/grand/application/new','FundingApplicationController@newFundingApplication');
+
+/*add a new project lead*/
+Route::get('/project/grand/application/projectLead','FundingApplicationController@projectLeads');
+
+
+Route::get('/project/grand/application/proposal','FundingApplicationController@fundingProposal');
