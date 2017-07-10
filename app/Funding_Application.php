@@ -26,12 +26,7 @@ class Funding_Application extends Eloquent
     	return $this->embedsOne('App\ProjectProposal');
     }
 
-    /**
-    *embed personal Motivation
-    */
-    public function motivation(){
-    	return $this->embedsOne('App\PersonalMotivation');
-    }
+    
 
     /**
     *embeds one primary lead
