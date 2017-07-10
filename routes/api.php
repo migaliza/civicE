@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+	return $request->user();
 });
 
 //routes to be used by the API calls
@@ -155,3 +155,6 @@ Route::get('/project/grand/application/projectLead','FundingApplicationControlle
 
 
 Route::get('/project/grand/application/proposal','FundingApplicationController@fundingProposal');
+
+
+Route::get('/project/grand/application/primaryLead','FundingApplicationController@primaryProjectLead');
