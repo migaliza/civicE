@@ -154,4 +154,4 @@ Route::get('/project/grand/application/new','FundingApplicationController@newFun
 Route::get('/project/grand/application/proposal','FundingApplicationController@fundingProposal');
 
 //add project leaders
-Route::get('/project/grand/application/projectleads','FundingApplicationController@primaryProjectLead');
+Route::get('/project/grand/application/projectleads','FundingApplicationController@projectLead');
