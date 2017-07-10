@@ -20,7 +20,7 @@ class FundingApplicationController extends Controller
     public function newFundingApplication(Request $request){
         $fApplication = new Funding_Application;
         if(!empty($request->input('pTitle')) && !empty($request->input('synopsis')) ){
-            $fApplication->projectName = $request->input('pTitle');
+            $fApplication->pTitle = $request->input('pTitle');
             $fApplication->synopsis = $request->input('synopsis');
 
             $fApplication->save();

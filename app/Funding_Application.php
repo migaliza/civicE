@@ -7,7 +7,7 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 class Funding_Application extends Eloquent
 {
     //
-    protected $projectName;
+    protected $pTitle;
     protected $synopsis;
    // protected $expenditurePlan; //file
 
@@ -39,5 +39,13 @@ class Funding_Application extends Eloquent
     public function primaryLead(){
         return $this->embedsOne('App\PrimaryProjectLead');
     }
+
+    /**
+    *embeds many project lead motivation
+    */
+    public function  (){
+        return $this->embedsMany('App\PMProjectLead
+            ')
+    }  
 
 }
