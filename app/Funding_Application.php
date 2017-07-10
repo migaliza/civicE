@@ -32,4 +32,12 @@ class Funding_Application extends Eloquent
     public function motivation(){
     	return $this->embedsOne('App\PersonalMotivation');
     }
+
+    /**
+    *embeds one primary lead
+    */
+    public function primaryLead(){
+        return $this->embedsOne('App\PrimaryProjectLead');
+    }
+
 }

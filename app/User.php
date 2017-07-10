@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Jenssegers\Mongodb\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -15,15 +15,23 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+    'fName','lName', 'email', 'password','status','role'
     ];
+    
+    protected $citizenship;
+    protected $region;
+    protected $status; //student or faculty
+    protected $role; //ordinary user, project lead, volunteer, admin
+
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The attributes
+
+      that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-}
+      protected $hidden = [
+      'password', 'remember_token',
+      ];
+  }

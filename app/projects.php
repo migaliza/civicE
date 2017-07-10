@@ -14,7 +14,7 @@ class projects extends Eloquent
     //collection to store
     protected  $collection = 'projects';
 
-    protected $projectName; 
+    protected $pName; 
     protected $facultyId;
     protected $town;// = ['name','longitude','latitude'];
     protected $region;
