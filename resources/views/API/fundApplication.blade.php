@@ -29,7 +29,7 @@
 			<h3>Project Leads</h3>
 			<p>Allows you to add project leads to the fund application</p>
 			<h6>Method:<b>Get</b></h6>
-			<h6> Url: <a href="#" target='_blank'></a></h6>
+			<h6> Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/grand/application/projectleads" target='_blank'>https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/grand/application/projectleads</a></h6>
 			<h6>Parameters: </h6>
 			<ul>
 				<li>grantId <b><i>very important as it identifies an application uniquely</i></b></li>
@@ -59,7 +59,7 @@
 		<h3>Add Project Proposal</h3>
 		<p>Allows you to add project proposal to a funding application</p>
 		<h6>Method:<b>Get</b></h6>
-		<h6> Url: <a href="#" target='_blank'></a></h6>
+		<h6> Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/grand/application/proposal" target='_blank'>https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/grand/application/proposal</a></h6>
 		<h6>Parameters: </h6>
 		<ul>
 			<li>grantId </li>

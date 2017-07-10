@@ -155,3 +155,6 @@ Route::get('/project/grand/application/proposal','FundingApplicationController@f
 
 //add project leaders
 Route::get('/project/grand/application/projectleads','FundingApplicationController@projectLead');
+
+//add project lead's motivation
+Route::get('/project/grand/application/projectlead/motivation','FundingApplicationController@projectLeadMotivation');

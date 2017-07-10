@@ -79,7 +79,7 @@ class FundingApplicationController extends Controller
         }
     }
 
-    
+
     /**
     *add funding proposal to a funding application
     *parameters: funding application Id, $population; $community; $youthChildren;  //yes or no,  $assets; $approach; $measureSuccess;$impediments; $continue; //yes or no answer; $volunteers; $shareSuccess;
@@ -121,32 +121,6 @@ class FundingApplicationController extends Controller
         }
 
     }
-
-    /**
-    *add funding motivation
-    *parameters: funding application Id, 
-    */
-   /* public function fundingMotivation(Request $request){
-        $grantId = $request->input('grantId');
-        if(!empty($grantId)){
-            $fundingAp = Funding_Application::where('_id','=',$grantId)->first();
-            if(!is_null($fundingAp)){
-                $fundingMotivation = new PersonalMotivation;
-
-                $fundingAp->motivation()->save($fundingMotivation);
-                $response[] = ['message' => 'Succesfully added motivation to project'];
-                return ResponseBuilder::success($response);
-            }
-            else{
-                return ResponseBuilder::error(ApiCode::WRONG_GRAND_ID_USED);
-            }
-            
-        }
-        else{
-            return ResponseBuilder::error(ApiCode::GRAND_ID_NOT_ENTERED);
-        }
-
-    }*/
 
     /**
     *add projectLeads motivation to funding application
