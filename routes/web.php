@@ -12,7 +12,7 @@
 */
 
 Route::name('dashboard')->get('/', function () {
-    return view('/API/dashboard');
+	return view('/API/dashboard');
 });
 
 
@@ -84,4 +84,4 @@ Route::name('populationTrack')->get('/api/project/track/population', 'HomeContro
 Route::name('volunteersTrack')->get('/api/project/track/volunteers', 'HomeController@volunteer');
 
 /** display the API view project fund application api doc */
-Route::name('fundApplication')->get('/api/fund/application/new', 'HomeController@fundApplication');
+Route::name('fundApplication')->get('/api/fund/application/', 'HomeController@fundApplication');
