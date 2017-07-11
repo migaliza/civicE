@@ -80,7 +80,7 @@
 		<h3>Enter project lead motivation</h3>
 		<p>Allows you to enter project lead motivation to a funding application</p>
 		<h6>Method:<b>Get</b></h6>
-		<h6> Url: <a href="#" target='_blank'></a></h6>
+		<h6> Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/grand/application/projectlead/motivation" target='_blank'>https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/grand/application/projectlead/motivation</a></h6>
 		<h6>Parameters: </h6>
 		<ul>
 			<li>name</li>
