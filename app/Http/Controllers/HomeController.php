@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 class HomeController extends Controller
 {
-   
+
     /**
      * Show the application dashboard.
      *
@@ -55,5 +55,33 @@ class HomeController extends Controller
     */
     public function fundApplication(){
         return view('API/fundApplication');
+    }
+
+    /**
+    *fund application
+    */
+    public function grandApplication(){
+        return view('Application/dashboard');
+    }
+
+    /**
+    *start a new application for projectBrief
+    */
+    public function projectBrief(){
+        return view('Application/project');
+    }
+
+    /**
+    *display project lead blade
+    */
+    public function projectLead(){
+        return view('Application/projectLead');
+    }
+
+    /**
+    *display project lead motivation form
+    */
+    public function pMotivation(){
+        return view('Application/motivation');
     }
 }

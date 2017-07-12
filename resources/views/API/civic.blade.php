@@ -130,6 +130,9 @@
                         <li>
                             <a href="{{ route('fundApplication') }}"><i class='fa fa-sitemap fa-fw'></i>Fund Application</a>
                         </li>
+                        <li>
+                            <a href="{{ route('grandApllication') }}"><i class='fa fa-sitemap fa-fw'></i>Apply for funds</a>
+                        </li>
                     <!--<li>
                         <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">

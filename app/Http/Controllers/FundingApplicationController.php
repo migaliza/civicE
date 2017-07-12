@@ -134,6 +134,12 @@ class FundingApplicationController extends Controller
                 $personalMotivation = new PMProjectLead;
                 $personalMotivation->name = $request->input('name');
                 $personalMotivation->motivation = $request->input('motivation');
+                if($request->hasFile('cv')){
+                    echo 'uploaded';
+                    $cv = $request->file('cv');
+                    $cv->move('cv',$cv->getClientoriginalName());
+                    echo 'cv/'.$cv->getClientoriginalName();  
+                }
                 $personalMotivation->cv = $request->file('cv');
 
                 $fundingAp->motivation()->save($personalMotivation);

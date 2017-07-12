@@ -85,3 +85,16 @@ Route::name('volunteersTrack')->get('/api/project/track/volunteers', 'HomeContro
 
 /** display the API view project fund application api doc */
 Route::name('fundApplication')->get('/api/fund/application/', 'HomeController@fundApplication');
+
+/** display the project registration page */
+Route::name('grandApllication')->get('/projects/fund/application/', 'HomeController@grandApplication');
+
+
+/** display the project registration page */
+Route::name('startApplying')->get('/projects/fund/application/new', 'HomeController@projectBrief');
+
+/** display the project registration page */
+Route::name('projectLead')->get('/projects/fund/application/projectLeader', 'HomeController@projectLead');
+
+
+Route::name('pMotivation')->get('/projects/fund/application/motivation', 'HomeController@pMotivation');

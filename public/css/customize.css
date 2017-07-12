@@ -1,3 +1,6 @@
 /* customize css for use in different documents to format the text */
 .doubleTab { margin-left: 100px; }
 .tabdoc { margin-left: 200px; }
+/* .hidden {
+	display:none;
+	} */
