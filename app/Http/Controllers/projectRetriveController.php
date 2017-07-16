@@ -35,25 +35,90 @@ class projectRetriveController extends Controller
      */
     public function projectNameDescription(Request $request)
     {
-
-
+        $sort = $request->input('sortBy');
+        if($sort == "keyWord"){
+            $keyWord = $request->input('keyWord')
             $limit = (int)$request->input('limit');
-            $projections = ['pName','description'];
-            $projects =  projects::paginate($limit,$projections);
+            $projections = ['pName','description','impactSector'];
+            $projects =  projects::where('pName', 'regexp','/.*'.$keyWord.'*/')->paginate($limit,$projections);
             if(!is_null($projects)){
                 //$projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
-         
+
                 foreach($projects as $project){
                     $resp[] = [
-                        'id' => $project->_id,
-                        'projectName' => $project->pName,
-                        'description' => $project->description,
+                    'id' => $project->_id,
+                    'projectName' => $project->pName,
+                    'description' => $project->description,
+                    'ImpactSectors' =>$project->impactSectors,
                     ];
                 }
                 $response = $resp;
                 return ResponseBuilder::success($response);
             }
-     
+
+        }
+        elseif($sort == "impactSector"){
+            $impact =  $request->input('impactSector');
+            $limit = (int)$request->input('limit');
+            $projections = ['pName','description','impactSector'];
+            $projects =  projects::where('impactSector','regexp','/.*'.$impact.'*/')->paginate($limit,$projections);
+            if(!is_null($projects)){
+                //$projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
+
+                foreach($projects as $project){
+                    $resp[] = [
+                    'id' => $project->_id,
+                    'projectName' => $project->pName,
+                    'description' => $project->description,
+                    ];
+                }
+                $response = $resp;
+                return ResponseBuilder::success($response);
+            }
+
+        }
+        elseif($sort == "commencementDate"){
+            $date = $request->input('commencementDate');
+            $limit = (int)$request->input('limit');
+            $projections = ['pName','description','impactSector'];
+            $projects =  projects::where('commencement_date','regexp', '/.*'.$date.'*/')->paginate($limit,$projections);
+            if(!is_null($projects)){
+                //$projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
+
+                foreach($projects as $project){
+                    $resp[] = [
+                    'id' => $project->_id,
+                    'projectName' => $project->pName,
+                    'description' => $project->description,
+                    ];
+                }
+                $response = $resp;
+                return ResponseBuilder::success($response);
+            }
+
+        }
+        else{
+            $limit = (int)$request->input('limit');
+            $projections = ['pName','description','impactSector'];
+            $projects =  projects::paginate($limit,$projections);
+            if(!is_null($projects)){
+                //$projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
+
+                foreach($projects as $project){
+                    $resp[] = [
+                    'id' => $project->_id,
+                    'projectName' => $project->pName,
+                    'description' => $project->description,
+                    'impactSector' => $project->impactSector;
+                    ];
+                }
+                $response = $resp;
+                return ResponseBuilder::success($response);
+            }
+        }
+
+
+
     }
 
     /**
@@ -61,53 +126,53 @@ class projectRetriveController extends Controller
     *
     */
     public function tiers($tier){
-     
+
         try{
             $statusCode = 200;
             if($tier == 1){
-            $response = [
+                $response = [
                 'Tier1' => []
-            ];
-
-            $projectTier = projects::where('tier','=',$tier)->get();
-            foreach($projectTier as $project){
-                $response[] = [
-                'projectName' => $project->project_namee,
-                'location' => $project->location_name,
-                'briefDescription' => $project->brief_description,
-                'commencementDate' => $project->commencement_date,
-                'completionDate' => $project->completion_date,
-                'primaryActivity' => $project->primary_activity,
-                'partnerships' => $project->partnerships,
-                'milestones' => $project->milestones,
-                'Upcoming' => $project->Upcoming,
-                'ImpactSectors' => $project->Impact_sectors,
-                'GrandInfo' => $project->Grand_info,
-                'TargetPopulation' => $project->Target_population,
-                'LessonsLearnt' => $project->Lessons_learnt,
-                'TargetPopulationTrack'=> $project->Population_Track,
-                'volunteer'=> $project->volunteer_track,
                 ];
-            }
-            return ResponseBuilder::success($response);
-        }
 
-        elseif($tier == 2){
-            $response = [
+                $projectTier = projects::where('tier','=',$tier)->get();
+                foreach($projectTier as $project){
+                    $response[] = [
+                    'projectName' => $project->project_namee,
+                    'location' => $project->location_name,
+                    'briefDescription' => $project->brief_description,
+                    'commencementDate' => $project->commencement_date,
+                    'completionDate' => $project->completion_date,
+                    'primaryActivity' => $project->primary_activity,
+                    'partnerships' => $project->partnerships,
+                    'milestones' => $project->milestones,
+                    'Upcoming' => $project->Upcoming,
+                    'ImpactSectors' => $project->Impact_sectors,
+                    'GrandInfo' => $project->Grand_info,
+                    'TargetPopulation' => $project->Target_population,
+                    'LessonsLearnt' => $project->Lessons_learnt,
+                    'TargetPopulationTrack'=> $project->Population_Track,
+                    'volunteer'=> $project->volunteer_track,
+                    ];
+                }
+                return ResponseBuilder::success($response);
+            }
+
+            elseif($tier == 2){
+                $response = [
                 'Tier2' => []
-            ];
-            $projectTier = projects::where('tier','=',$tier)->get();
-            foreach($projectTier as $project){
-                $response[] = [
-                'projectName' => $project->project_namee,
-                'location' => $project->location_name,
-                'briefDescription' => $project->brief_description,
-                'GrandInfo' => $project->Grand_info,
-                'GrandRational' => $project->Funding_rational,
                 ];
+                $projectTier = projects::where('tier','=',$tier)->get();
+                foreach($projectTier as $project){
+                    $response[] = [
+                    'projectName' => $project->project_namee,
+                    'location' => $project->location_name,
+                    'briefDescription' => $project->brief_description,
+                    'GrandInfo' => $project->Grand_info,
+                    'GrandRational' => $project->Funding_rational,
+                    ];
+                }
+                return ResponseBuilder::success($response);
             }
-            return ResponseBuilder::success($response);
-        }
         //return ResponseBuilder::success($response);
         }catch( Exception $e){
           //
@@ -160,7 +225,7 @@ class projectRetriveController extends Controller
      */
     public function sentimentAnalysis(Request $request)
     {
-     
+
         return view('ProjectInput/newProject');
     }
 
@@ -173,17 +238,17 @@ class projectRetriveController extends Controller
     {
         $statusCode = 404;
         $response = [
-                'error' => ['no response']
-             ];
+        'error' => ['no response']
+        ];
 
         try{
             $statusCode = 200;
             $response = [
-                $projectName => []
+            $projectName => []
             ];
 
-                $iProject = projects::where('project_namee','=',$projectName)->get();
-                foreach($iProject as $individualProject){
+            $iProject = projects::where('project_namee','=',$projectName)->get();
+            foreach($iProject as $individualProject){
                 $response[$projectName][] = [
                 'projectName' => $individualProject->project_namee,
                 'town' => $individualProject->location_town,
@@ -207,8 +272,8 @@ class projectRetriveController extends Controller
                 ];
             }
 
-      
-         return response()::json($response,$statusCode);
+
+            return response()::json($response,$statusCode);
 
         }catch( Exception $e){
              //$statusCode = 404;
@@ -226,17 +291,17 @@ class projectRetriveController extends Controller
     public function trackPopulation(Request $request){
         $projectId = $request->get('id');
         if(!is_null($projectId)){
-             $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
-             if(!is_null($population)){
-                return ResponseBuilder::success($population);
-             }
+         $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
+         if(!is_null($population)){
+            return ResponseBuilder::success($population);
         }
-        else{
-            $data = ["error" => "ensure you input id correctly"];
-            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
-        }
-
     }
+    else{
+        $data = ["error" => "ensure you input id correctly"];
+        return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
+    }
+
+}
 
     /**
     *function to fetch the volunteer track
@@ -255,7 +320,7 @@ class projectRetriveController extends Controller
             $data = ["error" => "ensure you input id correctly" ];
             return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
         }
-  
+
     }
 
 
@@ -268,8 +333,8 @@ class projectRetriveController extends Controller
     {
         $projectId = $request->get('id');
        //dd($projectId);
-       if(!is_null($projectId)){
- 
+        if(!is_null($projectId)){
+
             $response = projects::where('_id','=',$projectId)->where('tier','=',"1")->get();
             $count = count($response);
             if($count>0){
@@ -278,14 +343,14 @@ class projectRetriveController extends Controller
             }
             else{
                 $data = ["error" => "pass a valid id"];
-            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
+                return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
             }
-       
-       }
-       else{
-        $data = ["error" => "pass a valid id"];
+
+        }
+        else{
+            $data = ["error" => "pass a valid id"];
             return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
-       }
+        }
     }
 
 
