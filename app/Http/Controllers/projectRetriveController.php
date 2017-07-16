@@ -90,6 +90,7 @@ class projectRetriveController extends Controller
                     'id' => $project->_id,
                     'projectName' => $project->pName,
                     'description' => $project->description,
+                    'impactSector' => $project->impactSector;
                     ];
                 }
                 $response = $resp;
