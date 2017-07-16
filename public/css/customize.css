@@ -1,6 +1,16 @@
 /* customize css for use in different documents to format the text */
 .doubleTab { margin-left: 100px; }
 .tabdoc { margin-left: 200px; }
+#btnGroup{
+	
+}
+.h-divider{
+	margin-top:5px;
+	margin-bottom:5px;
+	height:1px;
+	width:100%;
+	border-top:1px solid gray;
+}
 /* .hidden {
 	display:none;
 	} */

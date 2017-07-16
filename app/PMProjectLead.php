@@ -9,5 +9,7 @@ class PMProjectLead extends Eloquent
     //
     protected $leadId;
     protected $motivation;
-    protected $cv;
+    protected $gridFs =[
+    	'cv'
+    ];
 }

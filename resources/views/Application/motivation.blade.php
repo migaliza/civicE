@@ -34,9 +34,28 @@
 			<label class="col-md-4 control-label" for="cv">Upload CV</label>  
 			<div class="col-md-4">
 				<input id="cv" name="cv" type="file" placeholder="" class="form-control input-md" required="">
+				<span class="help-block">
+					<ul>
+						<li>Save it as a PDF</li>
+						<li>Name the file in the following format: "Full Name CV." ex. Bela Shah CV *</li>
+					</ul>
+				</span>
 
 			</div>
 		</div>
+		
+		<div class="form-group text-center " id="btnGroup" >
+			<div role="group" class="col-md-4  " >
+				<a href="#" id="previous" class="btn btn-primary btn-primary"><i class="fa fa-step-backward"></i> Previous</a>
+
+				<a href="#" id="save" class="btn btn-primary btn-primary"><i class="fa fa-floppy-o fa-fw"></i> Save</a>
+
+				<a href="#" id="next" class="btn btn-primary btn-primary"><i class="fa fa-step-forward"></i> Next</a>
+			</div>		
+		</div>
+
+
+
 
 	</fieldset>
 </form>

@@ -54,17 +54,34 @@
     <script>
     //referenced from Code Lab
     $(document).ready(function(){
-     $('input[name="status"]').click(function(){
+     $('input[name="status1"]').click(function(){
+
         var status = $(this).attr("value");
         if(status==="student"){
-            
-            $("#student").show('slow');
-            $("#staffaculty").hide();
+            $("#student1").show('slow');
+            $("#staffaculty1").hide();
         }else{
-            $("#student").hide();
-            $("#staffaculty").show('slow');
+            $("#student1").hide();
+            $("#staffaculty1").show('slow');
         }
-    })
+    });
+     $('input[name="radios1"]').click(function(){
+        var input = $(this).attr('value');
+        if(input === "yes"){
+            $('#projectlead2').show();
+        }else{
+            $('#projectlead2').hide();
+        }
+    });
+     $('input[name="radios2"]').click(function(){
+        var input2 = $(this).attr('value');
+        if(input2 === "yes"){
+            $('#projectLead3').show();
+            $('#projectLead3').hide();
+        }else{
+            $('#projectLead3').hide();
+        }
+    });
  });
 </script>
 
@@ -123,12 +140,15 @@
             
 
             <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
+                <div class="sidebar-nav navbar-collapse " id="applicationCollapse">
 
                     <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="{{ route('grandApllication') }}" class="active"><i class="fa fa-dashboard fa-fw"></i> Tier 1 info</a>
+                        </li>
 
                         <li>
-                            <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i>Tier 1 Fund Application <span class="fa arrow"></span></a>
+                            <a href=""><i ></i>Application Steps <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{ route('startApplying') }}" class="active"><i class="fa fa-dashboard fa-fw"></i>Project Brief</a>
@@ -139,10 +159,17 @@
                                 <li>
                                     <a href="{{ route('pMotivation') }}"><i class="fa fa-sitemap fa-fw"></i>Project Lead Motivation</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('timelineBudget') }}"><i class="fa fa-sitemap fa-fw"></i>Timeline and Budget</a>
+                                </li>
+                                <!--put an if condition to check if the person registering is a student-->
+                                <li>
+                                    <a href="{{ route('recommendation') }}"><i class="fa fa-sitemap fa-fw"></i>Recommendation</a>
+                                </li>
                                 
                             </ul>
                         </li>
-                        <li>
+                        <!--<li>
                             <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i>Tier 2 Fund Application <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -156,7 +183,7 @@
                                 </li>
                                 
                             </ul>
-                        </li>
+                        </li>-->
 
                           <!--  <ul>
                                 <li>

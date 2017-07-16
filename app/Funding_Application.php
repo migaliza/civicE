@@ -43,4 +43,11 @@ class Funding_Application extends Eloquent
             ');
     }  
 
+    /**
+    *embed the budget timeline to the fund application
+    */
+    public function budget(){
+        return $this->embedsOne('App\budgetTimeline');
+    }
+
 }

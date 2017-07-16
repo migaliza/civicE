@@ -158,3 +158,6 @@ Route::get('/project/grand/application/projectleads','FundingApplicationControll
 
 //add project lead's motivation
 Route::get('/project/grand/application/projectlead/motivation','FundingApplicationController@projectLeadMotivation');
+
+//upload timeline and budget to the server
+Route::post('/poject/grand/application/timelinebudget/upload','FundingApplicationController@uploadProjectTimeLineBudget');

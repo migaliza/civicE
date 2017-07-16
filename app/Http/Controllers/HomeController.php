@@ -84,4 +84,18 @@ class HomeController extends Controller
     public function pMotivation(){
         return view('Application/motivation');
     }
+
+    /**
+    *display timeline and Budget
+    */
+    public function timelineBudget(){
+        return view('Application/timelineBudget'); 
+    }
+
+    /**
+    *display recommendation
+    */
+    public function recommendation(){
+        return view('Application/recommendation');
+    }
 }

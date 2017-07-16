@@ -8,7 +8,9 @@ use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 use App\ApiCode;
 use App\FAProjectLeaders;
 use App\PrimaryProjectLead;
-
+use App\budgetTimeline;
+use Input;
+use Storage;
 
 class FundingApplicationController extends Controller
 {
@@ -135,10 +137,8 @@ class FundingApplicationController extends Controller
                 $personalMotivation->name = $request->input('name');
                 $personalMotivation->motivation = $request->input('motivation');
                 if($request->hasFile('cv')){
-                    echo 'uploaded';
-                    $cv = $request->file('cv');
-                    $cv->move('cv',$cv->getClientoriginalName());
-                    echo 'cv/'.$cv->getClientoriginalName();  
+                    Storage::disk('local')->put('cv/'. $request->file('cv')->getClientOriginalName(). $request->file('cv')->getClientoriginalExtension() ,$request->file('cv'));
+                    
                 }
                 $personalMotivation->cv = $request->file('cv');
 
@@ -154,6 +154,53 @@ class FundingApplicationController extends Controller
         else{
             return ResponseBuilder::error(ApiCode::GRAND_ID_NOT_ENTERED);
         }
+
+    }
+
+
+
+    /**
+    *download the budget and timeline file
+    */
+    public function downloadBudgetTimeline(){
+        $file = public_path()."/download/project Timeline and Budget Template.xlsx";
+        return response()->download($file);
+    }
+
+    /**
+    *Upload the project timeline and budget
+    */
+    public function uploadProjectTimeLineBudget(Request $request){
+        $grantId = $request->input('grantId');
+        if(!empty($grantId)){
+            $fundingAp = Funding_Application::where('_id','=',$grantId)->first();
+            if(!is_null($fundingAp)){
+
+                if($request->hasFile('timelineBudget') && $request->file('timelineBudget')->isValid()){
+
+                    Storage::disk('local')->put('timelineBudget/tier1/'. $request->file('timelineBudget')->getClientOriginalName(). $request->file('timelineBudget')->getClientoriginalExtension() ,$request->file('timelineBudget'));
+                    //dd($name);
+
+                }
+                else{
+                    echo "wrong file";
+                }
+            }
+            else{
+                return ResponseBuilder::error(ApiCode::WRONG_GRAND_ID_USED);
+            }
+        }
+        else{
+            return ResponseBuilder::error(ApiCode::GRAND_ID_NOT_ENTERED);
+        }
+    }
+
+
+    /**
+    *download timeline and budget
+    */
+    public function downloadTimelineAndBudget(){
+        
 
     }
 

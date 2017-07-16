@@ -98,3 +98,11 @@ Route::name('projectLead')->get('/projects/fund/application/projectLeader', 'Hom
 
 
 Route::name('pMotivation')->get('/projects/fund/application/motivation', 'HomeController@pMotivation');
+
+
+Route::name('timelineBudget')->get('/projects/fund/application/timelineandbudget', 'HomeController@timelineBudget');
+
+Route::name('download')->get('/projects/fund/application/timelineandbudget/download','FundingApplicationController@downloadBudgetTimeline');
+
+
+Route::name('recommendation')->get('/projects/fund/application/timelineandbudget/recommendation','HomeController@recommendation');
