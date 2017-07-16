@@ -37,7 +37,7 @@ class projectRetriveController extends Controller
     {
         $sort = $request->input('sortBy');
         if($sort == "keyWord"){
-            $keyWord = $request->input('keyWord')
+            $keyWord = $request->input('keyWord');
             $limit = (int)$request->input('limit');
             $projections = ['pName','description','impactSector'];
             $projects =  projects::where('pName', 'regexp','/.*'.$keyWord.'*/')->paginate($limit,$projections);
