@@ -91,7 +91,7 @@ Route::name('grandApllication')->get('/projects/fund/application/', 'GrandApplic
 
 
 /** display the project registration page */
-Route::name('startApplying')->get('/projects/fund/application/new', 'HomeController@projectBrief');
+Route::name('startApplying')->get('/projects/fund/application/new', 'GrandApplicationController@projectBrief');
 
 /** display the project registration page */
 Route::name('projectLead')->get('/projects/fund/application/projectLeader', 'GrandApplicationController@projectLead');
