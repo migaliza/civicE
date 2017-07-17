@@ -32,7 +32,7 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if($this->$auth->check()){
+        if($this->auth->check()){
             //check if the user is admin
             if($this->auth->user()->role == 'admin'){
                 dd($this->auth->user()->role);
