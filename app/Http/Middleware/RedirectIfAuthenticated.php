@@ -33,7 +33,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if($this->auth->check()){
-          
+
             if($this->auth->user()->role == 'admin'){
                 dd($this->auth->user()->role);
                 return redirect('/admin');
@@ -43,6 +43,7 @@ class RedirectIfAuthenticated
                 return redirect('/projects/fund/application/');
             }
             elseif(is_null($this->auth->user()->role)){
+                dd($this->auth->user()->role);
                 return redirect('/login');
             }
         }
