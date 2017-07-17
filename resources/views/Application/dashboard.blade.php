@@ -21,10 +21,6 @@
 
 		<h4>Notes</h4>
 		<p><b>It is assumed that the person filling this application is the primary project leader and thus will be the contact person.</b></p>
-		<div>
-			<a href="#"><i class="fa fa-download fa-fw"></i> <b>Budget</b></a>
-			<p>You will have to fill the budget and upload it at the end of the application </p>
-		</div>
 
 		<div class="row">
 			<p>To make an application click <a href="{{ route('startApplying') }}">continue</a> to proceed</p>
