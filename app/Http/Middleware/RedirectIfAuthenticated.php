@@ -43,7 +43,7 @@ class RedirectIfAuthenticated
                 return redirect('/projects/fund/application/');
             }
         }
-        \
+        
 
         return $next($request);
     }
