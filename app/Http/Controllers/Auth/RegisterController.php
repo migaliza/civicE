@@ -1,6 +1,4 @@
-
-<?php
-
+<?php 
 namespace App\Http\Controllers\Auth;
 use Auth;
 use App\User;
