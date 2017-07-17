@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectToAdmin = '/admin';
+    protected $redirectTo = '/admin';
     protected $redirectToOrdinary = '/projects/fund/application';
 
     /**
@@ -37,4 +37,24 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    /**
+    *borrowed from the laracast
+    *Get the post register / login redirect path
+    * @return string
+    */
+    public function redirectPath()
+    {
+      if (\Auth::user()->role == 'Admin') {
+          return '/admin';
+      }
+
+      elseif (\Auth::user()->role == 'ordinary') {
+          return '/projects/fund/application/';
+      }
+
+      else {
+          return '/login';
+      }
+  }
 }
