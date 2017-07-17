@@ -87,22 +87,22 @@ Route::name('volunteersTrack')->get('/api/project/track/volunteers', 'HomeContro
 Route::name('fundApplication')->get('/api/fund/application/', 'HomeController@fundApplication');
 
 /** display the project registration page */
-Route::name('grandApllication')->get('/projects/fund/application/', 'HomeController@grandApplication');
+Route::name('grandApllication')->get('/projects/fund/application/', 'GrandApplicationController@grandApplication');
 
 
 /** display the project registration page */
 Route::name('startApplying')->get('/projects/fund/application/new', 'HomeController@projectBrief');
 
 /** display the project registration page */
-Route::name('projectLead')->get('/projects/fund/application/projectLeader', 'HomeController@projectLead');
+Route::name('projectLead')->get('/projects/fund/application/projectLeader', 'GrandApplicationController@projectLead');
 
 
-Route::name('pMotivation')->get('/projects/fund/application/motivation', 'HomeController@pMotivation');
+Route::name('pMotivation')->get('/projects/fund/application/motivation', 'GrandApplicationController@pMotivation');
 
 
-Route::name('timelineBudget')->get('/projects/fund/application/timelineandbudget', 'HomeController@timelineBudget');
+Route::name('timelineBudget')->get('/projects/fund/application/timelineandbudget', 'GrandApplicationController@timelineBudget');
 
 Route::name('download')->get('/projects/fund/application/timelineandbudget/download','FundingApplicationController@downloadBudgetTimeline');
 
 
-Route::name('recommendation')->get('/projects/fund/application/timelineandbudget/recommendation','HomeController@recommendation');
+Route::name('recommendation')->get('/projects/fund/application/timelineandbudget/recommendation','GrandApplicationController@recommendation');
