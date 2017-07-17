@@ -43,12 +43,9 @@ class RedirectIfAuthenticated
                 return redirect('/projects/fund/application/');
             }
             elseif(is_null($this->auth->user()->role)){
-                dd($this->auth->user()->role);
                 return redirect('/login');
             }
         }
-        
-
         return $next($request);
     }
 }
