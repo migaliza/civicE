@@ -33,8 +33,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if($this->auth->check()){
-            //check if the user is admin\
-            dd("user role is: ".$this->auth->user()->lName);
+          
             if($this->auth->user()->role == 'admin'){
                 dd($this->auth->user()->role);
                 return redirect('/admin');
