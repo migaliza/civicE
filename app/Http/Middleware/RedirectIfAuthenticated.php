@@ -36,9 +36,8 @@ class RedirectIfAuthenticated
             //check if the user is admin
             if($this->auth->User->role == 'admin'){
                 return redirect('/admin');
-
             }
-            elseif($this->auth->User->role == 'ordinary'{
+            elseif($this->auth->User->role == 'ordinary'){
                 return redirect('/projects/fund/application');
             }
         }
