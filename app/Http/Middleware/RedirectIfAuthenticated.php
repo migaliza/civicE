@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     */
     protected $auth;
     public function __construct(Guard $auth){
-        $this->$auth = $auth;
+        $this->auth = $auth;
     }
 
     /**
@@ -34,12 +34,12 @@ class RedirectIfAuthenticated
     {
         if($this->$auth->check()){
             //check if the user is admin
-            if($this->$auth->user()->role == 'admin'){
-                dd($this->$auth->user()->role);
+            if($this->auth->user()->role == 'admin'){
+                dd($this->auth->user()->role);
                 return redirect('/admin');
             }
-            elseif($this->$auth->user()->role == 'ordinary'){
-                dd($this->$auth->user()->role);
+            elseif($this->auth->user()->role == 'ordinary'){
+                dd($this->auth->user()->role);
                 return redirect('/projects/fund/application/');
             }
         }
