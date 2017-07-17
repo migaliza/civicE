@@ -117,11 +117,54 @@
             @if (Route::has('login'))
             <div>
                 @if (Auth::check())
-                <ul class="nav navbar-nav navbar-left navbar-top-links">
-                    <li><a href="{{ route('admin') }}"><i class="fa fa-home fa-fw"></i>Home</a></li>
+
+                <!--right at the top-->
+                <ul class="nav navbar-right navbar-top-links">
+                    <li class="dropdown navbar-inverse">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-comment fa-fw"></i>Deadline
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i> {{ Auth::user()->lName }}<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            </li>
+                            
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
                 </ul>
                 @else
-                
+
                 <ul class="nav navbar-right navbar-top-links">
                     <li class="dropdown navbar-inverse">
                         <a href="{{ route('login') }}">
@@ -137,7 +180,7 @@
                 @endif
             </div>
             @endif
-            
+
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse " id="applicationCollapse">
@@ -166,7 +209,7 @@
                                 <li>
                                     <a href="{{ route('recommendation') }}"><i class="fa fa-sitemap fa-fw"></i>Recommendation</a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <!--<li>
