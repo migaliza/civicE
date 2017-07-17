@@ -34,17 +34,16 @@ class RedirectIfAuthenticated
     {
         if($this->auth->check()){
             //check if the user is admin
-            if($this->auth->User->role == 'admin'){
+            if($this->auth->user()->role == 'admin'){
+                dd($this->auth->user()->role);
                 return redirect('/admin');
             }
-            elseif($this->auth->User->role == 'ordinary'){
-                dd($this->auth->User->role);
+            elseif($this->auth->user()->role == 'ordinary'){
+                dd($this->auth->user()->role);
                 return redirect('/projects/fund/application/');
             }
         }
-        /*if (Auth::guard($guard)->check()) {
-            return redirect('/home');
-        }*/
+        \
 
         return $next($request);
     }
