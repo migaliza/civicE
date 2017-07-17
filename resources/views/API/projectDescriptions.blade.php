@@ -17,6 +17,14 @@
 
     <h4>Method:  <b>Get</b></h4>
     <div></div>
+    <h5>Parameters: <i>all the parameters are optional</i></h5>
+    <ul>
+        <li><b>limit </b><i>pagination to determine the number of projects to show on a page </i></li>
+        <li><b>sortBy </b><i>select to sort by either commencement Date, impact sector </i></li>
+        <li><b>impactSector </b><i>impact sector to sort by </i></li>
+        <li><b>commencementDate </b><i> commencement date to sort by enter in yyy-mm-dd</i></li>   
+    </ul>
+
     <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description" target="_blank"> https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/description </a> </h5>
 
     <div></div>

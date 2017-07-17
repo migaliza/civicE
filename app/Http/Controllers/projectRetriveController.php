@@ -63,7 +63,6 @@ class projectRetriveController extends Controller
             $projections = ['pName','description','impactSector'];
             $projects =  projects::where('impactSector','regexp','/.*'.$impact.'*/')->paginate($limit,$projections);
             if(!is_null($projects)){
-                //$projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
 
                 foreach($projects as $project){
                     $resp[] = [
@@ -83,8 +82,6 @@ class projectRetriveController extends Controller
             $projections = ['pName','description','impactSector'];
             $projects =  projects::where('commencement_date','regexp', '/.*'.$date.'*/')->paginate($limit,$projections);
             if(!is_null($projects)){
-                //$projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
-
                 foreach($projects as $project){
                     $resp[] = [
                     'id' => $project->_id,
@@ -103,7 +100,6 @@ class projectRetriveController extends Controller
             $projections = ['pName','description','impactSector'];
             $projects =  projects::paginate($limit,$projections);
             if(!is_null($projects)){
-                //$projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
 
                 foreach($projects as $project){
                     $resp[] = [
@@ -117,9 +113,6 @@ class projectRetriveController extends Controller
                 return ResponseBuilder::success($response);
             }
         }
-
-
-
     }
 
     /**
@@ -292,8 +285,8 @@ class projectRetriveController extends Controller
     public function trackPopulation(Request $request){
         $projectId = $request->get('id');
         if(!is_null($projectId)){
-         $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
-         if(!is_null($population)){
+           $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
+           if(!is_null($population)){
             return ResponseBuilder::success($population);
         }
     }
