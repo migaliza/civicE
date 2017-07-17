@@ -65,15 +65,15 @@
             $("#staffaculty1").show('slow');
         }
     });
-     $('input[name="radios1"]').click(function(){
+     /*$('input[name="radios1"]').click(function(){
         var input = $(this).attr('value');
         if(input === "yes"){
             $('#projectlead2').show();
         }else{
             $('#projectlead2').hide();
         }
-    });
-     $('input[name="radios2"]').click(function(){
+    });*/
+    /* $('input[name="radios2"]').click(function(){
         var input2 = $(this).attr('value');
         if(input2 === "yes"){
             $('#projectLead3').show();
@@ -81,7 +81,7 @@
         }else{
             $('#projectLead3').hide();
         }
-    });
+    });*/
  });
 </script>
 
