@@ -116,15 +116,16 @@
 			</div>
 		</div>
 
-		
-		<div class="form-group text-center " id="btnGroup" >
-			<div role="group" class="col-md-4  " >
-				<a href="#" id="previous" class="btn btn-primary btn-primary"><i class="fa fa-step-backward"></i> Previous</a>
+		<div style="margin-top: 20">
+			<div class="form-group text-center " id="btnGroup" >
+				<div role="group" class="col-md-4  " >
+					<a href="#" id="previous" class="btn btn-primary btn-primary"><i class="fa fa-step-backward"></i> Previous</a>
 
-				<a href="#" id="save" class="btn btn-primary btn-primary"><i class="fa fa-floppy-o fa-fw"></i> Save</a>
+					<a href="#" id="save" class="btn btn-primary btn-primary"><i class="fa fa-floppy-o fa-fw"></i> Save</a>
 
-				<a href="#" id="next" class="btn btn-primary btn-primary"><i class="fa fa-step-forward"></i> Next</a>
-			</div>		
+					<a href="#" id="next" class="btn btn-primary btn-primary"><i class="fa fa-step-forward"></i> Next</a>
+				</div>		
+			</div>
 		</div>
 
 
