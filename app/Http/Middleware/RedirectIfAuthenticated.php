@@ -38,7 +38,8 @@ class RedirectIfAuthenticated
                 return redirect('/admin');
             }
             elseif($this->auth->User->role == 'ordinary'){
-                return redirect('/projects/fund/application');
+                dd($this->auth->User->role);
+                return redirect('/projects/fund/application/');
             }
         }
         /*if (Auth::guard($guard)->check()) {
