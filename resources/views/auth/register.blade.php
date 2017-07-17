@@ -78,7 +78,7 @@
                                 <label for="region" class="col-md-4 control-label">Region</label>
 
                                 <div class="col-md-6">
-                                    <input id="region" type="text" class="form-control" name="region" value="{{ old('region') }}" required autofocus>
+                                    <input id="region" type="text" class="form-control" name="region" value="{{ old('region') }}" required>
 
                                     @if ($errors->has('region'))
                                     <span class="help-block">
