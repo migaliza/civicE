@@ -24,12 +24,20 @@
     
     <div></div>
     <h6><b>Returns: </b> </h6>
+
     <code>
      {<br>
-     <samp style="margin-left:40px;color:#ff0000">"projectDescriptions":[</samp><br>
+     <samp style="margin-left:40px;color:green">"success": </samp><samp style="color:blue">true,</samp><br>
+     <samp style="margin-left:40px;color:green">"code": </samp><samp style="color:blue">0,</samp><br>
+     <samp style="margin-left:40px;color:green">"locale": </samp><samp style="color:green">"en",</samp><br>
+     <samp style="margin-left:40px;color:green">"message": </samp><samp style="color:green">"OK",</samp><br>
+     <samp style="margin-left:40px;color:green">"data": </samp><samp style="color:black">[</samp><br>
      <samp style="margin-left: 80px">{</samp><br>
-     <samp style="margin-left: 120px;color:black">"projectName": </samp>"Future of Africa - Midunu",<br>
-     <p><samp style="margin-left: 120px;color:black">"description":</samp>"Mi Dunu is a feeding program for street kids under Future of Africa initiative. It aims at creating a friendly environment where street children feel comfortable to share their experiences with trained volunteers.",</p>
+     <samp style="margin-left: 120px;color:green">"id": </samp> "590ccb97b4d8d200713be843",<br>
+     <samp style="margin-left: 120px;color:grren">"projectName": </samp>"Future of Africa - Midunu",<br>
+     <p><samp style="margin-left: 120px;color:green">"description":</samp>"Mi Dunu is a feeding program for street kids under Future of Africa initiative. It aims at creating a friendly environment where street children feel comfortable to share their experiences with trained volunteers.",</p>
+     <samp style="margin-left: 120px;color:green">"projectName": </samp>"Future of Africa - Midunu",<br>
+     <p><samp style="margin-left: 120px;color:green">"impactSector":</samp>"Education Healthcare",</p>
      <samp style="margin-left: 80px">}</samp><br>
      <samp style="margin-left: 40px">]</samp><br
      <samp style="margin-left:30px">}</samp>
