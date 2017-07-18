@@ -242,8 +242,8 @@
   <label class="col-md-4 control-label" for="role2">Role</label>
   <div class="col-md-4">
     <label class="radio-inline" for="role-0">
-      <input type="radio" name="role2" id="role-0" value="primary project Lead">
-      Primary project Lead
+      <input type="radio" name="role2" id="role-0" value="Lead Volunteer">
+      Lead Volunteer
     </label>
     <label class="radio-inline" for="role-1">
       <input type="radio" name="role2" id="role-1" value="project Lead">
