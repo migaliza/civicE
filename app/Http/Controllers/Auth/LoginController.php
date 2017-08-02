@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+
 class LoginController extends Controller
 {
     /*
@@ -25,8 +26,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
-    protected $redirectToOrdinary = '/projects/fund/application';
+    protected $redirectTo = '/dashboard';
+   // protected $redirectToOrdinary = '/projects/fund/application';
 
     /**
      * Create a new controller instance.
@@ -35,7 +36,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+      $this->middleware('guest', ['except' => 'logout']);
     }
 
     /**
@@ -43,18 +44,15 @@ class LoginController extends Controller
     *Get the post register / login redirect path
     * @return string
     */
-    public function redirectPath()
+    /*public function redirectPath()
     {
-      if (\Auth::user()->role == 'Admin') {
-          return '/admin';
+      if (Entrust::hasRole('admin')) {
+        return '/dashboard';
       }
 
-      elseif (\Auth::user()->role == 'ordinary') {
-          return '/projects/fund/application/';
+      elseif (Entrust::hasRole('role')) {
+        return 'ProjectLeaders.project_dashboard';
       }
 
-      else {
-          return '/login';
-      }
+    }*/
   }
-}

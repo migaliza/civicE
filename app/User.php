@@ -1,13 +1,15 @@
-<?php
-
+<?php 
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+
+  use EntrustUserTrait, Notifiable;
+  //use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -15,13 +17,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-    'fName','lName', 'email', 'password','status','role'
+    'fName','lName', 'email', 'password','email_token','status','citizenship','region'
     ];
     
-    protected $citizenship;
-    protected $region;
-    protected $status; //student or faculty
-    protected $role; //ordinary user, project lead, volunteer, admin
+
+
 
 
     /**
@@ -34,4 +34,4 @@ class User extends Authenticatable
       protected $hidden = [
       'password', 'remember_token',
       ];
-  }
+    }

@@ -5,6 +5,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use App\Jobs\SendVerificationEmail;
 
 class RegisterController extends Controller
 {
@@ -26,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -65,28 +68,65 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         if(!empty($data['region'])){
-            //$region = $data['region'];
-         return User::create([
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'statusRegister' =>$data['statusRegister'],
-            'fName' => $data['fName'],
-            'lName' => $data['lName'],
-            'citizenship' =>$data['citizenship'],
-            'region' => $data['region'],
-            ]);
-     }
-     else{
-        return User::create([
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'statusRegister' =>$data['statusRegister'],
-            'fName' => $data['fName'],
-            'lName' => $data['lName'],
-            'citizenship' =>$data['citizenship'],
-            ]);
+           // dd($data['region']);
+            return User::create([
+                'fName' => $data['fName'],
+                'lName' => $data['lName'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'email_token' =>bcrypt(base64_encode($data['email'])),
+                'statusRegister' =>$data['statusRegister'],
+                'citizenship' =>$data['citizenship'],
+                'region' => $data['region'],
+                ]);
+        }
+        else{
+            return User::create([
+                'fName' => $data['fName'],
+                'lName' => $data['lName'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'email_token' =>bcrypt(base64_encode($data['email'])),
+                'statusRegister' =>$data['statusRegister'],
+                'citizenship' =>$data['citizenship'],
+                ]);
+
+        }
 
     }
 
+    /**
+    *handle registration from the user
+    *@param $request
+    *@return Response
+    */
+    public function register(Request $request){
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        dispatch(new SendVerificationEmail($user));
+        return view('email/verification');
+    }
+
+    /**
+    *handle a registration request for the application
+    *
+    *@param $token
+    *@return Response
+    */
+    public function verify($token){
+      
+
+        $user = User::where('email_token','=',urldecode($token) )->first();
+        
+        if(!is_null($user)){
+         $user->verified =1;
+         if($user->save()){
+            return view('email/emailconfirm',['user' => $user]);
+        }
+    }
+    else{
+        echo 'retry';
+    }
+    
 }
 }

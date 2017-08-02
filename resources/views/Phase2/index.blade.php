@@ -16,7 +16,7 @@
 
 		<div >@yield('child-content')</div>
 
-		<!-- Your content goes here ...-->
+		
 
 	</div>
 </div>

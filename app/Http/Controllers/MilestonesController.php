@@ -12,21 +12,42 @@ use App\ApiCode;
 
 class MilestonesController extends Controller
 {
-    //
+
+
+    /**
+    *display the view to add a new milstone
+    *@param projectId
+    *@return milstone view
+    */
+    public function newMilestone($projectId){
+
+        return view('ProjectInput/milestone')->with('projectId',$projectId);
+    }
+
+
+
+    /**
+    *method to add a new milestone to a project
+    *@param projectId, milstone description
+    *@return 
+    */
     public function insertMilestone(Request $request){
         $pId = $request->input('pId');
 
         if(!empty($pId)){
             $projectId = projects::where('_id','=',$pId)->value('_id');
+
+
             if(!is_null($projectId)){
                 $newMilestone = new Milestones;
                 $newMilestone->pId = $projectId;
+
 
                 if(!empty($request->input('description'))){
                     $newMilestone->mDescription = $request->input('description');
                     $newMilestone->save();
                     $response[] = ['message' => 'Succesfully added a new milestone'];
-                    return ResponseBuilder::success($response);
+                    return redirect('/dashboard');
                 }
                 else{
                     return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);

@@ -86,7 +86,7 @@ Route::get('/project/track/volunteers','projectRetriveController@trackVolunteer'
 Route::get('/projects/project/id','projectRetriveController@projectById');
 
 /**add a milestone to a project **/
-Route::get('/project/milestone/new','MilestonesController@insertMilestone');
+Route::post('/project/milestone/new','MilestonesController@insertMilestone');
 
 /**route to add a comment on a milestone */
 Route::get('/project/milestone/comment/new','MilestonesController@insertComment');

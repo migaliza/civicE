@@ -91,7 +91,7 @@
 
                         <!--status whether student or Faculty-->
                         <!-- Multiple Radios (inline) -->
-                        <div class="form-group{{ $errors->has('region') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('statusRegister') ? ' has-error' : '' }}">
                           <label class="col-md-4 control-label" for="statusRegister">Status</label>
                           <div class="col-md-4"> 
                             <label class="radio-inline" for="statusRegister-0">

@@ -11,6 +11,17 @@ use App\Expenditure;
 
 class fundingInfoController extends Controller
 {
+
+
+    /**
+    *display the grant view
+    *
+    */
+    public function newGrant($projectId){
+        return view('ProjectInput/grant')->with('projectId', $projectId);
+    }
+
+
     /**
     *insert a new funding info
     */
@@ -28,14 +39,14 @@ class fundingInfoController extends Controller
 
                     $project->fundingInfo()->save($fundingInfo);
                     $response[] = ['message' => 'Succesfully added a new funding info to project'];
-                    return ResponseBuilder::success($response);
+                    return redirect('/dashboard');
                 }
                 else{
                     return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
                 }
             }
             else{
-                    return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+                return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
             }   
         }
         else{
@@ -179,50 +190,50 @@ class fundingInfoController extends Controller
             if(!is_null($project)){
 
                 if(!empty($fId)){
-                     $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
-                     if(!is_null($fundingInfo)){
-                        if(!empty($eId)){
-                            $expenditure = $fundingInfo->expenditure->where('id','=', $eId)->first();
+                 $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
+                 if(!is_null($fundingInfo)){
+                    if(!empty($eId)){
+                        $expenditure = $fundingInfo->expenditure->where('id','=', $eId)->first();
                             //dd($expenditure);
-                            if(!is_null($expenditure)){
-                                if(!empty($request->input('purpose')) && !empty($request->input('amount')) && !empty($request->input('description'))){
+                        if(!is_null($expenditure)){
+                            if(!empty($request->input('purpose')) && !empty($request->input('amount')) && !empty($request->input('description'))){
 
-                                    $expenditure->purpose = $request->input('purpose');
-                                    $expenditure->amount = (float)$request->input('amount');
-                                    $expenditure->description = $request->input('description');
-                                    if(!empty($request->input('other'))){
-                                        $expenditure->description = $request->input('other');
-                                    }
-                                    $expenditure->save();
-                                    $response[] = ['message' => 'Succesfully editted funding expenditure to the project'];
-                                    return ResponseBuilder::success($response);
+                                $expenditure->purpose = $request->input('purpose');
+                                $expenditure->amount = (float)$request->input('amount');
+                                $expenditure->description = $request->input('description');
+                                if(!empty($request->input('other'))){
+                                    $expenditure->description = $request->input('other');
                                 }
-                                else{
-                                    return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
-                                }
+                                $expenditure->save();
+                                $response[] = ['message' => 'Succesfully editted funding expenditure to the project'];
+                                return ResponseBuilder::success($response);
                             }
                             else{
-                                return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+                                return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
                             }
                         }
                         else{
-                            return ResponseBuilder::error(ApiCode::NO_EXPENDITURE_ID);
-                        }   
-                     }
-                     else{
                             return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+                        }
                     }
+                    else{
+                        return ResponseBuilder::error(ApiCode::NO_EXPENDITURE_ID);
+                    }   
                 }
                 else{
-                        return ResponseBuilder::error(ApiCode::NO_FUNDING_id);
-                } 
+                    return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+                }
             }
             else{
-                return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
-            }
+                return ResponseBuilder::error(ApiCode::NO_FUNDING_id);
+            } 
         }
         else{
-            return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
-        } 
+            return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+        }
     }
+    else{
+        return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+    } 
+}
 }
