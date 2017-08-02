@@ -14,7 +14,7 @@
 Route::name('api')->get('/', function () {
 	return view('/API/dashboard');
 });
-
+Route::Auth();
 Route::name('dashboard')->get('/dashboard', 'Phase2Controller@index');
 
 
