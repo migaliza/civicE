@@ -99,17 +99,17 @@ Route::get('/project/milestone/comment/new','MilestonesController@insertComment'
 Route::get('/project/statistics/new','statisticsController@statistcsCollection');
 
 /**route to add new volunteer track to a project to a project*/
-Route::get('/project/statistics/volunteer/track/new','statisticsController@insertVolunteer');
+Route::post('/project/statistics/volunteer/track/new','statisticsController@insertVolunteer');
 
 /**route to add new population track to a project to a project*/
-Route::get('/project/statistics/population/track/new','statisticsController@insertPopulation');
+Route::post('/project/statistics/population/track/new','statisticsController@insertPopulation');
 
 /**route to edit a volunteer track to a project to a project*/
-Route::get('/project/statistics/volunteer/track/edit','statisticsController@editVolunteerTrack');
+Route::post('/project/statistics/volunteer/track/edit','statisticsController@editVolunteerTrack');
 
 
 /**route to edit population track to a project to a project*/
-Route::get('/project/statistics/population/track/edit','statisticsController@editPopulation');
+Route::post('/project/statistics/population/track/edit','statisticsController@editPopulation');
 
 /**
 *funding info

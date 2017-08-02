@@ -118,9 +118,9 @@
                     </li>
                     @if(Entrust::hasRole('owner'))
                     <li>
-                     <a href="{{ url('/milestone/newMilestone/'. $projectId)}}">Milestone</a>
-                 </li>
-                 <li>
+                       <a href="{{ url('/milestone/newMilestone/'. $projectId)}}">Milestone</a>
+                   </li>
+                   <li>
                     <a href="{{ url('/upcoming/new/'. $projectId) }}">Upcoming</a>
                 </li>
                 <li>
@@ -134,13 +134,19 @@
                 </li>
 
                 <li>
-                    <a href=""><i class="fa fa-sitemap fa-fw"></i> Project Statistics <span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i> Project Statistics <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="">Volunteer</a>
+                            <a href="{{ url('/volunteer/population/track/'.$projectId) }}">BaseLine Volunteer</a>
                         </li>
                         <li>
-                            <a href="">Target Population</a>
+                            <a href="{{ url('/volunteer/population/track/subsequent/'.$projectId) }}">Subsequent Volunteer</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/target/population/track/'.$projectId) }}">BaseLine Target Population</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/target/population/track/subsequent/'. $projectId) }}">Subsequent Target Population</a>
                         </li>
                     </ul>
                 </li>
@@ -151,7 +157,14 @@
         </div>
     </nav>
     <div id="container">
-        @yield('content')
+        <div style="margin-top: 100px; margin-right: 100px">
+            @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+            @endif
+            @yield('content')
+        </div>
     </div>
 
 </div>

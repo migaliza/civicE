@@ -240,13 +240,7 @@ class projectController extends Controller
     }
 
 
-    /**
-    *function to display target track view
-    */
-    public function addPopTrack($projectName){
-    	return view('ProjectInput/targetPopulationTrack')->with('projectNamee', rawurlencode($projectName));
-
-    }
+    
 
     /**
 	*function  to add impact sectors
@@ -274,13 +268,6 @@ class projectController extends Controller
 
 
 
-    /**
-    *function to display volunteer track
-    */
-    public function addVolTrack($projectName){
-    	return view('ProjectInput/volunteerTrack')->with('projectNamee', rawurlencode($projectName));
-
-    }
 
     /**
 	*function  to add impact sectors

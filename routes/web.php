@@ -14,7 +14,7 @@
 Route::name('api')->get('/', function () {
 	return view('/API/dashboard');
 });
-Route::Auth();
+Auth::routes();
 Route::name('dashboard')->get('/dashboard', 'Phase2Controller@index');
 
 
@@ -27,6 +27,7 @@ Route::get('/upcoming/new/{projectId}','UpcomingController@newUpcoming');
 Route::get('/milestone/newMilestone/{projectId}', 'MilestonesController@newMilestone');  
 /** new grant view */
 Route::get('/grant/newGrant/{projectId}','fundingInfoController@newGrant');
+
 
 
 
@@ -62,10 +63,17 @@ Route::get('/target/newTarget/{projectName}','projectController@newTarget')->nam
 Route::get('/lesson/newLesson/{projectName}','projectController@newLesson')->name('lesson');
 
 /** new target track */
-Route::get('/target/population/track/{projectName}','projectController@addPopTrack')->name('popTrack');
+Route::get('/target/population/track/{projectId}','statisticsController@addPopTrack');
+
+/** add subsequent values target track */
+Route::get('/target/population/track/subsequent/{projectId}','statisticsController@editPopulationTrackView');
+
 
 /** new volunteer track */
-Route::get('/volunteer/population/track/{projectName}','projectController@addVolTrack')->name('volTrack');
+Route::get('/volunteer/population/track/{projectId}','statisticsController@addVolTrack');
+
+/** new volunteer track */
+Route::get('/volunteer/population/track/subsequent/{projectId}','statisticsController@editVolunteerTrackView');
 
 Route::name('fRational')->get('/funding/rational/{projectName}','projectController@addNewFundingRational');
 

@@ -1,16 +1,18 @@
 @extends('Phase2.ProjectLeaders.project_dashboard')
 @section('content')
-@section('title','Milestone')
+@section('title','Volunteer Track')
+<!-- Page Content -->
 <div id="page-wrapper">
   <div class="container-fluid">
+
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="page-header">@yield('title')</h3>
+        <h1 class="page-header"></h1>
       </div>
     </div>
 
-    <div>
-      <form method="POST"  action="/civicdoc/project/milestone/new" class="form-horizontal">
+    <div >
+      <form method="POST"  action="/civicdoc/project/statistics/volunteer/track/edit" class="form-horizontal">
 
         <fieldset>
           {{ csrf_field() }}
@@ -19,16 +21,18 @@
             <label class="col-md-4 control-label" for="pId"></label>  
             <div class="col-md-4">
               <input id="pId" name="pId" type="hidden" value={{ $projectId }} class="form-control input-md">
+
             </div>
           </div>
 
-          <!-- Textarea milestone -->
+          <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="description"></label>
-            <div class="col-md-4">                     
-              <textarea class="form-control" id="description" placeholder="Milestone" name="description"></textarea>
+            <label class="col-md-4 control-label" for="difference"></label>  
+            <div class="col-md-4">
+              <input id="difference" name="difference" type="number" placeholder="" class="form-control input-md">
             </div>
           </div>
+
           <!-- Button -->
           <div class="form-group">
             <label class="col-md-4 control-label" for="submit"></label>
@@ -36,10 +40,14 @@
               <button id="submit" name="submit" type="submit" class="btn btn-primary">ADD</button>
             </div>
           </div>
+
+
         </fieldset>
       </form>
     </div>
+
   </div>
 </div>
+
 
 @endsection

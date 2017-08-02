@@ -3,7 +3,9 @@ namespace App;
 
 
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
-
+//use Illuminate\Database\Eloquent\Model;
+//use Milestone;
+//use SoftDelete;
 
 class projects extends Eloquent
 {
@@ -14,64 +16,20 @@ class projects extends Eloquent
     //collection to store
     protected  $collection = 'projects';
 
-    protected $pName; 
-    protected $facultyId;
-    protected $town;// = ['name','longitude','latitude'];
+    protected $project_name; 
+    protected $tier;
+    protected $location_name;// = ['name','longitude','latitude'];
     protected $region;
-    protected $latitude;
-    protected $longitude;
-    protected $description;
-    protected $commencementDate;//=['commencement_date'];
-    protected $completionDate;//s=['completion_date'];
-    protected $primaryActivity; //an array
-    protected $impactPopulation;//an array
-
-    
-
-    /*
-    *embed statistics collection to project
-    */
-    public function pStatistics(){
-        return $this->embedsOne('App\statistics');
-    }
-
-    /*
-    *embed funding info collection to project
-    */
-
-    public function fundingInfo(){
-        return $this->embedsMany('App\fundingInfo');
-    }
-
-    /*
-    *embed expenditure files
-    */
-    public function expenditureFIles(){
-        return $this->embedsMany('App\ExpenditureFIles');
-    }
-
-    /*
-    *embed projectLead
-    */
-    public function projectLead(){
-        return $this->embedsMany('App\ProjectLead');
-    }
-
-    /*
-    *embed partnerships
-    */
-    public function partnerships(){
-        return $this->embedsMany('App\Partnerships');
-    }
-
-    /*
-    *embeds many upcoming
-    */
-    public function upcoming(){
-        return $this->embedsMany('App\Upcoming');
-    }
-
-
+    protected $country;
+    protected $location_latitude;
+    protected $location_longitude;
+    protected $brief_description;
+    protected $commencement_date;//=['commencement_date'];
+    protected $completion_date;//s=['completion_date'];
+    protected $status;
+    protected $primary_activity;
+    protected $partnerships;
+   
 
  
 }

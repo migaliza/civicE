@@ -15,87 +15,117 @@ use App\ApiCode;
 
 class statisticsController extends Controller
 {
+
+
+    /**
+    *function to display volunteer track
+    */
+    public function addVolTrack($projectId){
+      return view('ProjectInput/volunteerTrack')->with('projectId', $projectId);
+    }
+
+    /**
+    *function to display target track view
+    */
+    public function addPopTrack($projectId){
+      return view('ProjectInput/targetPopulationTrack')->with('projectId',$projectId);
+
+    }
+
+
   /*
     *method to instert new statistics
     */
-    public function statistcsCollection(Request $statistics){
-      $stats = new statistics;
-      $projectId = $statistics->input('pId');
-      if(!empty($projectId)){
-        $project = projects::where('_id','=',$projectId)->first();
-        $project->pStatistics()->save($stats);
-        $response[] = ['message' => 'Succesfully added statistics to project'];
-        return ResponseBuilder::success($response);
-      }
-      else{
-        //$data[] = ['message' => 'provide correct project ID'];
-        return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
-      }
-      
+
+  public function statistcsCollection($statistics){
+    $stats = new statistics;
+    //$projectId = $statistics->input('pId');*/
+    $project = projects::where('_id','=',$statistics)->first();
+    if(!is_null($project)){
+      $project->pStatistics()->save($stats);
+
     }
+  }
 
   
     /*
     *method to instert volunteer track
     */
     public function insertVolunteer(Request $volunteer){
+
       $volTrack = new trackVolunteer;
       $pId = $volunteer->input('pId');
       $volCum = new volCumulative;
+      //dd($pId);
 
       if(!empty($pId)){
-          if(!empty($volunteer->input('baseline')) && ($volunteer->input('baseline')>=0 )){
+       $project = projects::where('_id','=',$pId)->first();
+       if(!is_null($project)){
+        if(is_null($project->pStatistics)){
+          $this->statistcsCollection($pId);
+        }
+        else{
+          //dd('skjd');
           $baseline =(int)$volunteer->input('baseline');
           $volTrack->baseline = $baseline;
           $volTrack->current =$baseline;
-
-          $project = projects::where('_id','=',$pId)->first();
           $statistics = $project->pStatistics; //access an embedded collection
           $statistics->trackVolunteer()->save($volTrack);
           $volCum->volCumulative = $baseline;
           $statistics->volCumulative()->save($volCum);
+          return redirect('/dashboard');
 
-          $response[] = ['message' => 'Succesfully added a volunteer statistics to project'];
-          return ResponseBuilder::success($response);
         }
-        else{
-          return ResponseBuilder::error(ApiCode::FIELDS_NOT_ENTERED_STATISTICS);
-        } 
-      }
-      else{
-        return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+
       }
     }
+  }
+
+   /**
+    *function to display volunteer track
+    */
+   public function editPopulationTrackView($projectId){
+    return view('ProjectInput/editTargetPopulation')->with('projectId', $projectId);
+  }
 
     /*
     *method to instert population track if the it is 
     */
     public function insertPopulation(Request $population){
+
       $pId = $population->input('pId');
       $popCum = new popCumulative;
       $popTrack = new trackPopulation;
+
       if(!empty($pId)){
-        if(!empty($population->input('baseline')) &&($population->input('baseline') >=0)){
-          $baseline =(int)$population->input('baseline');
-          $popTrack->baseline = $baseline;
-          $popTrack->current =$baseline;
+        $project = projects::where('_id','=',$pId)->first();
+        if(!is_null($project)){
+          if(is_null($project->pStatistics)){
+            $this->statistcsCollection($pId);
+          }
+          else{
+            $baseline =(int)$population->input('baseline');
+            $popTrack->baseline = $baseline;
+            $popTrack->current =$baseline;
+            $statistics = $project->pStatistics;
 
-          $project = projects::where('_id','=',$pId)->first();
-          $statistics = $project->pStatistics; //access an embedded collection
-          $statistics->trackPopulation()->save($popTrack);
-          $popCum->popCumulative = $baseline;
-          $statistics->popCumulative()->save($popCum);
+            $statistics->trackPopulation()->save($popTrack);
+            $popCum->popCumulative = $baseline;
+            $statistics->popCumulative()->save($popCum);
+            return redirect('/dashboard');
 
-          $response[] = ['message' => 'Succesfully added population track record'];
-          return ResponseBuilder::success($response);
-        }
-        else{
-          return ResponseBuilder::error(ApiCode::FIELDS_NOT_ENTERED_STATISTICS);
+          }
+          //
         }
       }
-      else{
-        return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
-      }
+
+    }
+
+    /**
+    *function to display volunteer track
+    */
+    public function editVolunteerTrackView($projectId){
+      return view('ProjectInput/editVolunteer')->with('projectId', $projectId);
     }
 
    /*
@@ -104,40 +134,34 @@ class statisticsController extends Controller
    public function editVolunteerTrack(Request $volunteer){
     $pId = $volunteer->input('pId');
     $volDifference = (int)$volunteer->input('difference');
- 
+
     
     if(!empty($pId)){
       $project = projects::where('_id','=',$pId)->first();
-      $statistics = $project->pStatistics;
-      $volTrack = $statistics->trackVolunteer;
-      $volCum = new volCumulative;
+      if(!is_null($project)){
+        if(!is_null($project->pStatistics)){
+          $statistics = $project->pStatistics;
+          if(!is_null($statistics->trackVolunteer)){
+            $volTrack = $statistics->trackVolunteer;
+            $volCum = new volCumulative;
 
-      if(!is_null($volTrack)){
-          if(!empty($volDifference)){
-          $cumulative = $volDifference + $volTrack->current;
-    
-          $volTrack->current = $cumulative;
-          $volTrack->difference = $volDifference;
-          $volCum->volCumulative = $cumulative;
-          $volTrack->save();
-          $statistics->volCumulative()->save($volCum);
+            $cumulative = $volDifference + $volTrack->current;
 
-          $response[] = ['message' => 'Succesfully editted volunteer track record'];
-          return ResponseBuilder::success($response);
-        }
-      else{
-          return ResponseBuilder::error(ApiCode::FIELDS_NOT_ENTERED_STATISTICS);
+            $volTrack->current = $cumulative;
+            $volTrack->difference = $volDifference;
+            $volCum->volCumulative = $cumulative;
+            $volTrack->save();
+            $statistics->volCumulative()->save($volCum);
+
+            $response[] = ['message' => 'Succesfully editted volunteer track record'];
+            return redirect('/dashboard');
+          }
+
         }
       }
-      else{
-        return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
-      }
-      
     }
-    else{
-        return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
-      }
-   }
+
+  }
 
    /*
    *Edit population track by editing the current and the cumulative values
@@ -149,34 +173,25 @@ class statisticsController extends Controller
 
     if(!empty($pId)){
       $project = projects::where('_id','=',$pId)->first();
-      $statistics = $project->pStatistics;
-      $popTrack = $statistics->trackPopulation;
-      //dd($popTrack);
-      $popCum = new popCumulative;
-      if(!is_null($popTrack)){
-          if(!empty($popDifference)){
-          $cumulative = $popDifference + $popTrack->current;
-    
-          $popTrack->current = $cumulative;
-          $popTrack->difference = $popDifference;
-      
-          $popCum->popCumulative = $cumulative;
-          $popTrack->save();
-          $statistics->popCumulative()->save($popCum);
+      if(!is_null($project)){
+        if(!is_null($project->pStatistics)){
+          $statistics = $project->pStatistics;
+          if(!is_null($statistics->trackPopulation)){
+            $popTrack = $statistics->trackPopulation;
+            $popCum = new popCumulative;
+            $cumulative = $popDifference + $popTrack->current;
 
-          $response[] = ['message' => 'Succesfully editted population track record'];
-          return ResponseBuilder::success($response);
-      }
-      else{
-          return ResponseBuilder::error(ApiCode::FIELDS_NOT_ENTERED_STATISTICS);
+            $popTrack->current = $cumulative;
+            $popTrack->difference = $popDifference;
+            $popCum->popCumulative = $cumulative;
+            $popTrack->save();
+            $statistics->popCumulative()->save($popCum);
+
+          //$response[] = ['message' => 'Succesfully editted population track record'];
+            return redirect('/dashboard');
+          }
         }
-    }
-    else{
-        return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
       }
     }
-    else{
-        return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
-      }
-   }
+  }
 }
