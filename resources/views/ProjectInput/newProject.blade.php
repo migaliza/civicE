@@ -115,11 +115,39 @@
           </div>
 
 
-          <!-- input -->
+          <!-- Select Multiple -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="impactPopulation"> Impact Population (I dhould to a multiple selection)</label>
-            <div class="col-md-4">                     
-              <input class="form-control" id="impactPopulation" placeholder="" name="project[impactPopulation]"></input>
+            <label class="col-md-4 control-label" for="impactSectors">Impact Sectors</label>
+            <div class="col-md-4">
+              <select id="impactSectors" name="impactSectors[]" class="form-control" multiple="multiple">
+                <option value="Education">Education</option>
+                <option value="Design">Design</option>
+                <option value="Technology">Technology</option>
+                <option value="Agriculture">Agriculture</option>
+                <option value="Entrepreneurship">Entrepreneurship</option>
+                <option value="Environment">Environment</option>
+                <option value="Welfare">Welfare</option>
+                <option value="Counselling">Counselling</option>
+                <option value="Mentorship">Mentorship</option>
+                <option value="Sanitation">Sanitation</option>
+                <option value="Waste management">Waste management</option>
+              </select>
+              <span class="help-block">Press Ctrl to select multiple values</span>  
+            </div>
+          </div>
+
+          <!-- Select Multiple -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="impactPopulation">Impact population</label>
+            <div class="col-md-4">
+              <select id="impactPopulation" name="impactPopulation" class="form-control" multiple="multiple">
+                <option value="Students">Students</option>
+                <option value="Children">Children</option>
+                <option value="Farmers">Farmers</option>
+                <option value="Street Children">Street Children</option>
+                <option value="Street Children">Street Children</option>
+              </select>
+              <span class="help-block">Press ctrl to select multiple values</span>  
             </div>
           </div>
 
@@ -136,7 +164,7 @@
 
         </fieldset>
       </form>
-      
+
     </div>
 
     <!-- Your content goes here ...-->

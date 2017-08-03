@@ -72,20 +72,27 @@ class projectController extends Controller
 		}
 		if(!empty($request->input('Commencement_date'))){
 			$dateCommence = strtotime($request->input('Commencement_date'));
-			//$commencementDate = date('Y-M-d',$dateCommence);
 			$project->commencementDate = date('Y-M-d',$dateCommence);
 		}
 		if(!empty($request->input('completion_date'))){ 
 			$dateComplete = strtotime($request->input('completion_date'));
-			//$completionDate = date('y-m-d', $dateComplete);
 			$project->completionDate = date('Y-M-d', $dateComplete);
 		}
-		if(!empty($request->input('project.*.primary'))){
-			$project->primaryActivity = $request->input('project.primary');
-			//dd($project->primaryActivity);
+		if(!empty($request->input('impactPopulation'))){
+			$impactPopulation = $request->input('impactPopulation');
+			$impactPopulation = implode(',',$impactPopulation);
+			$input = $request->except('impactPopulation');
+			$input['impactPopulation'] = $impactPopulation;
+			$project->primaryActivity = $input;
+			
 		}//array input
-		if(!empty($request->input('project.*.impactPopulation'))){
-			$project->impactPopulation = $request->input('project.impactPopulation');
+		///////////////////////////////////////////////////////
+		if(!empty($request->input('impactSectors'))){
+			$impact = $request->input('impactSectors');
+			$impact = implode(',',$impact);
+			$input = $request->except('impactSectors');
+			$input['impactSectors'] = $impact;
+			$project->impactPopulation = $input;
 		} 
 
 		$project->save();
