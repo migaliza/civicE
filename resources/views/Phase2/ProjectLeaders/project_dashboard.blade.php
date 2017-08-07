@@ -116,36 +116,55 @@
                             </span>
                         </div>
                     </li>
+                    @if(Entrust::hasRole('owner'))
+                    <li>
+                       <a href="{{ url('/milestone/newMilestone/'. $projectId)}}">Milestone</a>
+                   </li>
+                   <li>
+                    <a href="{{ url('/upcoming/new/'. $projectId) }}">Upcoming</a>
+                </li>
+                <li>
+                    <a href="{{ url('/grant/newGrant/'.$projectId) }}">Funding Info</a>
+                </li>
+                <li>
+                    <a href="">Partnerships</a>
+                </li>
+                <li>
+                    <a href="">Project Lead</a>
+                </li>
 
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('newProject')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Add new Project</a>
-                    </li>
-                    <li>
-                        <a href="{{route('manageUsers')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Manage Users</a>
-                    </li>
+                <li>
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i> Project Statistics <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{ url('/volunteer/population/track/'.$projectId) }}">BaseLine Volunteer</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/volunteer/population/track/subsequent/'.$projectId) }}">Subsequent Volunteer</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/target/population/track/'.$projectId) }}">BaseLine Target Population</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/target/population/track/subsequent/'. $projectId) }}">Subsequent Target Population</a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
 
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i>Fund Application</a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Roles and Permissions</a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Project Leaders</a>
-                    </li>
-                    
-                </ul>
 
             </div>
         </div>
     </nav>
     <div id="container">
-        @yield('content')
+        <div style="margin-top: 100px; margin-right: 100px">
+            @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+            @endif
+            @yield('content')
+        </div>
     </div>
 
 </div>

@@ -11,34 +11,50 @@
 |
 */
 
-Route::name('dashboard')->get('/', function () {
+Route::name('api')->get('/', function () {
 	return view('/API/dashboard');
 });
-
-
 Auth::routes();
+Route::name('dashboard')->get('/dashboard', 'Phase2Controller@index');
+
+
+Route::name('manageUsers')->get('/manageusers/','Phase2Controller@manageUsers');
+     //view user details
+Route::get('/manageusers/viewuser/{userId}','Phase2Controller@viewUser');
+/** new upcoming view*/
+Route::get('/upcoming/new/{projectId}','UpcomingController@newUpcoming');
+/**milestone view */
+Route::get('/milestone/newMilestone/{projectId}', 'MilestonesController@newMilestone');  
+/** new grant view */
+Route::get('/grant/newGrant/{projectId}','fundingInfoController@newGrant');
+
+
+
+
+
+Route::get('/verifyemail/{token}','Auth\RegisterController@verify')->where('token','(.*)');
+
+
+
 Route::get('/Test/PHP','projectRetriveController@test');
 
 //Route::get('/home', 'HomeController@index');
 /**add new project view */
-Route::get('/project/new','projectController@newProject');
+Route::name('newProject')->get('/project/new','projectController@newProject');
 
 /** navigation page for every page */
 Route::get('project/navigate/project/{projectName}','projectController@navigate');
-/**milestone view */
-Route::get('/milestone/newMilestone/{projectName}', 'projectController@newMilestone')->name('Milestone');  
+
 
 /** new event view */
-Route::get('/event/newEvent/{projectName}','projectController@newEvent')->name('event');
+//Route::get('/event/newEvent/{projectName}','projectController@newEvent')->name('event');
 
-/** new upcoming view*/
-Route::get('/upcoming/new/{projectName}','projectController@newUpcoming')->name('upcoming');
+
 
 /** new impact view */
 Route::get('/impact/newImpact/{projectName}','projectController@newImpact')->name('impact');
 
-/** new grant view */
-Route::get('/grant/newGrant/{projectName}','projectController@newGrant')->name('grant');
+
 
 /** new target view */
 Route::get('/target/newTarget/{projectName}','projectController@newTarget')->name('target');
@@ -47,15 +63,21 @@ Route::get('/target/newTarget/{projectName}','projectController@newTarget')->nam
 Route::get('/lesson/newLesson/{projectName}','projectController@newLesson')->name('lesson');
 
 /** new target track */
-Route::get('/target/population/track/{projectName}','projectController@addPopTrack')->name('popTrack');
+Route::get('/target/population/track/{projectId}','statisticsController@addPopTrack');
+
+/** add subsequent values target track */
+Route::get('/target/population/track/subsequent/{projectId}','statisticsController@editPopulationTrackView');
+
 
 /** new volunteer track */
-Route::get('/volunteer/population/track/{projectName}','projectController@addVolTrack')->name('volTrack');
+Route::get('/volunteer/population/track/{projectId}','statisticsController@addVolTrack');
+
+/** new volunteer track */
+Route::get('/volunteer/population/track/subsequent/{projectId}','statisticsController@editVolunteerTrackView');
 
 Route::name('fRational')->get('/funding/rational/{projectName}','projectController@addNewFundingRational');
 
-/** display the API view admin page */
-Route::name('admin')->get('/admin', 'Phase2Controller@index');
+
 
 
 /** display the API view project adpi docs */

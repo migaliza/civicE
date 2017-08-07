@@ -1,43 +1,47 @@
-@extends('master')
+@extends('Phase2.ProjectLeaders.project_dashboard')
 @section('content')
-@section('title','New Project')
+@section('title','upcoming')
+<div style="margin-top: 100px; margin-right: 100px">
+  <div id="page-wrapper">
+    <div class="container-fluid">
 
-<form method="POST"  action="/civicdoc/project/upcoming/new" class="form-horizontal">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header">@yield('title')</h3>
+        </div>
+      </div>
 
-<fieldset>
-{{ csrf_field() }}
+      <div>
+        <form method="POST"  action="/civicdoc/project/upcoming/new" class="form-horizontal">
+          <fieldset>
+            {{ csrf_field() }}
 
-<!-- Form Name -->
-<legend>UPCOMING </legend>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="project_name"></label>  
-  <div class="col-md-4">
-  <input id="project_name" name="project_name" type="hidden" value={{ $projectNamee }} class="form-control input-md">
-    
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="project_name"></label>  
+              <div class="col-md-4">
+                <input id="project_name" name="project_name" type="hidden" value={{ $projectId }} class="form-control input-md">
+              </div>
+            </div>
+            <!-- Textarea -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="upcoming"></label>
+              <div class="col-md-4">                     
+                <textarea class="form-control" id="upcoming" placeholder="Upcoming" name="upcoming"></textarea>
+              </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="submit"></label>
+              <div class="col-md-4">
+                <button id="submit" name="submit" type="submit" class="btn btn-primary">ADD</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="upcoming"></label>
-  <div class="col-md-4">                     
-    <textarea class="form-control" id="upcoming" placeholder="Upcoming" name="upcoming"></textarea>
-  </div>
-</div>
 
-
-
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="submit"></label>
-  <div class="col-md-4">
-    <button id="submit" name="submit" type="submit" class="btn btn-primary">ADD</button>
-  </div>
-</div>
-
-
-</fieldset>
-</form>
 @endsection

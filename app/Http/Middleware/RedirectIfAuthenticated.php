@@ -32,20 +32,12 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if($this->auth->check()){
+        if(Auth::guard($guard)->check()){
+           
+            return redirect('/dashboard');
+        }   
 
-            if($this->auth->user()->role == 'admin'){
-                dd($this->auth->user()->role);
-                return redirect('/admin');
-            }
-            elseif($this->auth->user()->role == 'ordinary'){
-                dd($this->auth->user()->role);
-                return redirect('/projects/fund/application/');
-            }
-            elseif(is_null($this->auth->user()->role)){
-                return redirect('/login');
-            }
-        }
         return $next($request);
+        
     }
 }

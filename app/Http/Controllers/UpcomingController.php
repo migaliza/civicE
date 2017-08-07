@@ -11,10 +11,19 @@ use App\ApiCode;
 
 class UpcomingController extends Controller
 {
+
+    /**
+    *display the upcoming view
+    *@param projectId
+    */
+    public function newUpcoming($projectId){
+        return view('ProjectInput/upcoming')->with('projectId',$projectId);
+        
+    }
     //
     /**
     *insert new Upcoming
-    *parameters: project id, Upcoming
+    *@param: project id, Upcoming
     */
     public function addNewUpcoming(Request $request){
     	$pId = $request->input('pId');
@@ -28,20 +37,20 @@ class UpcomingController extends Controller
     				$project->upcoming()->save($upcoming);
 
     				$response[] = ['message' => 'Succesfully added Upcoming to project'];
-                    return ResponseBuilder::success($response);
-    			}
-    			else{
-    				return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
-    			}
-    		}
-    		else{
-    			return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
-    		}
-    	}
-    	else{
-    		return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
-    	}
-    }
+                    return redirect('/dashboard');
+                }
+                else{
+                    return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
+                }
+            }
+            else{
+               return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+           }
+       }
+       else{
+          return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+      }
+  }
 
     /**
     *add comment to upcoming
@@ -65,24 +74,24 @@ class UpcomingController extends Controller
     					$upcoming->upComments()->save($upcomingComments);
 
     					$response[] = ['message' => 'Succesfully added a comment'];
-                    	return ResponseBuilder::success($response);
+                     return ResponseBuilder::success($response);
 
-    				}
-    				else{
-    					return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
-    				}
-    			}
-    			else{
-    				return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
-    			}
-    		}
-    		else{
-    			return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
-    		}
-    	}
-    	else{
-    		return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
-    	}
-    }
+                 }
+                 else{
+                     return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
+                 }
+             }
+             else{
+                return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+            }
+        }
+        else{
+           return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+       }
+   }
+   else{
+      return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+  }
+}
 
 }

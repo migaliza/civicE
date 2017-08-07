@@ -1,55 +1,53 @@
-@extends('master')
+@extends('Phase2.ProjectLeaders.project_dashboard')
 @section('content')
-@section('title','New Project')
+@section('title','Volunteer Track')
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
 
-<form method="POST"  action="/civicdoc/project/volunteer/track/add" class="form-horizontal">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header"></h1>
+      </div>
+    </div>
 
-<fieldset>
-{{ csrf_field() }}
+    <div >
+      <form method="POST"  action="/civicdoc/project/statistics/volunteer/track/new" class="form-horizontal">
 
-<!-- Form Name -->
-<legend>POPULATION track</legend>
+        <fieldset>
+          {{ csrf_field() }}
 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="project_name"></label>  
-  <div class="col-md-4">
-  <input id="project_name" name="project_name" type="hidden" value={{ $projectNamee }} class="form-control input-md">
-    
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="pId"></label>  
+            <div class="col-md-4">
+              <input id="pId" name="pId" type="hidden" value={{ $projectId }} class="form-control input-md">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="baseline"></label>  
+            <div class="col-md-4">
+              <input id="baseline" name="baseline" type="number" placeholder="" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="submit"></label>
+            <div class="col-md-4">
+              <button id="submit" name="submit" type="submit" class="btn btn-primary">ADD</button>
+            </div>
+          </div>
+
+
+        </fieldset>
+      </form>
+    </div>
+
   </div>
 </div>
 
 
-
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="volunteer_baseline"></label>  
-  <div class="col-md-4">
-  <input id="volunteer_baseline" name="volunteer_baseline" type="number" placeholder="Volunteer Baseline" class="form-control input-md">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="volunteer_recent"></label>  
-  <div class="col-md-4">
-  <input id="volunteer_recent" name="volunteer_recent" type="number" placeholder="Volunteer Recent" class="form-control input-md">
-    
-  </div>
-</div>
-
-
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="submit"></label>
-  <div class="col-md-4">
-    <button id="submit" name="submit" type="submit" class="btn btn-primary">ADD</button>
-  </div>
-</div>
-
-
-</fieldset>
-</form>
 @endsection

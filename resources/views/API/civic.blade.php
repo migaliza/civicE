@@ -69,17 +69,16 @@
                 <span class="icon-bar"></span>
             </button>
 
+
             <!-- Top Navigation: Left Menu -->
-            
             
             @if (Route::has('login'))
             <div>
                 @if (Auth::check())
                 <ul class="nav navbar-nav navbar-left navbar-top-links">
-                    <li><a href="{{ route('admin') }}"><i class="fa fa-home fa-fw"></i>Home</a></li>
+                    <li><a href=""><i class="fa fa-home fa-fw"></i>Home</a></li>
                 </ul>
-                @else
-                
+                @elseif (Auth::guest())
                 <ul class="nav navbar-right navbar-top-links">
                     <li class="dropdown navbar-inverse">
                         <a href="{{ route('login') }}">
@@ -96,14 +95,15 @@
             </div>
             @endif
             
+            
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
 
                     <ul class="nav" id="side-menu">
-                        
+
                         <li>
-                            <a href="{{ route('dashboard')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{ route('api')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project</a>
@@ -133,94 +133,38 @@
                         <li>
                             <a href="{{ route('grandApllication') }}"><i class='fa fa-sitemap fa-fw'></i>Apply for funds</a>
                         </li>
-                    <!--<li>
-                        <a href="{{ route('apiProject') }}"><i class="fa fa-sitemap fa-fw"></i> Project <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="">View Projects</a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="{{ route('apiProject') }}">View all</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">View By Tier</a>
-                                    </li>
 
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Project Components <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Milestone</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Events</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Grant info</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Upcoming</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Milestone</a>
-                                    </li>
+                    </ul>
 
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#">Active projects <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Milestone</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#">In active Projects<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Milestone</a>
-                                    </li>   
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>-->
-                </ul>
-
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div id="container">
-                @yield('content')
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div id="container">
+                    @yield('content')
+                </div>
             </div>
-        </div>
-    </div>  
+        </div>  
 
-</div>
-<script src="{{ asset('js/app.js') }}"></script>
+    </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 
-<!-- jQuery -->
-<script src="{{ asset('js/beta_js/jquery.min.js') }}"></script>
+    <!-- jQuery -->
+    <script src="{{ asset('js/beta_js/jquery.min.js') }}"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="{{ asset('js/beta_js/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/beta_js/bootstrap.min.js') }}"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="{{ asset('js/beta_js/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/beta_js/bootstrap.min.js') }}"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="{{ asset('js/beta_js/metisMenu.min.js') }}"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{ asset('js/beta_js/metisMenu.min.js') }}"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="{{ asset('js/beta_js/startmin.js') }}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ asset('js/beta_js/startmin.js') }}"></script>
 
 </body>
 </html>

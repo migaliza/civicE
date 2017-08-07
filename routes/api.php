@@ -39,7 +39,7 @@ Route::get('/projects/{tier}','projectRetriveController@tiers');
 Route::get('/projects','projectRetriveController@projectData');
 
 //create a new project
-Route::post('/projects/create/project/new','projectController@addNewProject');
+Route::post('/projects/create/project/add','projectController@addNewProject');
 
 /** display project tier */
 Route::get('/projects/{tier}','projectRetriveController@tiers');
@@ -86,7 +86,7 @@ Route::get('/project/track/volunteers','projectRetriveController@trackVolunteer'
 Route::get('/projects/project/id','projectRetriveController@projectById');
 
 /**add a milestone to a project **/
-Route::get('/project/milestone/new','MilestonesController@insertMilestone');
+Route::post('/project/milestone/new','MilestonesController@insertMilestone');
 
 /**route to add a comment on a milestone */
 Route::get('/project/milestone/comment/new','MilestonesController@insertComment');
@@ -99,17 +99,17 @@ Route::get('/project/milestone/comment/new','MilestonesController@insertComment'
 Route::get('/project/statistics/new','statisticsController@statistcsCollection');
 
 /**route to add new volunteer track to a project to a project*/
-Route::get('/project/statistics/volunteer/track/new','statisticsController@insertVolunteer');
+Route::post('/project/statistics/volunteer/track/new','statisticsController@insertVolunteer');
 
 /**route to add new population track to a project to a project*/
-Route::get('/project/statistics/population/track/new','statisticsController@insertPopulation');
+Route::post('/project/statistics/population/track/new','statisticsController@insertPopulation');
 
 /**route to edit a volunteer track to a project to a project*/
-Route::get('/project/statistics/volunteer/track/edit','statisticsController@editVolunteerTrack');
+Route::post('/project/statistics/volunteer/track/edit','statisticsController@editVolunteerTrack');
 
 
 /**route to edit population track to a project to a project*/
-Route::get('/project/statistics/population/track/edit','statisticsController@editPopulation');
+Route::post('/project/statistics/population/track/edit','statisticsController@editPopulation');
 
 /**
 *funding info
