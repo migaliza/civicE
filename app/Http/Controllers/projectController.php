@@ -12,17 +12,7 @@ use App\ProjectLead;
 class projectController extends Controller
 {
 
-	 //
-     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-     public function __construct()
-     {
-     	$this->middleware('auth');
-     }
-     
+	
 
 
 	/**
@@ -40,11 +30,14 @@ class projectController extends Controller
 		return view('Project/appProject')->with('projectN', rawurlencode($projectName));;
 	}
 
+
+
 	/**
 	*add a new project
 	*
 	*/
 	public function addNewProject(Request $request){
+		
 		
 		$project = new projects;
 
@@ -94,6 +87,8 @@ class projectController extends Controller
 			$input['impactSectors'] = $impact;
 			$project->impactPopulation = $input;
 		} 
+
+		dd($project->impactPopulation. ' ' .$project->primaryActivity);
 
 		$project->save();
 		$response[] = ['message' => 'Succesfully added a new project'];

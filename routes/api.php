@@ -39,7 +39,7 @@ Route::get('/projects/{tier}','projectRetriveController@tiers');
 Route::get('/projects','projectRetriveController@projectData');
 
 //create a new project
-Route::post('/projects/create/project/new','projectController@addNewProject');
+Route::post('/projects/create/project/add','projectController@addNewProject');
 
 /** display project tier */
 Route::get('/projects/{tier}','projectRetriveController@tiers');

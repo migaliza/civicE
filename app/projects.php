@@ -7,7 +7,7 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class projects extends Eloquent
 {
- 
+   
 
      //connection
     protected $connection = 'mongodb';

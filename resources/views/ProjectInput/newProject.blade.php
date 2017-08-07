@@ -13,13 +13,10 @@
     </div>
 
     <div style="">
-      <form method="POST"  action="/civicdoc/projects/create/project/new" class="form-horizontal">
+      <form method="POST"  action="/civicdoc/projects/create/project/add" class="form-horizontal">
 
         <fieldset>
           {{ csrf_field() }}
-
-          <!-- Form Name -->
-          <legend>NEW PROJECT</legend>
 
 
           <!-- Text input-->
