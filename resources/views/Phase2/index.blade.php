@@ -13,6 +13,11 @@
 				<h1 class="page-header">Available Projects</h1>
 			</div>
 		</div>
+		@if (session('status'))
+		<div class="alert alert-success">
+			{{ session('status') }}
+		</div>
+		@endif
 
 		<div >@yield('child-content')</div>
 

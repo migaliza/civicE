@@ -74,28 +74,20 @@ class projectController extends Controller
 		if(!empty($request->input('impactPopulation'))){
 			$impactPopulation = $request->input('impactPopulation');
 			$impactPopulation = implode(',',$impactPopulation);
-			$input = $request->except('impactPopulation');
-			$input['impactPopulation'] = $impactPopulation;
-			$project->primaryActivity = $input;
+			$project->primaryActivity = $impactPopulation;
 			
 		}//array input
 		///////////////////////////////////////////////////////
 		if(!empty($request->input('impactSectors'))){
 			$impact = $request->input('impactSectors');
 			$impact = implode(',',$impact);
-			$input = $request->except('impactSectors');
-			$input['impactSectors'] = $impact;
-			$project->impactPopulation = $input;
+			$project->impactPopulation = $impact;
 		} 
 
-		dd($project->impactPopulation. ' ' .$project->primaryActivity);
-
 		$project->save();
-		$response[] = ['message' => 'Succesfully added a new project'];
-		return redirect('Phase2/index');
-		//return ResponseBuilder::success($response);
-
-	}
+		$response = 'Succesfully added a new project';
+		return redirect('/dashboard')->with('status',$response);
+	}	
 
 	public function addProjectLead(Request $projectLead){
 		$pId = $projectLead->input('pId');

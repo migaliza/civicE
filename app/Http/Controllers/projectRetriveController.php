@@ -36,14 +36,13 @@ class projectRetriveController extends Controller
     public function projectNameDescription(Request $request)
     {
         $sort = $request->input('sortBy');
-        if($sort == "keyWord"){
-            $keyWord = $request->input('keyWord');
+        if($sort == "keyword"){
+            $keyWord = $request->input('keyword');
             $limit = (int)$request->input('limit');
-            $projections = ['pName','description','impactSector'];
+            $projections = ['pName','description','impactPopulation'];
             $projects =  projects::where('pName', 'regexp','/.*'.$keyWord.'*/')->paginate($limit,$projections);
+            dd($projects);
             if(!is_null($projects)){
-                //$projects = projects::where('tier','=','1')->get(['_id','project_namee','brief_description']);
-
                 foreach($projects as $project){
                     $resp[] = [
                     'id' => $project->_id,
@@ -60,8 +59,8 @@ class projectRetriveController extends Controller
         elseif($sort == "impactSector"){
             $impact =  $request->input('impactSector');
             $limit = (int)$request->input('limit');
-            $projections = ['pName','description','impactSector'];
-            $projects =  projects::where('impactSector','regexp','/.*'.$impact.'*/')->paginate($limit,$projections);
+            $projections = ['pName','description','impactPopulation'];
+            $projects =  projects::where('impactPopulation','regexp','/.*'.$impact.'*/')->paginate($limit,$projections);
             if(!is_null($projects)){
 
                 foreach($projects as $project){
@@ -79,7 +78,7 @@ class projectRetriveController extends Controller
         elseif($sort == "commencementDate"){
             $date = $request->input('commencementDate');
             $limit = (int)$request->input('limit');
-            $projections = ['pName','description','impactSector'];
+            $projections = ['pName','description','impactPopulation'];
             $projects =  projects::where('commencement_date','regexp', '/.*'.$date.'*/')->paginate($limit,$projections);
             if(!is_null($projects)){
                 foreach($projects as $project){
@@ -97,16 +96,15 @@ class projectRetriveController extends Controller
         }
         else{
             $limit = (int)$request->input('limit');
-            $projections = ['pName','description','impactSector'];
+            $projections = ['pName','description','impactPopulation'];
             $projects =  projects::paginate($limit,$projections);
             if(!is_null($projects)){
-
                 foreach($projects as $project){
                     $resp[] = [
                     'id' => $project->_id,
                     'projectName' => $project->pName,
                     'description' => $project->description,
-                    'impactSector' => $project->impactSector,
+                    'impactPopulation' => $project->impactPopulation,
                     ];
                 }
                 $response = $resp;
@@ -294,7 +292,6 @@ class projectRetriveController extends Controller
         $data = ["error" => "ensure you input id correctly"];
         return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
     }
-
 }
 
     /**
@@ -314,7 +311,6 @@ class projectRetriveController extends Controller
             $data = ["error" => "ensure you input id correctly" ];
             return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
         }
-
     }
 
 
@@ -346,6 +342,4 @@ class projectRetriveController extends Controller
             return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG, $data);
         }
     }
-
-
 }
