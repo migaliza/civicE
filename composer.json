@@ -15,7 +15,8 @@
         "laravel/tinker": "~1.0",
         "marcin-orlowski/laravel-api-response-builder": "^4.0",
         "themsaid/laravel-model-transformers": "^1.0",
-        "zizaco/entrust": "5.2.x-dev"
+        "zizaco/entrust": "5.2.x-dev",
+        "ext-memcached": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
