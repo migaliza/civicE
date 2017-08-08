@@ -8,7 +8,7 @@
                 <div class="panel-heading" style="margin-top: 100px">Register</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{!! csrf_field() !!}}
+                        {{ csrf_field() }}
 
                         <!--first name-->
                         <div class="form-group{{ $errors->has('fName') ? ' has-error' : '' }}">
