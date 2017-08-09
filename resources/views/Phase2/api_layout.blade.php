@@ -128,7 +128,7 @@
                     </li>
 
                     <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i>Fund Application</a>
+                        <a href="{{ route('manageFundApplications') }}" class="active"><i class="fa fa-dashboard fa-fw"></i>Fund Application</a>
                     </li>
 
                     <li>

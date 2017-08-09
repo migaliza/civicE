@@ -161,3 +161,8 @@ Route::get('/project/grand/application/projectlead/motivation','FundingApplicati
 
 //upload timeline and budget to the server
 Route::post('/poject/grand/application/timelinebudget/upload','FundingApplicationController@uploadProjectTimeLineBudget');
+
+/**role*/
+Route::post('/role/save','EntrustController@role');
+Route::post('/permission/save','EntrustController@permission');
+Route::get('/attachrole/new','EntrustController@attachRole');

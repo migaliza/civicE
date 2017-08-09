@@ -21,8 +21,13 @@ Route::name('dashboard')->get('/dashboard', 'Phase2Controller@index');
 Route::name('manageUsers')->get('/manageusers/','Phase2Controller@manageUsers');
      //view user details
 Route::get('/manageusers/viewuser/{userId}','Phase2Controller@viewUser');
+     //add user role
+Route::get('/manageusers/edit/{userId}','Phase2Controller@editUser');
 /** new upcoming view*/
 Route::get('/upcoming/new/{projectId}','UpcomingController@newUpcoming');
+
+//manage fund applications
+Route::name('manageFundApplications')->get('/managefundapplications/','Phase2Controller@manageFunds');
 /**milestone view */
 Route::get('/milestone/newMilestone/{projectId}', 'MilestonesController@newMilestone');  
 /** new grant view */
@@ -44,6 +49,11 @@ Route::name('newProject')->get('/project/new','projectController@newProject');
 
 /** navigation page for every page */
 Route::get('project/navigate/project/{projectName}','projectController@navigate');
+
+/**add a role */
+Route::name('role')->get('/role/new','EntrustController@newRole');
+
+Route::name('permission')->get('/permission/new','EntrustController@newPermission');
 
 
 /** new event view */

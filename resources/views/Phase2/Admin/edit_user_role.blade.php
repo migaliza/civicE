@@ -22,6 +22,7 @@
             
           </div>
         </div>
+        <input class="hidden" id="uId" name="uId" type="text" placeholder="" value={{ $uId }} class="form-control input-md">
 
         <!-- Text input-->
         <div class="form-group">

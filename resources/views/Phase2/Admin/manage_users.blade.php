@@ -28,7 +28,7 @@
 						<td>Role to be added</td>
 						<td><a href="{{ url('/manageusers/viewuser/'. $user['_id']) }}" class="btn btn-primary btn-info"><i class="fa fa-eye" aria-hidden="true"></i>VIEW</a>
 
-							<a href="#" class="btn btn-primary btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
+							<a href="{{ url('/manageusers/edit/'. $user['_id']) }}" class="btn btn-primary btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
 							<button class="btn btn-primary btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 						</tr>
 						@endforeach

@@ -40,14 +40,13 @@ class Phase2Controller extends Controller
         return view('Phase2/Admin/manage_users')->with('users',$users);
     }
 
+
     /**
     *view a particular user
     */
     public function viewUser($userId){
         $manageUsers = new ManageUsers;
         $user = $manageUsers->userInfo($userId);
-
-        
         if(!is_null($user->region)){
             return view('Phase2/Admin/user_info')->with([
                 'fName' => $user->fName,
@@ -67,5 +66,43 @@ class Phase2Controller extends Controller
 
         }
         
+    }
+
+    /**
+    *edit user and add user role
+    */
+    public function editUser($userId){
+        $manageUsers = new ManageUsers;
+        $user = $manageUsers->userInfo($userId);
+
+        if(!is_null($user->region)){
+            return view('Phase2/Admin/edit_user_role')->with([
+                'uId' =>$user->id,
+                'fName' => $user->fName,
+                'lName' => $user->lName,
+                'email' => $user->email,
+                'citizenship' => $user->citizenship,
+                'region' =>$user->region,
+                ]);
+        }
+        else{
+            return view('Phase2/Admin/edit_user_role')->with([
+                'uId' => $user->id,
+                'fName' => $user->fName,
+                'lName' => $user->lName,
+                'email' => $user->email,
+                'citizenship' => $user->citizenship,
+                ]);
+
+        }
+
+
+    }
+
+    /**
+    *manage fund applications
+    */
+    public function manageFunds(){
+        return view('Phase2/Admin/FundApplications/index');
     }
 }
