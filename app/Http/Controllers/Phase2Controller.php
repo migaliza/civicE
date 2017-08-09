@@ -27,6 +27,7 @@ class Phase2Controller extends Controller
             return view('Phase2/ProjectLeaders/index')->with('projectId',$projectId);
         }
         else if(Entrust::hasRole('admin')){
+            dd(Entrust::hasRole('admin'));
             return view('Phase2/index');
         }
     }
