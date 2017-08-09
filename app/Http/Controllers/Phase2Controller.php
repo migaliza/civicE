@@ -21,7 +21,7 @@ class Phase2Controller extends Controller
 
     public function index(Request $request)
     {
-        dd('has an admin'.Entrust::hasRole('admin'));
+        dd('has an admin'. Entrust::hasRole('admin'));
         //$projectId = $request->input('pId');
         if(Entrust::hasRole('owner')){
 
