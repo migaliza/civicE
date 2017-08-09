@@ -55,7 +55,6 @@ class EntrustController extends Controller
     	$user = User::where('_id','=',$uId)->first();
         $newRole = Role::where('name','=',$role);
         $user->attachRole($newRole);
-        $user->save();
-    	//$role =Role::where('name','=',$name)->first();
+        
     }
 }
