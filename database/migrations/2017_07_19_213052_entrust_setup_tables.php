@@ -1,5 +1,5 @@
 <?php
-use Illuminate\Database\Migrations\Migration;
+//use Illuminate\Database\Migrations\Migration;
 use Jenssegers\Mongodb\Schema\Blueprint;
 
 class EntrustSetupTables extends Migration
@@ -26,9 +26,9 @@ class EntrustSetupTables extends Migration
             $collection->integer('role_id')->unsigned();
 
             $collection->foreign('user_id')->references('_id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
+            ->onUpdate('cascade')->onDelete('cascade');
             $collection->foreign('role_id')->references('id')->on('roles')
-                ->onUpdate('cascade')->onDelete('cascade');
+            ->onUpdate('cascade')->onDelete('cascade');
 
             $collection->primary(['user_id', 'role_id']);
         });
@@ -48,9 +48,9 @@ class EntrustSetupTables extends Migration
             $collection->string('role_id');
 
             $collection->foreign('permission_id')->references('id')->on('permissions')
-                ->onUpdate('cascade')->onDelete('cascade');
+            ->onUpdate('cascade')->onDelete('cascade');
             $collection->foreign('role_id')->references('id')->on('roles')
-                ->onUpdate('cascade')->onDelete('cascade');
+            ->onUpdate('cascade')->onDelete('cascade');
 
             $collection->primary(['permission_id', 'role_id']);
         });
