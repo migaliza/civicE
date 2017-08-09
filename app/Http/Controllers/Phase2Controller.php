@@ -39,9 +39,7 @@ class Phase2Controller extends Controller
     public function manageUsers(){
         $manageUsers = new ManageUsers;
         $users = $manageUsers->displayUser();
-        $roleId =$user['role_id'];
-        $roleName = \App\Entrust\Role::where('_id','=',$roleId)->value('displayName');
-        dd($roleName);
+        
         return view('Phase2/Admin/manage_users')->with('users',$users);
     }
 
