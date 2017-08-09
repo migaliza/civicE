@@ -28,7 +28,7 @@
 						<td><?php $roleId =$user['role_id'];
 							$roleName = \App\Entrust\Role::where('_id','=',$roleId)->value('displayName');
 							dd($roleName);
-							?>{!! $roleName !!}</td>
+							?>{{ $roleName }}</td>
 							<td><a href="{{ url('/manageusers/viewuser/'. $user['_id']) }}" class="btn btn-primary btn-info"><i class="fa fa-eye" aria-hidden="true"></i>VIEW</a>
 
 								<a href="{{ url('/manageusers/edit/'. $user['_id']) }}" class="btn btn-primary btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
