@@ -1,5 +1,5 @@
 <?php
-//use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Migrations\Migration;
 use Jenssegers\Mongodb\Schema\Blueprint;
 
 class EntrustSetupTables extends Migration
