@@ -58,7 +58,7 @@ class EntrustController extends Controller
     }
 
     public function attachRole(Request $request){
-        dd($request->input('uId'));
+        //dd($request->input('uId'));
         $uId = $request->input('uId');
         $role = $request->input('role');
         $user = User::where('_id','=',$uId)->first();
