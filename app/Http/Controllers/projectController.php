@@ -85,12 +85,12 @@ class projectController extends Controller
 			$project->impactPopulation = $impact;
 		} 
 
-		dd($project->impactPopulation. ' ' .$project->primaryActivity);
+		
 
 		$project->save();
 		$response[] = ['message' => 'Succesfully added a new project'];
-		return redirect('Phase2/index');
-		//return ResponseBuilder::success($response);
+		return redirect('/dashboard');
+		
 
 	}
 
