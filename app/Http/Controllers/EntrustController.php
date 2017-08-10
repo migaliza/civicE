@@ -19,15 +19,23 @@ class EntrustController extends Controller
 
     public function role(Request $request){
     	$role = new Role;
-    	$role->name = $request->input('name');
-    	if(!empty($request->input('displayName'))){
-    		$role->displayName = $request->input('displayName');
-    	}
-    	if(!empty($request->input('description'))){
-    		$role->description = $request->input('description');
-    	}
-    	$role->save();
-    	return redirect('/');
+    	
+        $roleExists = Role::where('name','=',$request->input('name'))->value($request->input('name'));
+        if(is_null($roleExists)){
+            $role->name = $request->input('name');
+            if(!empty($request->input('displayName'))){
+                $role->displayName = $request->input('displayName');
+            }
+            if(!empty($request->input('description'))){
+                $role->description = $request->input('description');
+            }
+            $role->save();
+            return redirect('/');
+        }
+
+        return redirect('/');
+
+
 
     }
 

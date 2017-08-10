@@ -65,7 +65,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="Role"><b>Role</b></label>  
         <div class="col-md-4">
-          <input id="Role" name="Role" type="text" value="" class="form-control input-md" disabled="true">
+          <input id="Role" name="Role" type="text" value="{!! $roleName !!}" class="form-control input-md" disabled="true">
 
         </div>
       </div>

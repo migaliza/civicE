@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ManageUsers;
 use Entrust;
+use App\Entrust\Role;
 
 class Phase2Controller extends Controller
 {
@@ -39,7 +40,7 @@ class Phase2Controller extends Controller
     public function manageUsers(){
         $manageUsers = new ManageUsers;
         $users = $manageUsers->displayUser();
-        
+
         return view('Phase2/Admin/manage_users')->with('users',$users);
     }
 
@@ -50,8 +51,8 @@ class Phase2Controller extends Controller
     public function viewUser($userId){
         $manageUsers = new ManageUsers;
         $user = $manageUsers->userInfo($userId);
-        $roleId =$user->role_id;
-        $roleName = Role::where('_id','=',$roleId)->value('displayName');
+        $roleId =$user->role_id[0];
+        $roleName = Role::where('_id','=',$roleId)->value('display_name');
         if(!is_null($user->region)){
             return view('Phase2/Admin/user_info')->with([
                 'fName' => $user->fName,
@@ -59,7 +60,7 @@ class Phase2Controller extends Controller
                 'email' => $user->email,
                 'citizenship' => $user->citizenship,
                 'region' =>$user->region,
-                'role' =>$roleName,
+                'roleName' =>$roleName,
                 ]);
         }
         else{
