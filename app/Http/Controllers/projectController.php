@@ -73,6 +73,7 @@ class projectController extends Controller
 		}
 		if(!empty($request->input('impactPopulation'))){
 			$impactPopulation = $request->input('impactPopulation');
+			dd($impactPopulation);
 			$impactPopulation = implode(',',$impactPopulation);
 			$input = $request->except('impactPopulation');
 			$input['impactPopulation'] = $impactPopulation;
