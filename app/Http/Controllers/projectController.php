@@ -75,19 +75,14 @@ class projectController extends Controller
 			$impactPopulation = $request->input('impactPopulation');
 			//dd($impactPopulation);
 			$impactPopulation = implode(',',$impactPopulation);
-			dd($impactPopulation);
-			$input = $request->except('impactPopulation');
-			$input['impactPopulation'] = $impactPopulation;
-			$project->primaryActivity = $input;
+			$project->primaryActivity = $impactPopulation;
 			
 		}//array input
 		///////////////////////////////////////////////////////
 		if(!empty($request->input('impactSectors'))){
 			$impact = $request->input('impactSectors');
 			$impact = implode(',',$impact);
-			$input = $request->except('impactSectors');
-			$input['impactSectors'] = $impact;
-			$project->impactPopulation = $input;
+			$project->impactPopulation = $impact;
 		} 
 
 		dd($project->impactPopulation. ' ' .$project->primaryActivity);
