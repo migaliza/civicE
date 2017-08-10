@@ -38,7 +38,6 @@ class projectController extends Controller
 	*/
 	public function addNewProject(Request $request){
 		
-		
 		$project = new projects;
 
 		if(!empty($request->input('projectName'))){
@@ -71,18 +70,21 @@ class projectController extends Controller
 			$dateComplete = strtotime($request->input('completion_date'));
 			$project->completionDate = date('Y-M-d', $dateComplete);
 		}
+		if(!empty($request->input('primary_activity'))){
+			$project->primaryActivity = $request->input('primary_activity');
+		}
 		if(!empty($request->input('impactPopulation'))){
 			$impactPopulation = $request->input('impactPopulation');
 			//dd($impactPopulation);
 			$impactPopulation = implode(',',$impactPopulation);
-			$project->primaryActivity = $impactPopulation;
+			$project->impactPopulation = $impactPopulation;
 			
 		}//array input
 		///////////////////////////////////////////////////////
 		if(!empty($request->input('impactSectors'))){
 			$impact = $request->input('impactSectors');
 			$impact = implode(',',$impact);
-			$project->impactPopulation = $impact;
+			$project->impactSector = $impact;
 		} 
 
 		
@@ -90,7 +92,7 @@ class projectController extends Controller
 		$project->save();
 		$response[] = ['message' => 'Succesfully added a new project'];
 		return redirect('/dashboard');
-		
+
 
 	}
 
