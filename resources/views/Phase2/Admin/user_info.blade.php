@@ -71,13 +71,7 @@
         </div>
       </div>
 
-      <!-- Button -->
-      <div class="form-group pull-right">
-        <label class="col-md-4 control-label" for="submit"></label>
-        <div class="col-md-4">
-          <button id="submit" name="submit" class="btn btn-primary">ADD ROLE</button>
-        </div>
-      </div>
+     
 
     </fieldset>
   </form>
