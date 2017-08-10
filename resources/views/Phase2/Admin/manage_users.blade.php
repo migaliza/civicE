@@ -26,7 +26,7 @@
 						<td>{{ $user['fName']}} </td>
 						<td>{{ $user['lName']}}</td>
 						<td><?php $roleId = $user['role_id'][0];
-							$roleName = \App\Entrust\Role::where('_id','=',$roleId)->value('display_name');
+							$roleName = \App\Entrust\Role::where('_id','=',$roleId)->get()->first();
 							dd($roleId);
 							?>{{ $roleName }} </td>
 							<td><a href="{{ url('/manageusers/viewuser/'. $user['_id']) }}" class="btn btn-primary btn-info"><i class="fa fa-eye" aria-hidden="true"></i>VIEW</a>
