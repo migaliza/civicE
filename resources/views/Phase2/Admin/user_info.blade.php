@@ -32,6 +32,7 @@
 
         </div>
       </div>
+      <input id="uId" name="uId" type="text" value="{!! $uId !!}" class="hidden" disabled="true">
 
       <!-- Text input-->
       
@@ -47,7 +48,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="region"><b>Region</b></label>  
         <div class="col-md-4">
-          <input id="region" name="region" type="text" value="{!! $region !!}" class="form-control input-md" disabled="true">
+          <input id="region" name="region" type="text" value="{{! $region !!}" class="form-control input-md" disabled="true">
           <span class="help-block">If the user is Ghanaian</span>  
         </div>
       </div>
@@ -63,10 +64,18 @@
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="Role"><b>Role</b></label>  
+        <label class="col-md-4 control-label" for="role"><b>Role</b></label>  
         <div class="col-md-4">
-          <input id="Role" name="Role" type="text" value="{!! $roleName !!}" class="form-control input-md" disabled="true">
+          <input id="role" name="role" type="text" value="{!! $roleName !!}" class="form-control input-md" disabled="true">
 
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group pull-right">
+        <label class="col-md-4 control-label" for="submit"></label>
+        <div class="col-md-4">
+          <button id="submit" name="submit" class="btn btn-primary">ADD ROLE</button>
         </div>
       </div>
 

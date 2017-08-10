@@ -8,7 +8,7 @@
 <div id="page-wrapper">
   <div class="container-fluid" style="margin-top: 100px">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="POST" action="/civicdoc/attachrole/new">
       <fieldset>
 
         <!-- user information -->
