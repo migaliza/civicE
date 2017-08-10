@@ -23,7 +23,7 @@ class Phase2Controller extends Controller
     public function index(Request $request)
     {
         //dd('has an admin'. Entrust::hasRole('admin'));
-        //$projectId = $request->input('pId');
+        $projectId = $request->input('pId');
         if(Entrust::hasRole('owner')){
 
             return view('Phase2/ProjectLeaders/index')->with('projectId',$projectId);
