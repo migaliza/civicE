@@ -18,7 +18,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="fName">First Name</label>  
           <div class="col-md-4">
-            <input id="fName" name="fName" value="{! $fName !}" type="text" placeholder="" class="form-control input-md">
+            <input id="fName" name="fName" value="{!! $fName !!}" type="text" placeholder="" class="form-control input-md">
             
           </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="lName">Last name</label>  
           <div class="col-md-4">
-            <input id="lName" name="lName" value="{! $lName !}" type="text" placeholder="" class="form-control input-md">
+            <input id="lName" name="lName" value="{!! $lName !!}" type="text" placeholder="" class="form-control input-md">
             <span class="help-block">help</span>  
           </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="citizenship">Country of origin</label>  
           <div class="col-md-4">
-            <input id="citizenship" name="citizenship" value="{! $citizenship !}" type="text" placeholder="" class="form-control input-md">
+            <input id="citizenship" name="citizenship" value="{!! $citizenship !!}" type="text" placeholder="" class="form-control input-md">
             <span class="help-block">help</span>  
           </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="region">Region</label>  
           <div class="col-md-4">
-            <input id="region" name="region" type="text" value="{! $region !}" placeholder="" class="form-control input-md">
+            <input id="region" name="region" type="text" value="{!! $region !!}" placeholder="" class="form-control input-md">
             <span class="help-block">if Ghanaian</span>  
           </div>
         </div>
