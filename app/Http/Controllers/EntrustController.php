@@ -65,6 +65,6 @@ class EntrustController extends Controller
         $newRole = Role::where('name','=',$role)->first();
         //dd($newRole);
         $user->attachRole($newRole);
-        return redirect('/dashboard');
+        return redirect('/manageusers');
     }
 }
