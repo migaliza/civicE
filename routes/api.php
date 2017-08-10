@@ -165,4 +165,4 @@ Route::post('/poject/grand/application/timelinebudget/upload','FundingApplicatio
 /**role*/
 Route::post('/role/save','EntrustController@role');
 Route::post('/permission/save','EntrustController@permission');
-Route::get('/attachrole/new','EntrustController@attachRole');
+Route::post('/attachrole/new','EntrustController@attachRole');
