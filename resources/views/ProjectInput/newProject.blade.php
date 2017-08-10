@@ -137,7 +137,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="impactPopulation">Impact population</label>
             <div class="col-md-4">
-              <select id="impactPopulation" name="impactPopulation" class="form-control" multiple="multiple">
+              <select id="impactPopulation" name="impactPopulation[]" class="form-control" multiple="multiple">
                 <option value="Students">Students</option>
                 <option value="Children">Children</option>
                 <option value="Farmers">Farmers</option>
