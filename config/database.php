@@ -34,16 +34,16 @@ return [
     'connections' => [
     'mongodb' => [
     'driver'   => 'mongodb',
-    'host'     => env('DB_HOST','cecapp.app'),
-    'port'     => env('DB_PORT','27017'),
+    'host'     => env('DB_HOST','heroku_2gz3f54l'),
+    'port'     => env('DB_PORT','23351'),
     'database' => env('DB_DATABASE'),
     'username' => env('DB_USERNAME'),
     'password' => env('DB_PASSWORD'),
     'options'  => array(
-              //'database' => 'heroku_2gz3f54l', // sets the authentication database required by mongo 3
-        'database' => 'cecapp'
-        
-        )
+              'database' => 'heroku_2gz3f54l', // sets the authentication database required by mongo 3
+        //'database' => 'cecapp'
+              
+              )
     ],
 
     'sqlite' => [
