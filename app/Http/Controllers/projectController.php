@@ -71,14 +71,13 @@ class projectController extends Controller
 			$project->completionDate = date('Y-M-d', $dateComplete);
 		}
 		if(!empty($request->input('primary_activity'))){
+			dd($request->input('primary_activity'));
 			$project->primaryActivity = $request->input('primary_activity');
 		}
 		if(!empty($request->input('impactPopulation'))){
 			$impactPopulation = $request->input('impactPopulation');
-			//dd($impactPopulation);
 			$impactPopulation = implode(',',$impactPopulation);
 			$project->impactPopulation = $impactPopulation;
-			
 		}//array input
 		///////////////////////////////////////////////////////
 		if(!empty($request->input('impactSectors'))){

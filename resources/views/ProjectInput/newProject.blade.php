@@ -106,7 +106,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="primary_activity">Primary Activity</label>  
             <div class="col-md-4">
-              <input id="primary_activity" name="project[primary]" type="text" placeholder="" class="form-control input-md">
+            <input id="primary_activity" name="primary_activity" type="text" placeholder="" class="form-control input-md">
 
             </div>
           </div>

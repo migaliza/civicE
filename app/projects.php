@@ -25,6 +25,7 @@ class projects extends Eloquent
     protected $completionDate;//s=['completion_date'];
     protected $primaryActivity; //an array
     protected $impactPopulation;//an array
+    protected $impactSector;
 
     
 
