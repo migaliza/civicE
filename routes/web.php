@@ -37,7 +37,7 @@ Route::get('/grant/newGrant/{projectId}','fundingInfoController@newGrant');
 
 
 
-Route::get('/verifyemail/{token}','Auth\RegisterController@verify')->where('token','(.*)');
+Route::get('/verifyemail/{token}','Auth\RegisterController@verify')->where('token','(.*/)');
 
 
 
