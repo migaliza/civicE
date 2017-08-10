@@ -74,7 +74,7 @@ class RegisterController extends Controller
                 'lName' => $data['lName'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
-                'email_token' =>bcrypt(base64_encode($data['email'])),
+                'email_token' =>bcrypt($data['email']),
                 'statusRegister' =>$data['statusRegister'],
                 'citizenship' =>$data['citizenship'],
                 'region' => $data['region'],
@@ -114,7 +114,7 @@ class RegisterController extends Controller
     *@return Response
     */
     public function verify($token){
-      
+
 
         $user = User::where('email_token','=',urldecode($token) )->first();
         
