@@ -183,8 +183,26 @@ class projectRetriveController extends Controller
     public function projectData()
     {
         $projectData = projects::all();
-        if(!is_null($projectData)){
-            return ResponseBuilder::success($projectData);
+
+        foreach($projectData as $project){
+            $resp[]=[
+            'id' => $project->_id,
+            'projectName' => $project->pName,
+            'Town' => $project->region,
+            'latitude' => $project->longitude,
+            'description' => $project->description,
+            'commencementDate' => $project->commencementDate,
+            'completionDate' => $project->completionDate,
+            'impactPopulation' => $project->impactPopulation,
+            'impactSector' => $project->impactSector,
+            'primaryActivity' => $project->primaryActivity,
+            'upcoming' => $project->upcoming,
+            'pStatistics' => $project->pStatistics,
+            ];
+        }
+        $response = $resp;
+        if(!is_null($response)){
+            return ResponseBuilder::success($response);
         }
         else{
             return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
@@ -285,8 +303,8 @@ class projectRetriveController extends Controller
     public function trackPopulation(Request $request){
         $projectId = $request->get('id');
         if(!is_null($projectId)){
-           $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
-           if(!is_null($population)){
+         $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
+         if(!is_null($population)){
             return ResponseBuilder::success($population);
         }
     }
