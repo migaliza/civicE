@@ -12,7 +12,7 @@
       </div>
       <form class="form-horizontal" method="POST" action="civicdoc/project/partnership/new">
         <fieldset>
-          {{ csrf_field() }}
+         
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="pId"></label>  
