@@ -56,7 +56,7 @@ Route::post('/project/event/new','projectController@addEvent');
 Route::post('/project/impact/new','projectController@addNewImpactSector');
 
 /** add new grant info */
-Route::post('/project/grant/new', 'projectController@addNewFunding');
+Route::post('/project/grant/new', 'fundingInfoController@insertFundingInfo');
 
 /**add new target */
 Route::post('/project/target/new', 'projectController@addTargetPopulation');
