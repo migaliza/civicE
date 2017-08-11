@@ -127,7 +127,7 @@
                     <a href="{{ url('/grant/newGrant/'.$projectId) }}">Funding Info</a>
                 </li>
                 <li>
-                    <a href="">Partnerships</a>
+                    <a href="{{ url('/project/partnership/'.{projectId) }}">Partnerships</a>
                 </li>
                 <li>
                     <a href="">Project Lead</a>

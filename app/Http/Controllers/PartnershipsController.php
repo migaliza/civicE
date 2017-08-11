@@ -11,6 +11,10 @@ use App\ApiCode;
 
 class PartnershipsController extends Controller
 {
+
+    public function getPartnershipView($projectId){
+        return view('ProjectInput/partnership')->with('projectId',$projectId);
+    }
     //
     /**
     *add new partnership and their descriptions
@@ -30,7 +34,7 @@ class PartnershipsController extends Controller
                     $pPartnerships->description = $description;
                     $project->partnerships()->save($pPartnerships);
                     $response[] = ['message' => 'Succesfully added a partnership'];
-                    return ResponseBuilder::success($response);
+                    return redirect('/dashboard');
                 }
                 else{
                     return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
@@ -39,8 +43,8 @@ class PartnershipsController extends Controller
             else{
                 return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
             }
-    		
-    	}
+
+        }
         else{
             return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
         }	

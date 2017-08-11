@@ -120,6 +120,7 @@ Route::name('fundApplication')->get('/api/fund/application/', 'HomeController@fu
 
 /** display the project registration page */
 Route::name('grandApllication')->get('/projects/fund/application/', 'GrandApplicationController@grandApplication');
+Route::name('partnership')->get('/project/partnership/{projectId}','PartnershipsController@getPartnershipView');
 
 
 /** display the project registration page */
