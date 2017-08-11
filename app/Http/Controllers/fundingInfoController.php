@@ -28,6 +28,7 @@ class fundingInfoController extends Controller
     public function insertFundingInfo(Request $request){
         $fundingInfo = new fundingInfo;
         $pId = $request->input('pId');
+        dd($pId);
         if(!empty($pId)){
             $project = projects::where('_id','=',$pId)->first();
             if(!is_null($project)){
@@ -190,8 +191,8 @@ class fundingInfoController extends Controller
             if(!is_null($project)){
 
                 if(!empty($fId)){
-                 $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
-                 if(!is_null($fundingInfo)){
+                   $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
+                   if(!is_null($fundingInfo)){
                     if(!empty($eId)){
                         $expenditure = $fundingInfo->expenditure->where('id','=', $eId)->first();
                             //dd($expenditure);
