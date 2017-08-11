@@ -27,30 +27,30 @@ class UpcomingController extends Controller
     */
     public function addNewUpcoming(Request $request){
     	$pId = $request->input('pId');
+        dd($pId);
+        if(!empty($pId)){
+          $project = projects::where('_id','=',$pId)->first();
+          if(!is_null($project)){
+           $upcoming = new Upcoming;
+           if(!empty($request->input('upcoming'))){
+            $upcoming->upcoming = $request->input('upcoming');
+            $project->upcoming()->save($upcoming);
 
-    	if(!empty($pId)){
-    		$project = projects::where('_id','=',$pId)->first();
-    		if(!is_null($project)){
-    			$upcoming = new Upcoming;
-    			if(!empty($request->input('upcoming'))){
-    				$upcoming->upcoming = $request->input('upcoming');
-    				$project->upcoming()->save($upcoming);
-
-    				$response[] = ['message' => 'Succesfully added Upcoming to project'];
-                    return redirect('/dashboard');
-                }
-                else{
-                    return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
-                }
-            }
-            else{
-               return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
-           }
-       }
-       else{
-          return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
-      }
-  }
+            $response[] = ['message' => 'Succesfully added Upcoming to project'];
+            return redirect('/dashboard');
+        }
+        else{
+            return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
+        }
+    }
+    else{
+       return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+   }
+}
+else{
+  return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+}
+}
 
     /**
     *add comment to upcoming
