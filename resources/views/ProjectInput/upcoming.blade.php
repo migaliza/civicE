@@ -17,9 +17,9 @@
             {{ csrf_field() }}
 
             <div class="form-group">
-              <label class="col-md-4 control-label" for="project_name"></label>  
+              <label class="col-md-4 control-label" for="pId"></label>  
               <div class="col-md-4">
-                <input id="project_name" name="project_name" type="hidden" value={{ $projectId }} class="form-control input-md">
+                <input id="pId" name="pId" type="hidden" value={{ $projectId }} class="form-control input-md">
               </div>
             </div>
             <!-- Textarea -->
