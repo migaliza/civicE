@@ -131,7 +131,6 @@ class statisticsController extends Controller
     $pId = $volunteer->input('pId');
     $volDifference = (int)$volunteer->input('difference');
 
-    dd($volDifference);
     if(!empty($pId)){
       $project = projects::where('_id','=',$pId)->first();
       if(!is_null($project)){
@@ -142,7 +141,7 @@ class statisticsController extends Controller
             $volCum = new volCumulative;
 
             $cumulative = $volDifference + $volTrack->current;
-
+            dd($cumulative);
             $volTrack->current = $cumulative;
             $volTrack->difference = $volDifference;
             $volCum->volCumulative = $cumulative;
