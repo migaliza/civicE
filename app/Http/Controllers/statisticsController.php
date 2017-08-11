@@ -141,7 +141,6 @@ class statisticsController extends Controller
             $volCum = new volCumulative;
 
             $cumulative = $volDifference + $volTrack->current;
-            dd($cumulative);
             $volTrack->current = $cumulative;
             $volTrack->difference = $volDifference;
             $volCum->volCumulative = $cumulative;
