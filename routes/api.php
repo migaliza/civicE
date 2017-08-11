@@ -135,7 +135,7 @@ Route::get('/project/lead/new','projectController@addProjectLead');
 
 
 //add partnerships to a paroject is it exists
-Route::get('/project/partnership/new','PartnershipsController@addNewPartnership');
+Route::post('/project/partnership/new','PartnershipsController@addNewPartnership');
 
 /** add new upcoming */
 Route::post('/project/upcoming/new','UpcomingController@addNewUpcoming');
