@@ -10,18 +10,16 @@
         <h4 class="page-header">Partnership</h3>
         </div>
       </div>
-      <form class="form-horizontal" method="POST" action="civicdoc/project/partnership/new">
+      <form class="form-horizontal" method="POST" action="/civicdoc/project/partnership/new">
         <fieldset>
          {{ csrf_field() }}
-
 
          <div class="form-group">
           <label class="col-md-4 control-label" for="pId"></label>  
           <div class="col-md-4">
             <input id="pId" name="pId" type="hidden" value={{ $projectId }} class="form-control input-md">
           </div>
-        </div>
-
+          </div>
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="partnership">Partnership</label>  
