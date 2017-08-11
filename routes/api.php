@@ -138,7 +138,7 @@ Route::get('/project/lead/new','projectController@addProjectLead');
 Route::get('/project/partnership/new','PartnershipsController@addNewPartnership');
 
 /** add new upcoming */
-Route::get('/project/upcoming/new','UpcomingController@addNewUpcoming');
+Route::post('/project/upcoming/new','UpcomingController@addNewUpcoming');
 
 
 /** add new upcoming comment */
