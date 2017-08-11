@@ -15,8 +15,6 @@ use App\ApiCode;
 
 class statisticsController extends Controller
 {
-
-
     /**
     *function to display volunteer track
     */
@@ -43,7 +41,6 @@ class statisticsController extends Controller
     $project = projects::where('_id','=',$statistics)->first();
     if(!is_null($project)){
       $project->pStatistics()->save($stats);
-
     }
   }
 
@@ -74,7 +71,6 @@ class statisticsController extends Controller
           $volCum->volCumulative = $baseline;
           $statistics->volCumulative()->save($volCum);
           return redirect('/dashboard');
-
         }
 
       }
@@ -135,7 +131,7 @@ class statisticsController extends Controller
     $pId = $volunteer->input('pId');
     $volDifference = (int)$volunteer->input('difference');
 
-    
+    dd($volDifference);
     if(!empty($pId)){
       $project = projects::where('_id','=',$pId)->first();
       if(!is_null($project)){

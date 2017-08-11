@@ -30,23 +30,23 @@ class UpcomingController extends Controller
         if(!empty($pId)){
           $project = projects::where('_id','=',$pId)->first();
           if(!is_null($project)){
-           $upcoming = new Upcoming;
-           if(!empty($request->input('upcoming'))){
-            $upcoming->upcoming = $request->input('upcoming');
-            $project->upcoming()->save($upcoming);
+             $upcoming = new Upcoming;
+             if(!empty($request->input('upcoming'))){
+                $upcoming->upcoming = $request->input('upcoming');
+                $project->upcoming()->save($upcoming);
 
-            $response[] = ['message' => 'Succesfully added Upcoming to project'];
-            return redirect('/dashboard');
+                $response[] = ['message' => 'Succesfully added Upcoming to project'];
+                return redirect('/dashboard');
+            }
+            else{
+                return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
+            }
         }
         else{
-            return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
-        }
-    }
-    else{
-       return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
-   }
-}
-else{
+         return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+     }
+ }
+ else{
   return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
 }
 }
@@ -73,24 +73,24 @@ else{
     					$upcoming->upComments()->save($upcomingComments);
 
     					$response[] = ['message' => 'Succesfully added a comment'];
-                     return ResponseBuilder::success($response);
+                       return ResponseBuilder::success($response);
 
-                 }
-                 else{
-                     return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
-                 }
-             }
-             else{
+                   }
+                   else{
+                       return ResponseBuilder::error(ApiCode::All_FIELDS_NOT_ENTERED);
+                   }
+               }
+               else{
                 return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
             }
         }
         else{
-           return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
-       }
-   }
-   else{
-      return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
-  }
+         return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+     }
+ }
+ else{
+  return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+}
 }
 
 }
