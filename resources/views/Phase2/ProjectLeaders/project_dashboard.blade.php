@@ -118,16 +118,16 @@
                     </li>
                     @if(Entrust::hasRole('owner'))
                     <li>
-                       <a href="{{ url('/milestone/newMilestone/'. $projectId)}}">Milestone</a>
-                   </li>
-                   <li>
+                     <a href="{{ url('/milestone/newMilestone/'. $projectId)}}">Milestone</a>
+                 </li>
+                 <li>
                     <a href="{{ url('/upcoming/new/'. $projectId) }}">Upcoming</a>
                 </li>
                 <li>
                     <a href="{{ url('/grant/newGrant/'.$projectId) }}">Funding Info</a>
                 </li>
                 <li>
-                    <a href="{{ url('/project/partnership/'.{projectId) }}">Partnerships</a>
+                    <a href="{{ url('/project/partnership/'.$projectId) }}">Partnerships</a>
                 </li>
                 <li>
                     <a href="">Project Lead</a>
