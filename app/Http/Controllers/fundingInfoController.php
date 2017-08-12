@@ -62,17 +62,19 @@ class fundingInfoController extends Controller
         $pId = $request->input('pId');
 
         if(!empty($pId) || !empty($fId)){
-            $project = projects::where('_id','=',$pId)->get(['fundingInfo']);
+            $fundingInfo = projects::where('_id','=',$pId)->get(['fundingInfo']);
 
-            if(!is_null($project)){
-               // $fundingInfo = $project->fundingInfo()->where('_id','=',$fId)->first();
-                dd($project);
-               /* if(!is_null($fundingInfo)){
-                    return ResponseBuilder::success($fundingInfo);
-                }*/
-                /*else{
-                    return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
-                } */   
+            if(!is_null($fundingInfo)){
+                foreach ($fundingInfo as $funding) {
+                    $resp[] = [
+                    'fPartner' => $funding->fPartner,
+                    'fAmount' => $funding->fAmount,
+                    'fObjective' => $funding->fObjective,
+                    'fDescription' => $funding->fDescription,
+                    ];
+                }
+                $response = $resp;
+                return ResponseBuilder::success($response);   
             }
             else{
                 return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
@@ -220,8 +222,8 @@ class fundingInfoController extends Controller
             if(!is_null($project)){
 
                 if(!empty($fId)){
-                 $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
-                 if(!is_null($fundingInfo)){
+                   $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
+                   if(!is_null($fundingInfo)){
                     if(!empty($eId)){
                         $expenditure = $fundingInfo->expenditure->where('id','=', $eId)->first();
                             //dd($expenditure);
