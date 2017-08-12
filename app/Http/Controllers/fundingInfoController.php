@@ -56,6 +56,35 @@ class fundingInfoController extends Controller
     }
 
     /**
+    *retrieve funding values
+    */
+    public function retrieveFunding(Request $request){
+        $pId = $request->input('pId');
+        $fId = $request->input('fId');
+
+        if(!empty($pId) || !empty($fId)){
+            $project = projects::where('_id','=',$pId)->first();
+            if(!is_null($project)){
+                $fundingInfo = $project->fundingInfo()->where('_id','=',$fId)->first();
+                dd($fundingInfo);
+                if(!is_null($fundingInfo)){
+                    return ResponseBuilder::success($fundingInfo);
+                }
+                else{
+                    return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+                }    
+            }
+            else{
+                return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+            } 
+        }
+        else{
+            return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
+        }
+
+    }
+
+    /**
     *obain the project to edit
     */
     public function retrieveValuesToEdit(Request $request){
