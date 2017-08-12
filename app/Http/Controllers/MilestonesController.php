@@ -65,6 +65,24 @@ class MilestonesController extends Controller
     }
 
     /**
+    *retrieve milestone
+    */
+    public function retrieveMilestone(Request $request){
+        $pid = $request->input('pId');
+        if(!empty($pId)){
+            $milestones = Milestones::where('pId','=',$pId)->get();
+            dd($milestones);
+            if(!is_null($milestones)){
+                foreach ($milestones as $milestone) {
+                    /*$resp[] = [ 
+                    ''
+                    ];*/
+                }
+            }
+        }
+    }
+
+    /**
     *method to push a comments to a milestone
     **/
     public function insertComment(Request $request){
