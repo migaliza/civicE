@@ -63,7 +63,7 @@ class fundingInfoController extends Controller
 
         if(!empty($pId) || !empty($fId)){
             $fundingInfo = projects::where('_id','=',$pId)->get(['fundingInfo']);
-
+            dd($fundingInfo);
             if(!is_null($fundingInfo)){
                 foreach ($fundingInfo as $funding) {
                     $resp[] = [
@@ -222,8 +222,8 @@ class fundingInfoController extends Controller
             if(!is_null($project)){
 
                 if(!empty($fId)){
-                   $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
-                   if(!is_null($fundingInfo)){
+                 $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
+                 if(!is_null($fundingInfo)){
                     if(!empty($eId)){
                         $expenditure = $fundingInfo->expenditure->where('id','=', $eId)->first();
                             //dd($expenditure);
