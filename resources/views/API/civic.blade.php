@@ -128,6 +128,11 @@
                             <a href="{{ route('volunteersTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Volunteers </a>
                         </li>
                         <li>
+                            <a href="{{ route('milestoneRetrieve') }}"><i class="fa fa-sitemap fa-fw"></i>Milestones </a>
+                        </li>
+                        
+
+                        <li>
                             <a href="{{ route('fundApplication') }}"><i class='fa fa-sitemap fa-fw'></i>Fund Application</a>
                         </li>
                         <li>

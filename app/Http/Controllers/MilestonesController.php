@@ -37,11 +37,9 @@ class MilestonesController extends Controller
         if(!empty($pId)){
             $projectId = projects::where('_id','=',$pId)->value('_id');
 
-
             if(!is_null($projectId)){
                 $newMilestone = new Milestones;
                 $newMilestone->pId = $projectId;
-
 
                 if(!empty($request->input('description'))){
                     $newMilestone->mDescription = $request->input('description');
@@ -62,6 +60,12 @@ class MilestonesController extends Controller
             return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
         }
 
+    }
+    /**
+    *display milestone api doc
+    */
+    public function displayMilestoneApi(){
+        return view('Api/milestone');
     }
 
     /**

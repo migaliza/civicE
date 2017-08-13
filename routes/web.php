@@ -30,6 +30,9 @@ Route::get('/upcoming/new/{projectId}','UpcomingController@newUpcoming');
 Route::name('manageFundApplications')->get('/managefundapplications/','Phase2Controller@manageFunds');
 /**milestone view */
 Route::get('/milestone/newMilestone/{projectId}', 'MilestonesController@newMilestone');  
+
+
+Route::name('milestoneRetrieve')->get('/project/milestone/', 'MilestonesController@retrieveMilestone'); 
 /** new grant view */
 Route::get('/grant/newGrant/{projectId}','fundingInfoController@newGrant');
 
