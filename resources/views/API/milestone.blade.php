@@ -31,8 +31,8 @@
     <h6><b>Returns: </b> </h6>
     <code>
         {<br>
-        <samp style="margin-left:40px;color:green">"success":</samp>true, <br>
-        <samp style="margin-left:40px;color:green">"code":</samp> 0,<br>
+        <samp style="margin-left:40px;color:green">"success":</samp><samp style="color: blue">true</samp>, <br>
+        <samp style="margin-left:40px;color:green">"code":</samp><samp style="color: blue">0,</samp><br>
         <samp style="margin-left:40px;color:green">"locale":</samp>"en", <br>
         <samp style="margin-left:40px;color:green">"message":</samp> "OK",<br>
         <samp style="margin-left:40px;color:green">"data":</samp> [<br>
