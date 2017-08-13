@@ -18,7 +18,7 @@
     <h4>Method:  <b>Get</b></h4>
     <div></div>
 
-    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/milestone/retrieve?" target="_blank">http://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/milestone/retrieve?pId=projectId</a> </h5>
+    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/milestone/retrieve?pId=" target="_blank">http://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/milestone/retrieve?pId=projectId</a> </h5>
 
     <div></div>
     <h5>Parameters</h5>
