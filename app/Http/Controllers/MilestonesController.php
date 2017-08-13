@@ -72,7 +72,7 @@ class MilestonesController extends Controller
     *retrieve milestone
     */
     public function retrieveMilestone(Request $request){
-        $pid = $request->input('pId');
+        $pId = $request->input('pId');
         if(!empty($pId)){
             $milestones = Milestones::where('pId','=',$pId)->get();
             dd($milestones);
