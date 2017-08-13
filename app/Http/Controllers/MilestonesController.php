@@ -65,7 +65,7 @@ class MilestonesController extends Controller
     *display milestone api doc
     */
     public function displayMilestoneApi(){
-        return view('/Api/milestone');
+        return view('API/milestone');
     }
 
     /**
