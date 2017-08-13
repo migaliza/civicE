@@ -114,9 +114,9 @@
                         <li>
                             <a href="{{ route('apiDescription') }}"><i class="fa fa-sitemap fa-fw"></i> Project Descriptions</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="{{ route('apiTier') }}"><i class="fa fa-sitemap fa-fw"></i> Project Tier</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{ route('apiGrand') }}"><i class="fa fa-sitemap fa-fw"></i> Grand Info</a>
                         </li>
@@ -137,10 +137,8 @@
                         </li>
                         <li>
                             <a href="{{ route('grandApllication') }}"><i class='fa fa-sitemap fa-fw'></i>Apply for funds</a>
-                        </li>
-                        
+                        </li>     
                     </ul>
-
                 </div>
             </div>
         </nav>

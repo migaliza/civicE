@@ -24,9 +24,7 @@
     <h5>Parameters</h5>
     <ul>
         <li> <b><i>pId (projectId) i.e pId=598cc226aadc6b00712ce902 </i></b>  </li>
-        
     </ul>
-
     <div></div>
     <h6><b>Returns: </b> </h6>
     <code>
