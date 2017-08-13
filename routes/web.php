@@ -32,7 +32,7 @@ Route::name('manageFundApplications')->get('/managefundapplications/','Phase2Con
 Route::get('/milestone/newMilestone/{projectId}', 'MilestonesController@newMilestone');  
 
 
-Route::name('milestoneRetrieve')->get('/project/milestone/', 'MilestonesController@retrieveMilestone'); 
+Route::name('milestoneRetrieve')->get('/project/milestone/', 'MilestonesController@displayMilestoneApi'); 
 /** new grant view */
 Route::get('/grant/newGrant/{projectId}','fundingInfoController@newGrant');
 
