@@ -85,10 +85,10 @@ Route::get('/project/track/volunteers','projectRetriveController@trackVolunteer'
 /**retrieve project information */
 Route::get('/projects/project/id','projectRetriveController@projectById');
 
-/**add a milestone to a project **/
-Route::post('/project/milestone/new','MilestonesController@insertMilestone');
 
-/**route to add a comment on a milestone */
+/**milestones **/
+Route::post('/project/milestone/new','MilestonesController@insertMilestone');
+Route::get('/project/milestone/retrieve','MilestonesController@retrieveMilestone');
 Route::get('/project/milestone/comment/new','MilestonesController@insertComment');
 
 /*
