@@ -74,7 +74,7 @@ Route::post('/project/target/population/add','projectController@addPopulationTra
 Route::post('/project/funding/rational/new','projectController@addFundingRational');
 
 /**retrieve project information */
-Route::get('/{projectName}/information/','projectRetriveController@projectInformation');
+Route::get('/project/information/','projectRetriveController@projectInformation');
 
 /**retrieve project information */
 Route::get('/project/track/population','projectRetriveController@trackPopulation');
