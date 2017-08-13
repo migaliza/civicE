@@ -18,12 +18,12 @@
     <h4>Method:  <b>Get</b></h4>
     <div></div>
 
-    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/id"/ target="_blank">https://ashesicivicengagement-dev.herokuapp.com/civicdoc/projects/project/id?[id=----] </a> </h5>
+    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/milestone/retrieve?" target="_blank">http://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/milestone/retrieve?pId=projectId</a> </h5>
 
     <div></div>
     <h5>Parameters</h5>
     <ul>
-        <li> <b><i> project id i.e id=93294hkj87kj </i></b>  </li>
+        <li> <b><i>pId (projectId) i.e pId=598cc226aadc6b00712ce902 </i></b>  </li>
         
     </ul>
 
