@@ -31,11 +31,11 @@
     <h6><b>Returns: </b> </h6>
     <code>
         {<br>
-        <samp style="margin-left:40px;color:#green">"success":</samp>trur, <br>
-        <samp style="margin-left:40px;color:#green">"code":</samp> 0,<br>
-        <samp style="margin-left:40px;color:#green">"locale":</samp>"en", <br>
-        <samp style="margin-left:40px;color:#ff0000">"message":</samp> "OK",<br>
-        <samp style="margin-left:40px;color:#green">"data":</samp> [<br>
+        <samp style="margin-left:40px;color:green">"success":</samp>true, <br>
+        <samp style="margin-left:40px;color:green">"code":</samp> 0,<br>
+        <samp style="margin-left:40px;color:green">"locale":</samp>"en", <br>
+        <samp style="margin-left:40px;color:green">"message":</samp> "OK",<br>
+        <samp style="margin-left:40px;color:green">"data":</samp> [<br>
         <samp style="margin-left: 80px">{</samp><br>
         <samp style="margin-left: 120px;color:black">"milestoneId":</samp> "598cc226aadc6b00712ce902",<br>
         <samp style="margin-left: 120px;color:black">"milestone":</samp> "Project Tontro has successfully developed a structure around its previous informal activities at the Cosmos Basic School",<br>
