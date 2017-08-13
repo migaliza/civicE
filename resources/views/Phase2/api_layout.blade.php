@@ -130,11 +130,17 @@
                     <li>
                         <a href="{{ route('manageFundApplications') }}" class="active"><i class="fa fa-dashboard fa-fw"></i>Fund Application</a>
                     </li>
-
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Roles and Permissions</a>
+                    <li><a href="#"><i class="fa fa-sitemap fa-fw"></i> Roles and Permissions<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ route('role') }}"><i class='fa fa-sitemap fa-fw'></i>Role</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('permission') }}"><i class='fa fa-sitemap fa-fw'></i>Permission</a>
+                            </li>
+                        </ul>
                     </li>
-
+                    
                     <li>
                         <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Project Leaders</a>
                     </li>

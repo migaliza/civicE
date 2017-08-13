@@ -138,13 +138,7 @@
                         <li>
                             <a href="{{ route('grandApllication') }}"><i class='fa fa-sitemap fa-fw'></i>Apply for funds</a>
                         </li>
-                        <li>
-                            <a href="{{ route('role') }}"><i class='fa fa-sitemap fa-fw'></i>Role</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('permission') }}"><i class='fa fa-sitemap fa-fw'></i>Permission</a>
-                        </li>
-
+                        
                     </ul>
 
                 </div>
