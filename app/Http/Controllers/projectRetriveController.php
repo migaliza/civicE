@@ -257,8 +257,7 @@ class projectRetriveController extends Controller
                     'pStatistics' => $individualProject->pStatistics,
                     ];
                 }
-                $response = $resp;
-                return ResponseBuilder::success($response);
+                return ResponseBuilder::success($resp);
             }
             else{
                 return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
