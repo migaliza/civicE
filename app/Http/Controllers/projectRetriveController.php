@@ -209,26 +209,6 @@ class projectRetriveController extends Controller
         }
     }
 
-    /**
-     * Retrieve funding information
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function projectFunding(Request $request)
-    {
-        $projectId = $request->get('id');
-        if(!is_null($projectId)){
-            $funding = projects::where('_id','=',$projectId)->get(['Grand_info']);
-            if(!is_null($funding)){
-                return ResponseBuilder::success($response);
-            }
-        }
-        else{
-            $data =["error" => "ensure you input id correctly"];
-            return ResponseBuilder::error(ApiCode::SOMETHING_WENT_WRONG,$data);
-        }
-    }
-
 
     /**
      * retrieve the sentiment analysis of a project
@@ -242,7 +222,7 @@ class projectRetriveController extends Controller
     }
 
     /**
-     * Retrieve project information by project name
+     * Retrieve project information by project Id number
      * 
      * @return \Illuminate\Http\Response
      */
@@ -251,7 +231,6 @@ class projectRetriveController extends Controller
         $pId = $request->input('pId');
         if(!empty($pId)){
             $project = projects::where('_id','=',$pId)->get();
-            //dd($project);
             if(!is_null($project)){
                 foreach ($project as $individualProject) {
                     $resp[] = [
@@ -277,6 +256,12 @@ class projectRetriveController extends Controller
 
                 return ResponseBuilder::success($response);
             }
+            else{
+                return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+            }
+        }
+        else{
+            return ResponseBuilder::error(ApiCode::WRONG_PROJECT_ID);
         }
 
     }
@@ -289,8 +274,8 @@ class projectRetriveController extends Controller
     public function trackPopulation(Request $request){
         $projectId = $request->get('id');
         if(!is_null($projectId)){
-         $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
-         if(!is_null($population)){
+           $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
+           if(!is_null($population)){
             return ResponseBuilder::success($population);
         }
     }
