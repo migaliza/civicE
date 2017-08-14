@@ -257,6 +257,7 @@ class projectRetriveController extends Controller
                     'pStatistics' => $individualProject->pStatistics,
                     ];
                 }
+                dd($resp);
                 return ResponseBuilder::success($resp);
             }
             else{
