@@ -220,12 +220,12 @@ class projectRetriveController extends Controller
      */
     public function projectInformation(Request $request)
     {
-
         $pId = $request->input('pId');
         if(!empty($pId)){
             $project = projects::where('_id','=',$pId)->get();
             if(!is_null($project)){
-                foreach ($project as $individualProject) {
+                dd($project);
+                foreach ($project as $individualProject){
                     $resp[] = [
                     'projectId' => $individualProject->_id,
                     'projectName' => $individualProject->pName,
@@ -267,8 +267,8 @@ class projectRetriveController extends Controller
     public function trackPopulation(Request $request){
         $projectId = $request->get('id');
         if(!is_null($projectId)){
-           $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
-           if(!is_null($population)){
+         $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
+         if(!is_null($population)){
             return ResponseBuilder::success($population);
         }
     }
