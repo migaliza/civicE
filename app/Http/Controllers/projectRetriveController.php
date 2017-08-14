@@ -228,14 +228,14 @@ class projectRetriveController extends Controller
      */
     public function projectInformation(Request $request)
     {
-        
+
         $pId = $request->input('pId');
         if(!empty($pId)){
             $project = projects::where('_id','=',$pId)->get();
 
             if(!is_null($project)){
                 $resp[]=[
-                'message' => 'not found',
+                
                 ];
                 foreach ($project as $individualProject) {
                     $resp [] = [
