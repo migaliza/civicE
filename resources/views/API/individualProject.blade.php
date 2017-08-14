@@ -12,7 +12,6 @@
 <div>
     <p>Displays individual projects</p>
     
-
     <div></div>
 
     <h4>Method:  <b>Get</b></h4>
@@ -31,11 +30,11 @@
     <h6><b>Returns: </b> </h6>
     <code>
         {<br>
-        <samp style="margin-left:40px;color:#ff0000">"success":</samp> true<br>
-        <samp style="margin-left:40px;color:#ff0000">"code":</samp> 0<br>
-        <samp style="margin-left:40px;color:#ff0000">"local":</samp> "en"<br>
-        <samp style="margin-left:40px;color:#ff0000">"message":</samp> "OK"<br>
-        <samp style="margin-left:40px;color:#ff0000">"data":</samp> [<br>
+        <samp style="margin-left:40px;color:green">"success":</samp><samp style="color: blue">true</samp><br>
+        <samp style="margin-left:40px;color:green">"code":</samp><samp style="color: blue">0</samp><br>
+        <samp style="margin-left:40px;color:green">"local": "en"</samp><br>
+        <samp style="margin-left:40px;color:green">"message "OK"</samp> <br>
+        <samp style="margin-left:40px;color:green">"data":</samp> [<br>
 
         <samp style="margin-left: 80px">{</samp><br>
         <samp style="margin-left: 120px;color:black">"projectId":</samp> "598cb192ec432900703373d2",<br>
