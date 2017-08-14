@@ -234,7 +234,9 @@ class projectRetriveController extends Controller
             $project = projects::where('_id','=',$pId)->get();
 
             if(!is_null($project)){
-
+                $resp[] = [
+                'data'=>[],
+                ]
                 foreach ($project as $individualProject) {
                     $resp [] = [
                     'projectId' => $individualProject->_id,
@@ -256,7 +258,6 @@ class projectRetriveController extends Controller
                     ];
                 }
                 $response = $resp;
-
                 return ResponseBuilder::success($response);
             }
             else{
