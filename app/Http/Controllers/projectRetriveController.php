@@ -224,9 +224,7 @@ class projectRetriveController extends Controller
         $pId = $request->input('pId');
         if(!empty($pId)){
             $project = projects::where('_id','=',$pId)->get();
-
             if(!is_null($project)){
-              
                 foreach ($project as $individualProject) {
                     $resp[] = [
                     'projectId' => $individualProject->_id,
@@ -247,7 +245,8 @@ class projectRetriveController extends Controller
                     'pStatistics' => $individualProject->pStatistics,
                     ];
                 }
-                dd($resp);
+                $response = $resp;
+                dd($response);
                 return ResponseBuilder::success($resp);
             }
             else{
