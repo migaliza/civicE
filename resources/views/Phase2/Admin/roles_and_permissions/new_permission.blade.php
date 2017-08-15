@@ -14,9 +14,6 @@
       <form class="form-horizontal" method="POST" action="/civicdoc/permission/save">
         <fieldset>
 
-          <!-- Form Name -->
-          <legend>Form Name</legend>
-
           <!-- Text input-->
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Name</label>  
