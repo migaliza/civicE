@@ -40,7 +40,7 @@ class HomeController extends Controller
     *
     */
     public function population(){
-        return view('API/trackPopulation');
+        return view('API/impactPopulation');
     }
 
     /**
@@ -57,5 +57,5 @@ class HomeController extends Controller
         return view('API/fundApplication');
     }
 
-   
+    
 }
