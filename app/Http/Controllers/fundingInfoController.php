@@ -73,8 +73,8 @@ class fundingInfoController extends Controller
                     'fDescription' => $funding->fDescription,
                     ];
                 }
-                $response = $resp;
-                return ResponseBuilder::success($response);   
+              //  $response = $resp;
+               // return ResponseBuilder::success($response);   
             }
             else{
                 return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
