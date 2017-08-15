@@ -16,8 +16,6 @@
 
 		<div style="margin-top: 100px" >@yield('child-content')</div>
 
-		<!-- Your content goes here ...-->
-
 	</div>
 </div>
 

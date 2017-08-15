@@ -151,11 +151,10 @@
         </div>
     </nav>
     <div id="container">
-        <!-- Page Content -->
-
-        <div style="margin-top: 100px; margin-right: 100px">@yield('content')</div>
         
+        @yield('content')
     </div>
+
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
 
