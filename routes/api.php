@@ -56,7 +56,7 @@ Route::post('/project/event/new','projectController@addEvent');
 Route::post('/project/impact/new','projectController@addNewImpactSector');
 impactSector
 /** add new impact */
-Route::post('/project/impactsector/retrieve','projectRetriveController@impactSector');
+Route::get('/project/impactsector/retrieve','projectRetriveController@impactSector');
 
 
 /** add new grant info */
