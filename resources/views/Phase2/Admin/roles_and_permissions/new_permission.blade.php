@@ -1,5 +1,5 @@
-@extends('API.civic')
-@section('title','API')
+@extends('Phase2.api_layout')
+@section('title','permissions')
 @section('content');
 <form class="form-horizontal" method="POST" action="/civicdoc/permission/save">
   <fieldset>

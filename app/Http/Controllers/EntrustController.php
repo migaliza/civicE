@@ -14,7 +14,7 @@ class EntrustController extends Controller
     *new role
     */
     public function newRole(){
-    	return view('API/add_new_role');
+    	return view('Phase2/Admin/roles_and_permissions/add_new_role');
     }
 
     public function role(Request $request){
@@ -40,7 +40,7 @@ class EntrustController extends Controller
     }
 
     public function newPermission(){
-    	return view('/API/new_permission');
+    	return view('/Phase2/Admin/roles_and_permissions/new_permission');
 
     }
 
