@@ -73,8 +73,8 @@ class fundingInfoController extends Controller
                     'fDescription' => $funding->fDescription,
                     ];
                 }
-              //  $response = $resp;
-               // return ResponseBuilder::success($response);   
+                $response = $resp;
+                return ResponseBuilder::success($response);   
             }
             else{
                 return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
@@ -222,8 +222,8 @@ class fundingInfoController extends Controller
             if(!is_null($project)){
 
                 if(!empty($fId)){
-                 $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
-                 if(!is_null($fundingInfo)){
+                   $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
+                   if(!is_null($fundingInfo)){
                     if(!empty($eId)){
                         $expenditure = $fundingInfo->expenditure->where('id','=', $eId)->first();
                             //dd($expenditure);
