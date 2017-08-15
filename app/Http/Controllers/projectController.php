@@ -306,27 +306,5 @@ class projectController extends Controller
 
 	}
 
-	/**
-	*impactSectors
-	*/
-	public function impactSector(Request $request){
-		$pId = $request->input('pId');
-		if(!empty($pId)){
-			$project = projects::where('_id','=',$pId)->value('impactSector');
-			if(!is_null($project)){
-				$impactSect[] = implored(',', $project);
-				dd($impactSect);
-
-
-			}
-			else{
-
-			}
-		}
-		else{
-
-		}
-	}
-
 	
 }
