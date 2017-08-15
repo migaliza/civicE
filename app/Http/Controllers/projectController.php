@@ -155,18 +155,7 @@ class projectController extends Controller
     	return view('ProjectInput/target')->with('projectNamee', rawurlencode($projectName));
     }
 
-    /**
-    *add target population
-    *
-    */
 
-    public function addTargetPopulation(Request $target){
-    	$projectN = $target->input('project_name');
-    	$newTarget = $target->input('target_name');
-    	$project = projects::where('project_namee', '=', rawurldecode($projectN))->push('Target_population', array('target_name' => $newTarget));
-
-    	return Redirect::back()->withSuccess('successfully inserted target population in '.$projectN);
-    }
 
 
 
@@ -315,6 +304,28 @@ class projectController extends Controller
 
 		return Redirect::back()->withSuccess('Succesfully inserted funding rational');
 
+	}
+
+	/**
+	*impactSectors
+	*/
+	public function impactSector(Request $request){
+		$pId = $request->input('pId');
+		if(!empty($pId)){
+			$project = projects::where('_id','=',$pId)->value('impactSector');
+			if(!is_null($project)){
+				$impactSect[] = implored(',', $project);
+				dd($impactSect);
+
+
+			}
+			else{
+
+			}
+		}
+		else{
+
+		}
 	}
 
 	
