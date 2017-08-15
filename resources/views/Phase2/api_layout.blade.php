@@ -151,9 +151,19 @@
         </div>
     </nav>
     <div id="container">
-        @yield('content')
-    </div>
+        <!-- Page Content -->
+        <div id="page-wrapper" style="margin-top: 100px; margin-right: 100px">
+            <div class="container-fluid">
 
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header"></h1>
+                    </div>
+                </div>
+                <div >@yield('content')</div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
 
