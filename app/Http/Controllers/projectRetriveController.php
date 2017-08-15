@@ -265,8 +265,8 @@ class projectRetriveController extends Controller
     public function trackPopulation(Request $request){
         $projectId = $request->get('id');
         if(!is_null($projectId)){
-         $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
-         if(!is_null($population)){
+           $population = projects::where('_id','=',$projectId)->get(['Population_Track']);
+           if(!is_null($population)){
             return ResponseBuilder::success($population);
         }
     }
@@ -327,7 +327,7 @@ class projectRetriveController extends Controller
         }
     }
 
-    
+
     /**
     *impactSectors
     */
@@ -337,7 +337,14 @@ class projectRetriveController extends Controller
             $project = projects::where('_id','=',$pId)->value('impactSector');
             if(!is_null($project)){
                 $impactSect[] = explode(',', $project);
-                dd($impactSect);
+                //dd($impactSect);
+                foreach ($impactSect as $impactSector) {
+                    $resp[] = [
+                    'impactSector' => $impactSector,
+                    ];
+                }
+                $response = $resp;
+                return ResponseBuilder::success($response);
             }
             else{
                 return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
