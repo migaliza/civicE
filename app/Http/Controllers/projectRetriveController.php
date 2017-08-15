@@ -337,7 +337,7 @@ class projectRetriveController extends Controller
             $project = projects::where('_id','=',$pId)->value('impactSector');
             if(!is_null($project)){
                 $impactSect[] = explode(',', $project);
-                //dd($impactSect);
+                dd($impactSect);
                 foreach ($impactSect as $impactSector) {
                     $resp[] = [
                     'impactSector' => $impactSector
