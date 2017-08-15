@@ -118,7 +118,7 @@
                             <a href="{{ route('apiTier') }}"><i class="fa fa-sitemap fa-fw"></i> Project Tier</a>
                         </li> -->
                         <li>
-                            <a href="{{ route('apiGrand') }}"><i class="fa fa-sitemap fa-fw"></i> Grand Info</a>
+                            <a href="{{ route('apiGrand') }}"><i class="fa fa-sitemap fa-fw"></i> Funding Info</a>
                         </li>
                         
                         <li>
