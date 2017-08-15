@@ -340,7 +340,7 @@ class projectRetriveController extends Controller
                 //dd($impactSect);
                 foreach ($impactSect as $impactSector) {
                     $resp[] = [
-                    'impactSector' => $impactSector,
+                    'impactSector' => $impactSector
                     ];
                 }
                 $response = $resp;
