@@ -13,10 +13,6 @@
     <div style="margin-top: 100px;margin-right: 200px" >
       <form class="form-horizontal" method="POST" action="/civicdoc/role/save">
         <fieldset>
-
-          <!-- Form Name -->
-          <legend></legend>
-
           <!-- Text input-->
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Name</label>  
