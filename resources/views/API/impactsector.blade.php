@@ -36,7 +36,8 @@
 
            <samp style="margin-left: 80px">{</samp><br>
            <samp style="margin-left: 120px;color:black">"impactsector": [</samp><br>
-           <samp style="margin-left: 200px;color:black">"street children":</samp> <br>
+           <samp style="margin-left: 200px;color:black">"Counselling":</samp> <br>
+           <samp style="margin-left: 200px;color:black">"Mentorship":</samp> <br>
            <samp style="margin-left: 120px;color:black">]</samp><br>
            <samp style="margin-left: 80px">}</samp><br>
            <samp style="margin-left:40px;color:green">]</samp><br>
