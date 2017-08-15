@@ -60,9 +60,10 @@ class fundingInfoController extends Controller
     */
     public function retrieveFunding(Request $request){
         $pId = $request->input('pId');
-        
+
         if(!empty($pId)){
             $fundingInfo = projects::where('_id','=',$pId)->value('fundingInfo');
+            dd($fundingInfo);
             if(!is_null($fundingInfo)){
                 foreach ($fundingInfo as $funding) {
                     $resp[] = [
