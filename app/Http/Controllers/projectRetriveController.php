@@ -221,12 +221,9 @@ class projectRetriveController extends Controller
     public function projectInformation(Request $request)
     {
         $pId = $request->input('pId');
-        dd("project Id ".$pId);
         if(!empty($pId)){
             $project = projects::where('_id','=',$pId)->get();
-            dd($project);
             if(!is_null($project)){
-                dd($project);
                 foreach ($project as $individualProject){
                     $resp[] = [
                     'projectId' => $individualProject->_id,
