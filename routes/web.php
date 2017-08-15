@@ -112,7 +112,9 @@ Route::name('apiIndividual')->get('/api/project/individual', 'HomeController@ind
 
 
 /** display the API view project population info api docs */
-Route::name('populationTrack')->get('/api/project/track/population', 'HomeController@population');
+Route::name('impactPopulation')->get('/api/project/impactpopulation', 'HomeController@population');
+
+Route::name('impactSector')->get('/api/project/impactsector', 'HomeController@impactSectorView');
 
 
 /** display the API view project volunteers  api docs */

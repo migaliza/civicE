@@ -122,7 +122,10 @@
                         </li>
                         
                         <li>
-                            <a href="{{ route('populationTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Impact Population</a>
+                            <a href="{{ route('impactPopulation') }}"><i class="fa fa-sitemap fa-fw"></i> Impact Population</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('impactSector') }}"><i class="fa fa-sitemap fa-fw"></i> Impact Sector</a>
                         </li>
                         <li>
                             <a href="{{ route('volunteersTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Volunteers </a>

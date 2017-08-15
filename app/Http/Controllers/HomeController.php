@@ -44,6 +44,13 @@ class HomeController extends Controller
     }
 
     /**
+    *impact sector
+    */
+    public function impactSectorView(){
+        return view('API/impactsector');
+    }
+
+    /**
     *volunteer view 
     */
     public function volunteer(){
@@ -57,5 +64,5 @@ class HomeController extends Controller
         return view('API/fundApplication');
     }
 
-    
+
 }
