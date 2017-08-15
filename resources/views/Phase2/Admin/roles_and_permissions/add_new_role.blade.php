@@ -6,16 +6,16 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">Project Lead Dashboard</h1>
+        <h4 class="page-header">New Role</h4>
       </div>
     </div>
 
-    <div style="margin-top: 100px" >
+    <div style="margin-top: 100px;margin-right: 200px" >
       <form class="form-horizontal" method="POST" action="/civicdoc/role/save">
         <fieldset>
 
           <!-- Form Name -->
-          <legend>New Role</legend>
+          <legend></legend>
 
           <!-- Text input-->
           <div class="form-group">
