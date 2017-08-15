@@ -57,6 +57,7 @@ Route::post('/project/impact/new','projectController@addNewImpactSector');
 /** add new impact */
 Route::get('/project/impactsector/retrieve','projectRetriveController@impactSector');
 
+Route::get('/project/impactpopulation/retrieve','projectRetriveController@impactPopulation');
 
 /** add new grant info */
 Route::post('/project/grant/new', 'fundingInfoController@insertFundingInfo');

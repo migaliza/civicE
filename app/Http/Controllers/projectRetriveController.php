@@ -356,5 +356,30 @@ class projectRetriveController extends Controller
     }
 
 
+    /**
+    *impactSectors
+    */
+    public function impactPopulation(Request $request){
+        $pId = $request->input('pId');
+        if(!empty($pId)){
+            $project = projects::where('_id','=',$pId)->value('impactPopulation');
+            if(!is_null($project)){
+                $impactPop[] = explode(',', $project);
+                foreach ($impactPop as $impactPopulation) {
+                    $resp[] = [
+                    'impactPopulation' => $impactPopulation
+                    ];
+                }
+                $response = $resp;
+                return ResponseBuilder::success($response);
+            }
+            else{
+                return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+            }
+        }
+        else{
+            return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+        }
+    }
 
 }
