@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Impact Population</h1>
+        <h1 class="page-header">Impact Sector</h1>
     </div>
 </div>
 <div>
