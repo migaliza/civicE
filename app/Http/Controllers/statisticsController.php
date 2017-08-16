@@ -198,7 +198,16 @@ class statisticsController extends Controller
       $statistics = projects::where('_id','=',$pId)->value('pStatistics');
       if(!is_null($statistics)){
         $population = $statistics->popCumulative;
-        dd($population);
+        if(!is_null($population)){
+          foreach ($population as $targetPopulation) {
+            $resp[] = [
+            'cumulative' => $targetPopulation->popCumulative,
+            'date' => $targetPopulation->updated_at,
+            ];
+          }
+        }
+        $response = $resp;
+        return ResponseBuilder::success($response);
       }
       else{
         return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
