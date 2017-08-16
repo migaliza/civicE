@@ -118,7 +118,7 @@ Route::name('impactSector')->get('/api/project/impactsector', 'HomeController@im
 
 
 /** display the API view project volunteers  api docs */
-Route::name('volunteersTrack')->get('/api/project/track/volunteers', 'HomeController@volunteer');
+Route::name('statisticsTrack')->get('/api/project/statistics/track', 'HomeController@statisticsTrack');
 
 /** display the API view project fund application api doc */
 Route::name('fundApplication')->get('/api/fund/application/', 'HomeController@fundApplication');

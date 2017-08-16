@@ -53,8 +53,8 @@ class HomeController extends Controller
     /**
     *volunteer view 
     */
-    public function volunteer(){
-        return view('API/trackVolunteers');
+    public function statisticsTrack(){
+        return view('API/statistics_track');
     }
 
     /**
