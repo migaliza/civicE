@@ -194,18 +194,33 @@ class statisticsController extends Controller
   */
   public function retrieveTargetPopulation(Request $request){
     $pId = $request->input('pId');
+    $track = $request->input('track');
     if(!empty($pId)){
       $statistics = projects::where('_id','=',$pId)->value('pStatistics');
       if(!is_null($statistics)){
-        $population = $statistics->popCumulative;
-        if(!is_null($population)){
-          foreach ($population as $targetPopulation) {
-            $resp[] = [
-            'cumulative' => $targetPopulation->popCumulative,
-            'date' => $targetPopulation->updated_at,
-            ];
+        if($track == 'population'){
+          $population = $statistics->popCumulative;
+          if(!is_null($population)){
+            foreach ($population as $targetPopulation) {
+              $resp[] = [
+              'cumulative' => $targetPopulation->popCumulative,
+              'date' => $targetPopulation->updated_at->date,
+              ];
+            }
           }
         }
+        elseif($track == 'volunteer'){
+          $volunteer = $statistics->volCumulative;
+          if(!is_null($volunteer)){
+            foreach ($volunteer as $volunteerTrack) {
+              $resp[] = [
+              'cumulative' => $volunteerTrack->popCumulative,
+              'date' => $volunteerTrack->updated_at->date,
+              ];
+            }
+          }
+        }
+        
         $response = $resp;
         return ResponseBuilder::success($response);
       }
@@ -217,5 +232,7 @@ class statisticsController extends Controller
       return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
     }
   }
+
+
 
 }
