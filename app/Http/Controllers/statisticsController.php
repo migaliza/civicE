@@ -204,7 +204,7 @@ class statisticsController extends Controller
             foreach ($population as $targetPopulation) {
               $resp[] = [
               'cumulative' => $targetPopulation->popCumulative,
-              'date' => $targetPopulation->updated_at->date,
+              'date' => $targetPopulation->updated_at,
               ];
             }
           }
@@ -215,7 +215,7 @@ class statisticsController extends Controller
             foreach ($volunteer as $volunteerTrack) {
               $resp[] = [
               'cumulative' => $volunteerTrack->popCumulative,
-              'date' => $volunteerTrack->updated_at->date,
+              'date' => $volunteerTrack->updated_at,
               ];
             }
           }
