@@ -22,7 +22,7 @@
     <div></div>
     <h5>Parameters: </h5>
     <ul>
-        <li>pId i.e <b><i>79827kjdhj</i></i></li>
+        <li>pId i.e <i>79827kjdhj</i></i></li>
         <li>track i.e <b>population</b> <i style="color:green">to display the target population cumulative values</i>or <b>volunteer </b></i><i style="color: blue">to display the volunteer track over time</i></li>
     </ul>
 
