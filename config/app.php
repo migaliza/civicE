@@ -169,6 +169,7 @@ return [
         MarcinOrlowski\ResponseBuilder\ResponseBuilderServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Jenssegers\Mongodb\MongodbQueueServiceProvider::class,
+        Jenssegers\Mongodb\Session\SessionServiceProvider::class,
        //EllipseSynergie\ApiResponse\Laravel\ResponseServiceProvider::class,
         
        // Collective\Html\HtmlServiceProvider::class,

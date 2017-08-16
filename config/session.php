@@ -16,7 +16,8 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'file'),
+   // 'driver' => env('SESSION_DRIVER', 'file'),
+    'driver' => 'mongodb',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,4 +177,4 @@ return [
 
     'http_only' => true,
 
-];
+    ];

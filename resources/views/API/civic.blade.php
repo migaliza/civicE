@@ -128,7 +128,7 @@
                             <a href="{{ route('impactSector') }}"><i class="fa fa-sitemap fa-fw"></i> Impact Sector</a>
                         </li>
                         <li>
-                            <a href="{{ route('volunteersTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Volunteers </a>
+                            <a href="{{ route('volunteersTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Statistics </a>
                         </li>
                         <li>
                             <a href="{{ route('milestoneRetrieve') }}"><i class="fa fa-sitemap fa-fw"></i>Milestones </a>

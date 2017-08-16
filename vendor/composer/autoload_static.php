@@ -357,6 +357,7 @@ class ComposerStaticInit4cc6ee4ed57797e4685e3ad656f654a3
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\EntrustController' => __DIR__ . '/../..' . '/app/Http/Controllers/EntrustController.php',
         'App\\Http\\Controllers\\Expenditure' => __DIR__ . '/../..' . '/app/Http/Controllers/Expenditure.php',
         'App\\Http\\Controllers\\ExpenditureFiles' => __DIR__ . '/../..' . '/app/Http/Controllers/ExpenditureFilesController.php',
         'App\\Http\\Controllers\\FundingApplicationController' => __DIR__ . '/../..' . '/app/Http/Controllers/FundingApplicationController.php',

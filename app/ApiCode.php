@@ -11,5 +11,7 @@ class ApiCode {
 	const WRONG_PROJECT_LEAD_ID = 235;
 	const WRONG_GRAND_ID_USED = 236;
 	const GRAND_ID_NOT_ENTERED = 237;
+	const OBJECT_NOT_FOUND = 238;
+
 	
 }

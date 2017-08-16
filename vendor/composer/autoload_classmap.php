@@ -22,6 +22,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\EntrustController' => $baseDir . '/app/Http/Controllers/EntrustController.php',
     'App\\Http\\Controllers\\Expenditure' => $baseDir . '/app/Http/Controllers/Expenditure.php',
     'App\\Http\\Controllers\\ExpenditureFiles' => $baseDir . '/app/Http/Controllers/ExpenditureFilesController.php',
     'App\\Http\\Controllers\\FundingApplicationController' => $baseDir . '/app/Http/Controllers/FundingApplicationController.php',
