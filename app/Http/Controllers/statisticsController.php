@@ -214,7 +214,7 @@ class statisticsController extends Controller
           if(!is_null($volunteer)){
             foreach ($volunteer as $volunteerTrack) {
               $resp[] = [
-              'cumulative' => $volunteerTrack->popCumulative,
+              'cumulative' => $volunteerTrack->volCumulative,
               'date' => $volunteerTrack->updated_at,
               ];
             }
