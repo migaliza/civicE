@@ -188,4 +188,25 @@ class statisticsController extends Controller
       }
     }
   }
+
+  /**
+  *retrieve target population values
+  */
+  public function retrieveTargetPopulation(Request $request){
+    $pId = $request->input('pId');
+    if(!empty($pId)){
+      $statistics = projects::where('_id','=',$pId)->value('pStatistics');
+      if(!is_null($statistics)){
+        $population = $statistics->popCumulative;
+        dd($population);
+      }
+      else{
+        return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+      }
+    }
+    else{
+      return ResponseBuilder::error(ApiCode::OBJECT_NOT_CREATED);
+    }
+  }
+
 }

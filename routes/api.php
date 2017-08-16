@@ -59,6 +59,8 @@ Route::get('/project/impactsector/retrieve','projectRetriveController@impactSect
 
 Route::get('/project/impactpopulation/retrieve','projectRetriveController@impactPopulation');
 
+Route::get('/project/impactpopulation/cumulative','statisticsController@retrieveTargetPopulation');
+
 /** add new grant info */
 Route::post('/project/grant/new', 'fundingInfoController@insertFundingInfo');
 

@@ -63,7 +63,6 @@ class fundingInfoController extends Controller
 
         if(!empty($pId)){
             $fundingInfo = projects::where('_id','=',$pId)->value('fundingInfo');
-            //dd($fundingInfo);
             if(!is_null($fundingInfo)){
                 foreach ($fundingInfo as $funding) {
                     $resp[] = [
