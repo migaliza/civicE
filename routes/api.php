@@ -145,7 +145,7 @@ Route::post('/project/partnership/new','PartnershipsController@addNewPartnership
 
 /** add new upcoming */
 Route::post('/project/upcoming/new','UpcomingController@addNewUpcoming');
-Route::post('/project/upcoming/retrieve','UpcomingController@retrieveUpcoming');
+Route::get('/project/upcoming/retrieve','UpcomingController@retrieveUpcoming');
 
 
 /** add new upcoming comment */
