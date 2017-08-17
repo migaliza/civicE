@@ -127,7 +127,7 @@
                             <a href="{{ route('statisticsTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Statistics </a>
                         </li>
                         <li>
-                         <a href="{{ route('milestoneretrieve') }}"><i class="fa fa-sitemap fa-fw"></i>Milestones </a>
+                        <a href="{{ route('milestoneRetrieve') }}"><i class="fa fa-sitemap fa-fw"></i>Milestones </a>
                      </li>
 
                      <li>
