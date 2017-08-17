@@ -50,18 +50,17 @@ return [
 	*/
 	'map' => [
 		//ApiCode::SOMETHING_WENT_WRONG =>'api.something_went_wrong',
-		ApiCode::WRONG_PROJECT_ID =>'Project ID not provided',
-		ApiCode::FIELDS_NOT_ENTERED_STATISTICS=> 'Check that you entered a valid number',
-		ApiCode::OBJECT_NOT_CREATED => 'Object does not exist. Check that you provided the right ID!!',
-		ApiCode::All_FIELDS_NOT_ENTERED => 'Enter all the required fields',
-		APICode::NO_FUNDING_id => 'Funding ID not provided',
-		ApiCode::NO_EXPENDITURE_ID => 'Expenditure ID not provided',
-		ApiCode::WRONG_PROJECT_LEAD_ID => 'Project Lead not entered',
-		ApiCode::WRONG_GRAND_ID_USED => 'Id does not exist. Ensure that you entered correctly',
-		ApiCode::GRAND_ID_NOT_ENTERED => 'Grand Id not entered',
-		ApiCode::OBJECT_NOT_FOUND => 'Object not found',
-		ApiCode::MILESTONE_ID_NOT_PROVIDED = 'Milestone Id not provided',
-		
+	ApiCode::WRONG_PROJECT_ID =>'Project ID not provided',
+	ApiCode::FIELDS_NOT_ENTERED_STATISTICS=> 'Check that you entered a valid number',
+	ApiCode::OBJECT_NOT_CREATED => 'Object does not exist. Check that you provided the right ID!!',
+	ApiCode::All_FIELDS_NOT_ENTERED => 'Enter all the required fields',
+	APICode::NO_FUNDING_id => 'Funding ID not provided',
+	ApiCode::NO_EXPENDITURE_ID => 'Expenditure ID not provided',
+	ApiCode::WRONG_PROJECT_LEAD_ID => 'Project Lead not entered',
+	ApiCode::WRONG_GRAND_ID_USED => 'Id does not exist. Ensure that you entered correctly',
+	ApiCode::GRAND_ID_NOT_ENTERED => 'Grand Id not entered',
+	ApiCode::OBJECT_NOT_FOUND => 'Object not found',
+	ApiCode::MILESTONE_ID_NOT_PROVIDED => 'Milestone Id not provided',
 
 	],
 
@@ -87,15 +86,15 @@ return [
 
 	'classes' => [
 
-		Jenssegers\Mongodb\Eloquent\Model::class => [
-			'key'    => 'item',
-			'method' => 'toArray',
-		],
+	Jenssegers\Mongodb\Eloquent\Model::class => [
+	'key'    => 'item',
+	'method' => 'toArray',
+	],
 
-		Jenssegers\Mongodb\Eloquent\Collection::class => [
-			'key'    => 'items',
-			'method' => 'toArray',
-		],
+	Jenssegers\Mongodb\Eloquent\Collection::class => [
+	'key'    => 'items',
+	'method' => 'toArray',
+	],
 
 	],
 
@@ -143,10 +142,10 @@ return [
 	|
 	*/
 	'response_key_map' => [
-		ResponseBuilder::KEY_SUCCESS => 'success',
-		ResponseBuilder::KEY_CODE    => 'code',
-		ResponseBuilder::KEY_MESSAGE => 'message',
-		ResponseBuilder::KEY_DATA    => 'data',
+	ResponseBuilder::KEY_SUCCESS => 'success',
+	ResponseBuilder::KEY_CODE    => 'code',
+	ResponseBuilder::KEY_MESSAGE => 'message',
+	ResponseBuilder::KEY_DATA    => 'data',
 	],
 
 	/*
@@ -170,12 +169,12 @@ return [
 		// and the ":message" placeholder will be substituted with exception class name. When option
 		// is set to @false, then mapped messages will always be used with `:message` placeholder
 		// being substituted with exception message (can if it is empty string).
-		'use_exception_message_first' => env('EX_USE_EXCEPTION_MESSAGE', true),
+	'use_exception_message_first' => env('EX_USE_EXCEPTION_MESSAGE', true),
 
 
 		// Map exception to your own error codes. That way, when cascading
 		// you will still know which module thrown this exception
-		'exception' => [
+	'exception' => [
 
 //			'http_not_found' => [
 //				'code'      => \App\ApiCodes::HTTP_NOT_FOUND,
@@ -202,7 +201,7 @@ return [
 //				'http_code' => Symfony\Component\HttpFoundation\Response\::HTTP_UNPROCESSABLE_ENTITY,
 //			],
 
-		],
+	],
 
 	],
 
@@ -217,7 +216,7 @@ return [
 	'debug' => [
 //		'debug_key' => 'debug',
 
-		'exception_handler' => [
+	'exception_handler' => [
 			/**
 			 * Name of the JSON key trace data should be put under in `debug` node.
 			 */
@@ -229,7 +228,7 @@ return [
 			 * with information about class name, file name and line number.
 			 */
 			'trace_enabled' => env('APP_DEBUG', false),
-		],
-	],
+			],
+			],
 
-];
+			];
