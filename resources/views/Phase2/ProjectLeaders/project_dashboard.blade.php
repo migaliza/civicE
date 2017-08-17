@@ -118,9 +118,9 @@
                     </li>
                     @if(Entrust::hasRole('owner'))
                     <li>
-                     <a href="{{ url('/milestone/newMilestone/'. $projectId)}}">Milestone</a>
-                 </li>
-                 <li>
+                       <a href="{{ url('/milestone/newMilestone/'. $projectId)}}">Milestone</a>
+                   </li>
+                   <li>
                     <a href="{{ url('/upcoming/new/'. $projectId) }}">Upcoming</a>
                 </li>
                 <li>

@@ -25,6 +25,7 @@ Route::get('/manageusers/viewuser/{userId}','Phase2Controller@viewUser');
 Route::get('/manageusers/edit/{userId}','Phase2Controller@editUser');
 /** new upcoming view*/
 Route::get('/upcoming/new/{projectId}','UpcomingController@newUpcoming');
+Route::name('upcoming')->get('/project/upcoming','HomeController@displayUpcomingApi');
 
 //manage fund applications
 Route::name('manageFundApplications')->get('/managefundapplications/','Phase2Controller@manageFunds');
@@ -33,6 +34,7 @@ Route::get('/milestone/newMilestone/{projectId}', 'MilestonesController@newMiles
 
 
 Route::name('milestoneRetrieve')->get('/project/milestone/', 'MilestonesController@displayMilestoneApi'); 
+Route::name('milestoneComment')->get('/project/milestone/', 'HomeController@milestoneComment'); 
 /** new grant view */
 Route::get('/grant/newGrant/{projectId}','fundingInfoController@newGrant');
 

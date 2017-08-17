@@ -114,13 +114,9 @@
                         <li>
                             <a href="{{ route('apiDescription') }}"><i class="fa fa-sitemap fa-fw"></i> Project Descriptions</a>
                         </li>
-                        <!-- <li>
-                            <a href="{{ route('apiTier') }}"><i class="fa fa-sitemap fa-fw"></i> Project Tier</a>
-                        </li> -->
                         <li>
                             <a href="{{ route('apiGrand') }}"><i class="fa fa-sitemap fa-fw"></i> Funding Info</a>
                         </li>
-                        
                         <li>
                             <a href="{{ route('impactPopulation') }}"><i class="fa fa-sitemap fa-fw"></i> Impact Population</a>
                         </li>
@@ -128,12 +124,25 @@
                             <a href="{{ route('impactSector') }}"><i class="fa fa-sitemap fa-fw"></i> Impact Sector</a>
                         </li>
                         <li>
-                        <a href="{{ route('statisticsTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Statistics </a>
+                            <a href="{{ route('statisticsTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Statistics </a>
                         </li>
                         <li>
                             <a href="{{ route('milestoneRetrieve') }}"><i class="fa fa-sitemap fa-fw"></i>Milestones </a>
                         </li>
-                        
+                        <li>
+                            <a href=""><i class='fa fa-sitemap fa-fw'></i>Project Inputs</a><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="">Milestone Comment</a>
+                                </li>
+                                <li>
+                                    <a href=""> Upcoming Comment</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/volunteer/population/track/'.$projectId) }}"></a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <li>
                             <a href="{{ route('fundApplication') }}"><i class='fa fa-sitemap fa-fw'></i>Fund Application</a>

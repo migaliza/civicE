@@ -64,5 +64,17 @@ class HomeController extends Controller
         return view('API/fundApplication');
     }
 
+    public function milestoneComment(){
+        return view('API/milestoneComment');
+    }
+
+    public function upcomingComment(){
+        return view('API/upcomingComment');
+    }
+
+    public function displayUpcomingApi(){
+        return view('API/upcoming');
+    }
+
 
 }

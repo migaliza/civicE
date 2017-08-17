@@ -85,6 +85,12 @@ class MilestonesController extends Controller
                 $response = $resp;
                 return ResponseBuilder::success($response);
             }
+            else{
+                return ResponseBuilder::error(ApiCode::OBJECT_NOT_FOUND);
+            }
+        }
+        else{
+            return ResponseBuilder::error(ApiCode::);
         }
     }
 
@@ -98,7 +104,6 @@ class MilestonesController extends Controller
             $milestone = Milestones::where('_id','=',$mId)->first();
             if(!is_null($milestone)){
                 $comment = new milestones_comments;
-
                 if(!empty($request->input('uId')) && !empty($request->input('comment'))){
                     $comment->userId = $request->input('uId');
                     $comment->mComment = $request->input('comment');
