@@ -90,7 +90,7 @@ class MilestonesController extends Controller
             }
         }
         else{
-            return ResponseBuilder::error(ApiCode::);
+            return ResponseBuilder::error(ApiCode::MILESTONE_ID_NOT_PROVIDED);
         }
     }
 

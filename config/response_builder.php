@@ -60,6 +60,7 @@ return [
 		ApiCode::WRONG_GRAND_ID_USED => 'Id does not exist. Ensure that you entered correctly',
 		ApiCode::GRAND_ID_NOT_ENTERED => 'Grand Id not entered',
 		ApiCode::OBJECT_NOT_FOUND => 'Object not found',
+		ApiCode::MILESTONE_ID_NOT_PROVIDED = 'Milestone Id not provided',
 		
 
 	],
