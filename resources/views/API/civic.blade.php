@@ -126,7 +126,7 @@
                         <li>
                             <a href="{{ route('statisticsTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Statistics </a>
                         </li>
-                        
+
                         <li>
                             <a href="{{ route('upcoming') }}"><i class="fa fa-sitemap fa-fw"></i>Upcoming </a>
                         </li>
@@ -138,9 +138,6 @@
                                 </li>
                                 <li>
                                     <a href=""> Upcoming Comment</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/volunteer/population/track/'.$projectId) }}"></a>
                                 </li>
                             </ul>
                         </li>
