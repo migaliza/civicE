@@ -12,6 +12,7 @@ class ApiCode {
 	const WRONG_GRAND_ID_USED = 236;
 	const GRAND_ID_NOT_ENTERED = 237;
 	const OBJECT_NOT_FOUND = 238;
+	const MILESTONE_ID_NOT_PROVIDED = 239;
 
 	
 }
