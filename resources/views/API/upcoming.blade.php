@@ -18,7 +18,7 @@
     <h4>Method:  <b>Get</b></h4>
     <div></div>
 
-    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/milestone/retrieve?pId=" target="_blank">http://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/milestone/retrieve?pId=projectId</a> </h5>
+    <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/upcoming/retrieve?pId=" target="_blank">https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/upcoming/retrieve?pId=projectId</a> </h5>
 
     <div></div>
     <h5>Parameters</h5>
@@ -35,8 +35,7 @@
         <samp style="margin-left:40px;color:green">"message":</samp> "OK",<br>
         <samp style="margin-left:40px;color:green">"data":</samp> [<br>
         <samp style="margin-left: 80px">{</samp><br>
-        <samp style="margin-left: 120px;color:black">"milestoneId":</samp> "598cc226aadc6b00712ce902",<br>
-        <samp style="margin-left: 120px;color:black">"milestone":</samp> "Project Tontro has successfully developed a structure around its previous informal activities at the Cosmos Basic School",<br>
+        <samp style="margin-left: 120px;color:black">"upcoming":</samp> "Drama Production in partnership with Helen O'Grady Drama Academy",<br>
         <samp style="margin-left: 80px">}</samp><br>
         <samp style="margin-left: 40px">]</samp><br>
     }<br>
