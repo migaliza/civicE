@@ -26,6 +26,7 @@ Route::get('/manageusers/edit/{userId}','Phase2Controller@editUser');
 /** new upcoming view*/
 Route::get('/upcoming/new/{projectId}','UpcomingController@newUpcoming');
 Route::name('upcoming')->get('/project/upcoming','HomeController@displayUpcomingApi');
+Route::name('upcomingComment')->get('/project/upcoming/comment','HomeController@upcomingComment');
 
 //manage fund applications
 Route::name('manageFundApplications')->get('/managefundapplications/','Phase2Controller@manageFunds');

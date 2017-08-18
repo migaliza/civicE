@@ -76,7 +76,9 @@ class HomeController extends Controller
         return view('API/upcoming');
     }
 
-    
+  
+
+
 
 
 }
