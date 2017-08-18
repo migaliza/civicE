@@ -37,7 +37,7 @@
 					</div>
 				</div>
 
-				<!-- Date picker-->
+				<!-- open Date picker-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="open_date">Open Date</label>  
 					<div class="col-md-4">
@@ -45,6 +45,16 @@
 
 					</div>
 				</div>
+				<!-- close Date picker-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="close_date">Close Date</label>  
+					<div class="col-md-4">
+						<input id="close_date" name="close_date" type="date" placeholder="" class="form-control input-md">
+
+					</div>
+				</div>
+
+
 
 			</fieldset>
 		</form>    
