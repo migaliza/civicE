@@ -45,6 +45,17 @@
     <!-- Custom Fonts -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/beta_css/font-awesome.min.css') }}">
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+            ]) !!};
+        $(document).ready(function(){
+            $('#datetimepicker1').datetimepicker()
+        });
+    </script>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
