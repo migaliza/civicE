@@ -39,11 +39,11 @@
 
 				<!-- Date picker-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="window">Select date</label>  	
-					<div class='col-md-4'>
-						<input type='text' type="date" placeholder="" class="form-control input-md" />
+					<label class="col-md-4 control-label" for="open_date">Open Date</label>  
+					<div class="col-md-4">
+						<input id="open_date" name="open_date" type="date" placeholder="" class="form-control input-md">
+
 					</div>
-					
 				</div>
 
 			</fieldset>
