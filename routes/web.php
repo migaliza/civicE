@@ -33,7 +33,7 @@ Route::name('manageFundApplications')->get('/managefundapplications/','Phase2Con
 /**milestone view */
 Route::get('/milestone/newMilestone/{projectId}', 'MilestonesController@newMilestone');  
 
-Route::name('milestoneComment')->get('/project/milestone/', 'HomeController@milestoneComment'); 
+Route::get('/project/milestone/comment', 'HomeController@milestoneComment'); 
 /** new grant view */
 Route::get('/grant/newGrant/{projectId}','fundingInfoController@newGrant');
 Route::get('/verifyemail/{token}','Auth\RegisterController@verify')->where('token','(.*)');
