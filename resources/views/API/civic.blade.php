@@ -133,7 +133,7 @@
                             <a href="{{ route('upcoming') }}"><i class="fa fa-sitemap fa-fw"></i>Upcoming </a>
                         </li>
                         <li>
-                            <a href=""><i class='fa fa-sitemap fa-fw'></i>Project Inputs</a><span class="fa arrow"></span></a>
+                            <a href=""><i class='fa fa-sitemap fa-fw'></i>Project Inputs <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{ url('project/milestone/comment') }}">Milestone Comment</a>
