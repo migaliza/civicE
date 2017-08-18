@@ -41,7 +41,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="window">Select date</label>  	
 					<div class='col-md-4'>
-						<input type='text' class="form-control" type="date" />
+						<input type='text' type="date" placeholder="" class="form-control input-md" />
 					</div>
 					
 				</div>
