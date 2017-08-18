@@ -16,7 +16,7 @@
 
   <h4>Method:  <b>post</b></h4>
   <div></div>
-  <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/upcoming/comment/new?pId=" target="_blank">https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/upcoming/comment/new?pId=---&upId=---&userId---&comment=--</b></a></h5>
+  <h5>Url: <a href="https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/upcoming/comment/new?pId=&upId=&userId&comment=" target="_blank">https://ashesicivicengagement-dev.herokuapp.com/civicdoc/project/upcoming/comment/new?pId=---&upId=---&userId---&comment=--</b></a></h5>
 
   <div></div>
   <h5>Parameters: </h5>
