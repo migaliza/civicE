@@ -32,19 +32,10 @@ Route::name('manageFundApplications')->get('/managefundapplications/','Phase2Con
 /**milestone view */
 Route::get('/milestone/newMilestone/{projectId}', 'MilestonesController@newMilestone');  
 
-Route::name('milestoneRetrieve')->get('/project/milestone/', 'MilestonesController@displayMilestoneApi'); 
 Route::name('milestoneComment')->get('/project/milestone/', 'HomeController@milestoneComment'); 
 /** new grant view */
 Route::get('/grant/newGrant/{projectId}','fundingInfoController@newGrant');
-
-
-
-
-
 Route::get('/verifyemail/{token}','Auth\RegisterController@verify')->where('token','(.*)');
-
-
-
 Route::get('/Test/PHP','projectRetriveController@test');
 
 //Route::get('/home', 'HomeController@index');
@@ -96,7 +87,7 @@ Route::name('fRational')->get('/funding/rational/{projectName}','projectControll
 
 /** display the API view project adpi docs */
 Route::name('apiProject')->get('/api/project', 'HomeController@project');
-
+Route::get('/project/milestone/', 'MilestonesController@displayMilestoneApi'); 
 /** display the API view tier api docs */
 Route::name('apiTier')->get('/api/project/tier', 'HomeController@tier');
 

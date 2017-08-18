@@ -127,60 +127,59 @@
                             <a href="{{ route('statisticsTrack') }}"><i class="fa fa-sitemap fa-fw"></i> Statistics </a>
                         </li>
                         <li>
-                        <a href="{{ route('milestoneRetrieve') }}"><i class="fa fa-sitemap fa-fw"></i>Milestones </a>
-                     </li>
+                            <a href="{{ url('/project/milestone/') }}"><i class="fa fa-sitemap fa-fw"></i>Milestones </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('upcoming') }}"><i class="fa fa-sitemap fa-fw"></i>Upcoming </a>
+                        </li>
+                        <li>
+                            <a href=""><i class='fa fa-sitemap fa-fw'></i>Project Inputs</a><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="">Milestone Comment</a>
+                                </li>
+                                <li>
+                                    <a href=""> Upcoming Comment</a>
+                                </li>
+                            </ul>
+                        </li>
 
-                     <li>
-                        <a href="{{ route('upcoming') }}"><i class="fa fa-sitemap fa-fw"></i>Upcoming </a>
-                    </li>
-                    <li>
-                        <a href=""><i class='fa fa-sitemap fa-fw'></i>Project Inputs</a><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="">Milestone Comment</a>
-                            </li>
-                            <li>
-                                <a href=""> Upcoming Comment</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('fundApplication') }}"><i class='fa fa-sitemap fa-fw'></i>Fund Application</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('grandApllication') }}"><i class='fa fa-sitemap fa-fw'></i>Apply for funds</a>
-                    </li>     
-                </ul>
+                        <li>
+                            <a href="{{ route('fundApplication') }}"><i class='fa fa-sitemap fa-fw'></i>Fund Application</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('grandApllication') }}"><i class='fa fa-sitemap fa-fw'></i>Apply for funds</a>
+                        </li>     
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div id="container">
-                @yield('content')
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div id="container">
+                    @yield('content')
+                </div>
             </div>
-        </div>
-    </div>  
+        </div>  
 
-</div>
-<script src="{{ asset('js/app.js') }}"></script>
+    </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 
-<!-- jQuery -->
-<script src="{{ asset('js/beta_js/jquery.min.js') }}"></script>
+    <!-- jQuery -->
+    <script src="{{ asset('js/beta_js/jquery.min.js') }}"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="{{ asset('js/beta_js/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/beta_js/bootstrap.min.js') }}"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="{{ asset('js/beta_js/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/beta_js/bootstrap.min.js') }}"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="{{ asset('js/beta_js/metisMenu.min.js') }}"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{ asset('js/beta_js/metisMenu.min.js') }}"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="{{ asset('js/beta_js/startmin.js') }}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ asset('js/beta_js/startmin.js') }}"></script>
 
 </body>
 </html>
