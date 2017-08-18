@@ -37,10 +37,27 @@
 					</div>
 				</div>
 
+				<!-- Date picker-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="window">Select date</label>  	
+					<div class='col-md-4 input-group date ' id='datetimepicker2'>
+						<input type='text' class="form-control" />
+						<span class="input-group-addon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</span>
+					</div>
+					<script type="text/javascript">
+						$(function () {
+							$('#datetimepicker1').datetimepicker();
+						});
+					</script>
+				</div>
+
 			</fieldset>
 		</form>    
 	</div>
 </div>
 </div>
+
 
 @endsection
