@@ -113,4 +113,11 @@ class Phase2Controller extends Controller
     public function manageFunds(){
         return view('Phase2/Admin/FundApplications/index');
     }
+
+    /**
+    *view the view open and close fund application window
+    */
+    public function openCloseFundapplication(){
+        return view('Phase2/Admin/FundApplications/open_close_fund_application')
+    }
 }

@@ -30,6 +30,7 @@ Route::name('upcomingComment')->get('/project/upcoming/comment','HomeController@
 
 //manage fund applications
 Route::name('manageFundApplications')->get('/managefundapplications/','Phase2Controller@manageFunds');
+Route::name('openCloseFundApplication')->get('/fundapplication/open/','Phase2Controller@openCloseFundapplication');
 /**milestone view */
 Route::get('/milestone/newMilestone/{projectId}', 'MilestonesController@newMilestone');  
 

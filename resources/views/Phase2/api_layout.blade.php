@@ -129,7 +129,7 @@
                     <li><a href="#"><i class="fa fa-sitemap fa-fw"></i> Fund Applications<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#"><i class='fa fa-pencil-square fa-fw'></i> Open and close application window</a>
+                                <a href="{{ route('openCloseFundApplication')}}"><i class='fa fa-pencil-square fa-fw'></i> Open and close application window</a>
                             </li>
                             <li>
                                 <a href="{{ route('manageFundApplications') }}"><i class='fa fa-eye fa-fw'></i> View Application</a>
