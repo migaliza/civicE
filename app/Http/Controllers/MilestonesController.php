@@ -75,8 +75,8 @@ class MilestonesController extends Controller
         $pId = $request->input('pId');
         if(!empty($pId)){
             $milestones = Milestones::where('pId','=',$pId)->get();
-            dd($milestones);
-            if(!is_null($milestones)){
+            $size = sizeof($milestones);
+            if($size != 0){
                 foreach ($milestones as $milestone) {
                     $resp[] = [ 
                     'milestoneId' => $milestone->_id,

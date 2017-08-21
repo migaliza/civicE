@@ -49,7 +49,7 @@
           </div>
         </div>
 
-        <!-- Select Basic -->
+        <!-- Select project to assign to user -->
         <div class="form-group">
           <label class="col-md-4 control-label" for="role">Assign Role</label>
           <div class="col-md-4">

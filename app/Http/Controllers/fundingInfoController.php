@@ -65,7 +65,7 @@ class fundingInfoController extends Controller
             $fundingInfo = projects::where('_id','=',$pId)->value('fundingInfo');
             $size = sizeof($fundingInfo);
             if($size != 0){
-                //dd($fundingInfo);
+
                 foreach ($fundingInfo as $funding) {
                     $resp[] = [
                     'fPartner' => $funding->fPartner,
