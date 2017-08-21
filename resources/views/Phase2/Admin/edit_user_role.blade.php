@@ -61,6 +61,18 @@
           </div>
         </div>
 
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="role">Assign Role</label>
+          <div class="col-md-4">
+            <select id="role" name="role" class="form-control">
+              <option value="admin">Admin</option>
+              <option value="owner">Project Lead</option>
+              <option value="volunteer">Volunteer</option>
+            </select>
+          </div>
+        </div>
+
         <!-- Button -->
         <div class="form-group">
           <label class="col-md-4 control-label" for="submit"></label>
