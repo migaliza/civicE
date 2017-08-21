@@ -63,9 +63,9 @@ class fundingInfoController extends Controller
 
         if(!empty($pId)){
             $fundingInfo = projects::where('_id','=',$pId)->value('fundingInfo');
-            dd(sizeof($fundingInfo));
-            if(!is_null($fundingInfo)){
-                dd($fundingInfo);
+            $size = sizeof($fundingInfo);
+            if($size != 0){
+                //dd($fundingInfo);
                 foreach ($fundingInfo as $funding) {
                     $resp[] = [
                     'fPartner' => $funding->fPartner,
@@ -74,7 +74,7 @@ class fundingInfoController extends Controller
                     'fDescription' => $funding->fDescription,
                     ];
                 }
-                dd($resp);
+               // dd($resp);
                 $response = $resp;
                 return ResponseBuilder::success($response);   
             }
@@ -224,8 +224,8 @@ class fundingInfoController extends Controller
             if(!is_null($project)){
 
                 if(!empty($fId)){
-                 $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
-                 if(!is_null($fundingInfo)){
+                   $fundingInfo = $project->fundingInfo->where('id','=',$fId)->first();
+                   if(!is_null($fundingInfo)){
                     if(!empty($eId)){
                         $expenditure = $fundingInfo->expenditure->where('id','=', $eId)->first();
                             //dd($expenditure);
