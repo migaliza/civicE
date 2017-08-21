@@ -32,8 +32,7 @@
 
         </div>
       </div>
-      <!--  <input id="uId" name="uId" type="text" value="{!! $uId !!}" class="hidden" disabled="true"> -->
-
+      
       <!-- Text input-->
       
       <div class="form-group">
@@ -70,8 +69,6 @@
 
         </div>
       </div>
-
-      
 
     </fieldset>
   </form>
