@@ -32,7 +32,7 @@
 
         </div>
       </div>
-      
+
       <!-- Text input-->
       
       <div class="form-group">
@@ -65,7 +65,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="role"><b>Role</b></label>  
         <div class="col-md-4">
-          <input id="role" name="role" type="text" value="{!! $roleName !!}" class="form-control input-md" disabled="true">
+          <input id="role" name="role" type="text" value="{!! $role !!}" class="form-control input-md" disabled="true">
 
         </div>
       </div>

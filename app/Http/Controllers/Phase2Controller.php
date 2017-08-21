@@ -60,7 +60,7 @@ class Phase2Controller extends Controller
                 'email' => $user->email,
                 'citizenship' => $user->citizenship,
                 'region' =>$user->region,
-                'roleName' =>$roleName,
+                'role' =>$roleName,
                 ]);
         }
         else{
