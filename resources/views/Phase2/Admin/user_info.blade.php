@@ -32,7 +32,7 @@
 
         </div>
       </div>
-      <input id="uId" name="uId" type="text" value="{!! $uId !!}" class="hidden" disabled="true">
+      <!--  <input id="uId" name="uId" type="text" value="{!! $uId !!}" class="hidden" disabled="true"> -->
 
       <!-- Text input-->
       
@@ -71,7 +71,7 @@
         </div>
       </div>
 
-     
+      
 
     </fieldset>
   </form>
